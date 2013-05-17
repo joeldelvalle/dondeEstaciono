@@ -1,0 +1,19 @@
+Presentes:  Bocha-Ger-Nico-Joe
+Lugar: Starbucks Microcentro frente a interbanking(florida 32)
+Hora: 14.30 aprox
+
+* Le comentamos a Bocha de donde surgieron las dos ideas que tuvimos, donde me estaciono y la de las entradas a los cines
+
+* Bocha nos plantea que la app de los cines es muy costosa ya que dependemos de la negociacion con los cines, asi que acordamos descartarla 
+y enfocarnos en: donde me estaciono
+
+* Bocha nos propone darle para adelante con el proyecto de "donde me estaciono" pero nos da la tarea de encontrar de que manera podemos darle valor agregado 
+al producto para poder venderlo. Tambien debemos identificar de que manera podriamos ganar dineron con la app
+
+* Bocha nos propone 2 tecnologias, para la parte web: twitter bootstrap (http://twitter.github.com/bootstrap/), y para la parte mobile: Phonegap (http://phonegap.com/)
+
+* El miercoles al mediodia nos invitaron a una call por google hangout para participar de una charla sobre twitter bootstrap
+
+* Bocha nos dijo que una vez cerrado el tema y enviado la propuesta de proyecto en formato Latex deberiamos presentarlo en las reuniones de los miercoles
+
+* Bocha se comprometio a tratar de negociar 1 o 2 dias al mes para que podamos ir a las oficinas de tecso a trabajar 100% dedicados a este proyecto

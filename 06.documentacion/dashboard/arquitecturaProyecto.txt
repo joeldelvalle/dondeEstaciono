@@ -1,0 +1,19 @@
+
+AVERIGUAR QUE ES LO MEJOR PARA CONECTAR EL SERVER CON LA WEB: 
+
+	usando sockets?  
+	activemq (que usa sockets)?
+	usando comet?
+	usando atmosphere
+
+	http://en.wikipedia.org/wiki/Comet_(programming)
+	http://activemq.apache.org/websockets.html
+
+	
+	
+	
+	
+	EL SISTEMA DE CONTROL DE TIEMPO INTEGRADO EN EL PERFIL DEL ESTACIONAMIENTO
+	LO VAMOS A HACER CON UNA BASE PROPIA DE PYTHON O USAMOS EL SERVER DE INTERMEDIARIO
+	
+	 

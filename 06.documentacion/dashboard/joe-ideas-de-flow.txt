@@ -1,0 +1,86 @@
+
+	web publica
+	-----------
+		
+		* servicios rest en el server:
+		
+			+ servicio que devuelva una lista de todos los estacionamientos habilitados
+
+			+ servicio que valida el login de un operador de estacionamientos
+		
+		
+	
+	web - perfil operador de un estacionamiento
+	-------------------------------------------
+		
+		* servicios rest en el server:
+		
+			+ servicio que devuelve la informacion del estacionamiento logueado
+			
+			+ servicio que permite actualizar la informacion del estacionamiento
+			
+			+ servicio que permite actualizar informacion del operador logueado
+		
+			+ servicio que informa al server cuando una posicion del estacionamiento es ocupada
+		
+			+ servicio que informa una lista de estadisticas de uso
+
+			+ servicio que informa al server la aceptacion/rechazo de una reserva hecha por un usuario
+			
+			+ servicio que permite eliminar una reserva por incumplimiento por parte del usuario
+	
+			+ servicio que permite registrar un automovil para controlar el tiempo de estacionamiento
+			
+			+ servicio que permite informar el stop en el contador de tiempo de un automovil estacionado y se devolveria la tarifa a cobrar
+			
+			+ servicio que informa un listado de los automoviles estacionados
+			
+			+ servicio que permite la carga de cobros por el uso del estacionamiento
+			
+			+ servicio que informa un listado (tipo libro diario) de estado de cuenta
+			
+			+ servicio que permite crear una oferta o publicacion por un tiempo determinado
+			
+			+ servicio que informa un listado de las ofertas o publicaciones creadas
+			
+			
+			
+	
+		* servicios rest en la web:
+			
+			+ servicio que recibe la notificacion de una reserva realizada
+			
+			+ servicio que recibe la notificacion del uso de una oferta o publicacion determinada
+		
+
+
+
+
+	mobile - para estacionamientos 
+	------------------------------
+	
+		idem servicios web para estacionamientos
+	
+	
+	
+	mobile - para usuarios
+	----------------------
+	
+		* servicios rest en el server:
+		
+			+ servicio que informa un listado de los estacionamientos registrados, la busqueda se hace por una cantidad determinada
+			y para una ubicacion determinada
+			
+			+ servicio que permita informar una calificacion de un estacionamiento
+		
+			+ servicio que permite reservar un lugar en un estacionamiento
+
+			+ servicio que informa un listado de publicidades y ofertas, en base a una ubicacion
+		
+		* servicios rest en el celular:
+		
+			+ servicio que recibe un mensaje que indica que hubo un cambio en las actualizaciones de los cupos de los estacionamientos
+			
+			+ servicio que recibe una confirmacion/rechazo de una reserva
+			
+			+ servicio que recibe una publicidad y oferta en tiempo real		

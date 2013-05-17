@@ -1,0 +1,24 @@
+=======================================================================================
+byJoel
+
+IDEA:
++ funcion gps para ir de un punto marcado a otro
+
+MOTIVO:
+la saque porque no decidimos si poner o no la funcionalidad de gps, por ahora el gps
+lo usamos solamente para ubicar los estacionamientos registrados
+=======================================================================================
+
+
+
+=======================================================================================
+byJoel
+
+IDEA:
++ estadisticas en tiempo real, por ejemplo la cantidad de personas que consultan el EST
+Funcionalidad de estadísticas en tiempo real: posibilidad de ver cuantas personas consultan su estacionamiento
+
+MOTIVO:
+lo saque porque creo que es peligroso para la continuidad de un cliente debido a que puede
+darse cuenta que nadie lo busca
+======================================================================================= 	

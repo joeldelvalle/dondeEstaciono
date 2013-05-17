@@ -1,0 +1,62 @@
+2013-03 - analisis y diseño del proyecto (trataremos de abarcar lo mas posible todo)
+	
+	2013-03.1		definir si usamos phonegap u otra herramienta para el desarrollo mobile (tiene que abarcar iOS, Android, BlackBerry)
+	2013-03.2		analizar mongodb.
+	2013-03.3		armar documento de arquitectura del proyecto, socket io, jboss, apache para web.
+	2013-03.4		definir pantallas y acciones, para la web y mobile, y validaciones.
+	2013-03.5		analisis funcional completo.
+	2013-03.6	 	ppt para presentacion en tecso-dev-sessions
+	
+	2013-03.entregable	 	PPT presentacion en dev-sessions, documento de la arquitectura
+
+2013-04 - desarrollo del server
+	2013-04.1		diseño de la bases de datos
+	2013-04.2		desarrollo del modelo de datos.
+	
+2013-05 - desarrollo del server
+	2013-05.1		desarrollo de servicios rest, por los cuales se comunicaran la app web y la app mobile
+	2013-05.2		desarrollo de las validaciones, definidas para la capa rest.
+	
+	2013-05.entregable		juint de los servicios rest.
+
+2013-06 - desarrollo del server
+	2013-06.1		poner en funcionamiento db.
+	2013-06.2		desarrollo capa service.
+	2013-06.3		desarrollo capa dao.
+	
+	2013-06.entregable		junit de la capa dao y service
+	
+2013-07 - desarrollo web
+	2013-07.1		capacitacion por parte de ger sobre python.
+	2013-07.2		desarrollo de web publica.
+	2013-07.3		desarrollo mobileMock para test.
+
+	2013-08.entergable		deploy con usuarios de prueba
+	
+2013-08 - desarrollo web
+	2013-08.1		desarrollo de perfil de los estacionamientos. 
+	
+	2013-08.entergable		deploy con usuarios de prueba
+	
+2013-09 - desarrollo web
+	2013-09.1		desarrollo de perfil de los estacionamientos. 
+	
+	2013-09.entergable		deploy con usuarios de prueba
+	
+2013-10 - desarrollo mobile
+	2013-10.1		desarrollo de la base datos.
+	2013-10.2		desarrollo de pantallas.
+	
+	2013-10.entergable		app navegable
+	
+2013-11 - desarrollo mobile
+	2013-11.1		desarrollo servicios.
+	2013-11.2		desarrollo mapas.
+	
+	2013-11.entergable		app completa
+	
+ADD-Ons
+2013-12 - desarrollo mobile para los estacionamientos.
+	2013-12.1		desarrollo app mobile para estacionamientos.
+	
+	2013-12.entergable		app completa

@@ -1,0 +1,38 @@
+
+2013-03 - analisis y diseño del proyecto (trataremos de abarcar lo mas posible todo)
+	2013-03.1	 	ppt para presentacion en tecso-dev-sessions
+	2013-03.2		definir si usamos phonegap u otra herramienta para el desarrollo mobile (tiene que abarcar iOS, Android, BlackBerry)
+	2013-03.3		definir arquitectura del proyecto
+	2013-03.4		definir pantallas y acciones, para la web y mobile
+	2013-03.5		diseño de la base de datos
+	2013-03.6		hacer la prsentacion del proyecto en tecso-dev-sessions, siempre que encontremos la forma desde IB
+	
+	2013-03.entregable	 	PPT, documento de la arquitectura
+	
+
+
+2013-04 - desarrollo del server
+	2013-04.1		desarrollo del modelo de datos
+	2013-04.2		desarrollo de las validaciones definidas
+	2013-04.3		desarrollo de servicios rest, por los cuales se comunicaran la app web y la app mobile
+	
+	2013-04.entregable		juint de los servicios rest, de las validaciones
+
+
+
+2013-05 - desarrollo del server
+	2013-05.1		poner en funcionamiento mongodb
+	2013-05.2		desarrollo capa service
+	2013-05.3		desarrollo capa dao
+	
+	2013-05.entregable		junit de la capa dao y service
+
+	
+	
+2013-06 - desarrollo web
+	2013-06.1		capacitacion por parte de ger sobre python
+	2013-06.2		desarrollo de web publica
+	2013-06.3		desarrollo de perfil de los estacionamientos
+	2013-06.4		desarrollo mobileMock para test
+	
+	2013-06.entergable		deploy con usuarios de prueba
