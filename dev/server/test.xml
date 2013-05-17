@@ -1,0 +1,17 @@
+<donde-estaciono-rules>
+
+	<rule-class>uno</rule-class>
+	<rule-class>dos</rule-class>
+	<rule-class>tres</rule-class>
+
+	<rule nombre="test1">
+		<id>1</id>
+		<clazz>popopo</clazz>
+	</rule>
+	
+	<rule nombre="test2">
+		<id>2</id>
+		<clazz>yuyuyu</clazz>
+	</rule>
+
+</donde-estaciono-rules>
