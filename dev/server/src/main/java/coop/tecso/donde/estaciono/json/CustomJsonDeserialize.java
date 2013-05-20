@@ -15,7 +15,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 /**
  * 
  * @author joel.delvalle
- *
+ * 
  */
 public class CustomJsonDeserialize extends JsonDeserializer<Object> {
 
@@ -29,20 +29,20 @@ public class CustomJsonDeserialize extends JsonDeserializer<Object> {
 		for (Iterator<String> fieldNamesIterator = node.getFieldNames(); fieldNamesIterator.hasNext();) {
 			classNameIdentification = fieldNamesIterator.next();
 		}
-		
+
 		JsonNode jsonPayloadObject = node.get(classNameIdentification);
-		
+
 		try {
 
 			Class<? extends Object> clazz = ClassNameCache.getInstance().getClassFromCache(classNameIdentification);
-			
+
 			Object payloadObject = DESUtils.convertJsonToObject(jsonPayloadObject.toString(), clazz);
-			
+
 			return payloadObject;
-			
+
 		} catch (Exception e) {
-			throw new IOException(e);
-		} 
+			throw new IOException("error in CustomJsonDeserialize  -  " + e);
+		}
 	}
 
 }

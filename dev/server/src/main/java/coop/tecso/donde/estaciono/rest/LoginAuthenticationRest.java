@@ -10,12 +10,14 @@ import org.springframework.stereotype.Component;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
+import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.LoggerFactory;
 import coop.tecso.donde.estaciono.model.Login;
 import coop.tecso.donde.estaciono.model.User;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
+import coop.tecso.donde.estaciono.service.CommunicatorConverterService;
 import coop.tecso.donde.estaciono.service.LoginService;
 import coop.tecso.donde.estaciono.service.UserService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
@@ -40,6 +42,9 @@ public class LoginAuthenticationRest extends SecureRest {
 	@Autowired
 	private LoginService loginService;
 
+	@Autowired
+	private CommunicatorConverterService<LoginRequest, Login> communicatorLoginConverterService;
+
 	@POST
 	@Path("/authentication")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -56,7 +61,7 @@ public class LoginAuthenticationRest extends SecureRest {
 
 			this.securityValidations(request);
 
-			Login login = request.getPayload(Login.class);
+			Login login = this.communicatorLoginConverterService.convertToModelObject(request.getPayload(LoginRequest.class));
 
 			Login loginAuthenticated = this.loginService.authenticate(login);
 			if (!DESUtils.isNull(loginAuthenticated)) {
@@ -81,15 +86,15 @@ public class LoginAuthenticationRest extends SecureRest {
 
 		return jsonResponse;
 	}
-	
+
 	private void securityValidations(DESRequest request) throws DondeEstacionoServerException {
 		String method = "securityValidations";
 		log.logStartMethod(method);
-		
+
 		this.publicWebHashValidate(request);
 		this.macValidation(request);
-		
+
 		log.logEndMethod(method);
 	}
-	
+
 }

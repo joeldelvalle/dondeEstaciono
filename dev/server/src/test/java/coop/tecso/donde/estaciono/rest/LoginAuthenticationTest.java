@@ -5,7 +5,7 @@ import com.sun.jersey.api.client.WebResource;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
-import coop.tecso.donde.estaciono.model.Login;
+import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
 import coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;
 import coop.tecso.donde.estaciono.utils.DESUtils;
@@ -30,7 +30,7 @@ public class LoginAuthenticationTest {
 
 			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/login/authentication");
 
-			Login login = new Login(); //"jdelvalle", "jdelvalle");
+			LoginRequest login = new LoginRequest(); //"jdelvalle", "jdelvalle");
 			login.setUser("jdelvalle");
 			login.setPassword("jdelvalle");
 			

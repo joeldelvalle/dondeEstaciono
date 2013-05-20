@@ -23,5 +23,7 @@
 	<bean id="registerService" class="coop.tecso.donde.estaciono.service.impl.RegisterServiceImpl" />
 	
 	<bean id="hashGeneratorService" class="coop.tecso.donde.estaciono.service.impl.HashGeneratorServiceImpl" />
+	
+	<bean id="communicatorLoginConverterService" class="coop.tecso.donde.estaciono.service.impl.CommunicatorLoginConverterServiceImpl" />
 
 </beans>
