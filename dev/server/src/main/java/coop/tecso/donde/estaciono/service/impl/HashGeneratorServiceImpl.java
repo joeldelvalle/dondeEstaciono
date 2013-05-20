@@ -7,6 +7,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import org.springframework.stereotype.Service;
+
 import coop.tecso.donde.estaciono.model.MobileHash;
 import coop.tecso.donde.estaciono.model.MobileRegister;
 import coop.tecso.donde.estaciono.model.ParkingHash;
@@ -17,6 +19,7 @@ import coop.tecso.donde.estaciono.service.HashGeneratorService;
  * @author joel.delvalle
  * 
  */
+@Service
 public class HashGeneratorServiceImpl implements HashGeneratorService {
 
 	@Override

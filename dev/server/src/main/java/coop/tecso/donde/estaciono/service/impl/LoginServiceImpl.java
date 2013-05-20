@@ -1,6 +1,7 @@
 package coop.tecso.donde.estaciono.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.LoginDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
@@ -13,6 +14,7 @@ import coop.tecso.donde.estaciono.service.LoginService;
  * @author joel.delvalle
  * 
  */
+@Service
 public class LoginServiceImpl implements LoginService {
 
 	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());

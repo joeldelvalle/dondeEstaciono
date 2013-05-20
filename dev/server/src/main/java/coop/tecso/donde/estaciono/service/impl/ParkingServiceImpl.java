@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.ParkingDao;
 import coop.tecso.donde.estaciono.model.Coordinates;
@@ -18,6 +19,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * @author joel.delvalle
  * 
  */
+@Service
 public class ParkingServiceImpl implements ParkingService {
 
 	@Autowired

@@ -1,6 +1,7 @@
 package coop.tecso.donde.estaciono.service.impl;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.service.EncryptService;
 
@@ -9,6 +10,7 @@ import coop.tecso.donde.estaciono.service.EncryptService;
  * @author joel.delvalle
  * 
  */
+@Service
 public class EncryptServiceImpl implements EncryptService {
 
 	public static final String SEED_KEY = "tiriTiriTiriGadgetGadget";

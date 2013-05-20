@@ -5,25 +5,10 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
+	<!-- levanta los servicios rest -->
 	<context:component-scan base-package="coop.tecso.donde.estaciono.rest"/>
-	<context:component-scan base-package="coop.tecso.donde.estaciono.config"/>
 
-	<bean id="encryptService" class="coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl" />
-	
-	<bean id="userService" class="coop.tecso.donde.estaciono.service.impl.UserServiceImpl" />
-	
-	<bean id="loginService" class="coop.tecso.donde.estaciono.service.impl.LoginServiceImpl" />
-	
-	<bean id="mobileRegisterService" class="coop.tecso.donde.estaciono.service.impl.MobileRegisterServiceImpl" />
-	
-	<bean id="securityService" class="coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl" />
-	
-	<bean id="parkingService" class="coop.tecso.donde.estaciono.service.impl.ParkingServiceImpl" />
-	
-	<bean id="registerService" class="coop.tecso.donde.estaciono.service.impl.RegisterServiceImpl" />
-	
-	<bean id="hashGeneratorService" class="coop.tecso.donde.estaciono.service.impl.HashGeneratorServiceImpl" />
-	
-	<bean id="communicatorLoginConverterService" class="coop.tecso.donde.estaciono.service.impl.CommunicatorLoginConverterServiceImpl" />
+	<!-- levanta los servicios generales del server -->
+	<context:component-scan base-package="coop.tecso.donde.estaciono.service.impl"/>
 
 </beans>

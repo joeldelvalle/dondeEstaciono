@@ -1,6 +1,7 @@
 package coop.tecso.donde.estaciono.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.MobileHashDao;
 import coop.tecso.donde.estaciono.dao.ParkingHashDao;
@@ -16,6 +17,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * @author joel.delvalle
  * 
  */
+@Service
 public class SecurityServiceImpl implements SecurityService {
 
 	LoggerFactory log = LoggerFactory.getInstance(getClass());

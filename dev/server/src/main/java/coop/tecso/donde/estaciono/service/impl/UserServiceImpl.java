@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import coop.tecso.donde.estaciono.logger.LoggerFactory;
 import coop.tecso.donde.estaciono.model.AdditionalServices;
 import coop.tecso.donde.estaciono.model.Country;
@@ -22,6 +24,7 @@ import coop.tecso.donde.estaciono.service.UserService;
  * @author joel.delvalle
  * 
  */
+@Service
 public class UserServiceImpl implements UserService {
 
 	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
