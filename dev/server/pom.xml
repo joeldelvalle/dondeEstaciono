@@ -149,20 +149,6 @@
 			<version>0.9.8</version>
 		</dependency>
 
-
-		<!-- xstream para rules -->
-		<dependency>
-			<groupId>com.thoughtworks.xstream</groupId>
-			<artifactId>xstream</artifactId>
-			<version>1.4.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>xpp3</groupId>
-			<artifactId>xpp3_min</artifactId>
-			<version>1.1.4c</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
