@@ -1,6 +1,7 @@
 package coop.tecso.donde.estaciono.logger;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  * 
@@ -51,6 +52,10 @@ public class LoggerFactory {
 		sb.append(" - ");
 		sb.append(message);
 		return sb.toString();
+	}
+	
+	private void configure() {
+		PropertyConfigurator.configure("config/log4j.properties");
 	}
 
 }

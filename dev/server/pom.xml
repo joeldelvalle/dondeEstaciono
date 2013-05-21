@@ -8,6 +8,36 @@
 	<version>1.0.0</version>
 	<name>Donde Estaciono Server</name>
 
+	<organization>
+		<name>Cooperativa de Trabajo Tecso LTDA</name>
+		<url>http://www.tecso.coop/</url>
+	</organization>
+
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<environment>dev</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<properties>
+				<environment>qa</environment>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<environment>prod</environment>
+			</properties>
+		</profile>
+	</profiles>
+
 	<dependencies>
 
 		<dependency>
@@ -137,11 +167,6 @@
 			<version>2.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.reflections</groupId>
@@ -149,12 +174,37 @@
 			<version>0.9.8</version>
 		</dependency>
 
+
+		<!-- jar para log -->
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j-rolling-appender</groupId>
+			<artifactId>log4j-rolling-apender</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 		<finalName>DondeEstacionoServer</finalName>
-		<plugins>
 
+		<filters>
+			<filter>${basedir}/filters/filter-${environment}.properties</filter>
+		</filters>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
