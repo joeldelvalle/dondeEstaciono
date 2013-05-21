@@ -2,7 +2,6 @@ package coop.tecso.donde.estaciono.rest;
 
 import java.util.List;
 
-import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -26,7 +25,6 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  */
 public class MobileRegisterRestTest {
 
-	@Test
 	public void getAllParkings() {
 		
 		try {
@@ -74,7 +72,6 @@ public class MobileRegisterRestTest {
 	}
 	
 	
-	@Test
 	public void cleanAllMobileRegistered() {
 		
 		

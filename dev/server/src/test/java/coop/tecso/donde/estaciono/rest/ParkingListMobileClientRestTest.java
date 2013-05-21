@@ -1,7 +1,5 @@
 package coop.tecso.donde.estaciono.rest;
 
-import org.junit.Test;
-
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
@@ -20,7 +18,6 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  */
 public class ParkingListMobileClientRestTest {
 
-	@Test
 	public void getParkingsByCoodinates() {
 
 		try {
