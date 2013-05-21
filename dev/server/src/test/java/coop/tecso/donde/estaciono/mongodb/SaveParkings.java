@@ -24,7 +24,6 @@ import coop.tecso.donde.estaciono.mongodb.config.MongoDBConfiguration;
 
 public class SaveParkings {
 
-	@Test
 	public void save_users_in_database() {
 
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(MongoDBConfiguration.class);
