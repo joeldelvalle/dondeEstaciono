@@ -1,25 +1,18 @@
 package coop.tecso.donde.estaciono.logger;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 /**
  * 
  * @author joel.delvalle
- *
+ * 
  */
-public class LoggerFactory {
+public class CustomLogger {
 
-	private static Logger log = null;
+	private Logger log = null;
 
-	@SuppressWarnings("rawtypes")
-	private LoggerFactory(Class clazz) {
-		log = Logger.getLogger(clazz);
-	}
-
-	@SuppressWarnings("rawtypes")
-	public static LoggerFactory getInstance(Class clazz) {
-		return new LoggerFactory(clazz);
+	public CustomLogger(String className) {
+		log = Logger.getLogger(className);
 	}
 
 	public void logStartMethod(String methodName) {
@@ -52,10 +45,6 @@ public class LoggerFactory {
 		sb.append(" - ");
 		sb.append(message);
 		return sb.toString();
-	}
-	
-	private void configure() {
-		PropertyConfigurator.configure("config/log4j.properties");
 	}
 
 }

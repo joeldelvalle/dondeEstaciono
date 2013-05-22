@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import coop.tecso.donde.estaciono.dao.MobileHashDao;
 import coop.tecso.donde.estaciono.dao.ParkingHashDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Mac;
 import coop.tecso.donde.estaciono.service.SecurityService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
@@ -20,7 +20,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 @Service
 public class SecurityServiceImpl implements SecurityService {
 
-	LoggerFactory log = LoggerFactory.getInstance(getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
 	private ParkingHashDao parkingHashDao;

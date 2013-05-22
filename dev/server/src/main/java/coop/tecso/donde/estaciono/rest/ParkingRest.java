@@ -14,7 +14,7 @@ import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Coordinates;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
@@ -33,7 +33,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 @Path("/parking")
 public class ParkingRest extends SecureRest {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
 	private ParkingService parkingService;

@@ -6,7 +6,7 @@ import java.util.Properties;
 import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.core.io.ClassPathResource;
 
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**
@@ -16,7 +16,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  */
 public class ErrorMessageCache {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	private static final String ERROR_MESSAGE_FILE_LOCATION = "error/errorMessage.properties";
 

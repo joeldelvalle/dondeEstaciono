@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.AdditionalServices;
 import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Email;
@@ -27,7 +27,7 @@ import coop.tecso.donde.estaciono.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Override
 	public User findMockUser() {

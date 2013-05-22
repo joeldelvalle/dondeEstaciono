@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import coop.tecso.donde.estaciono.dao.LoginDao;
 import coop.tecso.donde.estaciono.dao.generic.DaoGeneric;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
 
 /**
@@ -16,7 +16,7 @@ import coop.tecso.donde.estaciono.model.Login;
  */
 public class LoginDaoImpl extends DaoGeneric implements LoginDao {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	public Login authenticate(Login login) throws DondeEstacionoServerException {
 		String method = "authenticate";

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.LoginDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
 import coop.tecso.donde.estaciono.service.LoginService;
 
@@ -17,7 +17,7 @@ import coop.tecso.donde.estaciono.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
 	private LoginDao loginDao;

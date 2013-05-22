@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import coop.tecso.donde.estaciono.dao.ParkingHashDao;
 import coop.tecso.donde.estaciono.dao.generic.DaoGeneric;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.ParkingHash;
 
 /**
@@ -16,7 +16,7 @@ import coop.tecso.donde.estaciono.model.ParkingHash;
  */
 public class ParkingHashDaoImpl extends DaoGeneric implements ParkingHashDao {
 
-	LoggerFactory log = LoggerFactory.getInstance(getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Override
 	public void save(String hash) {

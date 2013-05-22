@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import coop.tecso.donde.estaciono.dao.MobileHashDao;
 import coop.tecso.donde.estaciono.dao.generic.DaoGeneric;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.MobileHash;
 
 /**
@@ -16,7 +16,7 @@ import coop.tecso.donde.estaciono.model.MobileHash;
  */
 public class MobileHashDaoImpl extends DaoGeneric implements MobileHashDao {
 
-	LoggerFactory log = LoggerFactory.getInstance(getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Override
 	public void save(MobileHash hash) throws DondeEstacionoServerException {

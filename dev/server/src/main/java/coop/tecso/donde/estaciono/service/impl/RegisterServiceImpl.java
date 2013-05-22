@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import coop.tecso.donde.estaciono.dao.MobileHashDao;
 import coop.tecso.donde.estaciono.dao.RegisterDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.MobileHash;
 import coop.tecso.donde.estaciono.model.MobileRegister;
 import coop.tecso.donde.estaciono.service.HashGeneratorService;
@@ -20,7 +20,7 @@ import coop.tecso.donde.estaciono.service.RegisterService;
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
-	LoggerFactory log = LoggerFactory.getInstance(getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
 	private RegisterDao registerDao;

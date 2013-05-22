@@ -13,7 +13,7 @@ import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
 import coop.tecso.donde.estaciono.model.User;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
@@ -34,7 +34,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 @Path("/login")
 public class LoginAuthenticationRest extends SecureRest {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
 	private UserService userService;
@@ -82,8 +82,8 @@ public class LoginAuthenticationRest extends SecureRest {
 		}
 
 		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
-		log.logEndMethod(method);
 
+		log.logEndMethod(method);
 		return jsonResponse;
 	}
 

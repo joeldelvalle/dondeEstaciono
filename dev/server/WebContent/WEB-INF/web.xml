@@ -5,17 +5,17 @@
 	<display-name>Donde Estaciono Server</display-name>
 
 	<context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:/config/*.bean.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:/config/*.bean.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<servlet>
 		<servlet-name>jersey-serlvet</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-		
+
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
 			<param-value>coop.tecso.donde.estaciono.rest</param-value>
@@ -31,5 +31,9 @@
 		<servlet-name>jersey-serlvet</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+	
+	<listener>
+		<listener-class>coop.tecso.donde.estaciono.logger.configuration.LoggerConfiguration</listener-class>
+	</listener>
 
 </web-app>

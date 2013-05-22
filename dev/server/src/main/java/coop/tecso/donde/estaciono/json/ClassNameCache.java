@@ -14,7 +14,7 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 
-import coop.tecso.donde.estaciono.logger.LoggerFactory;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**
@@ -24,7 +24,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  */
 public class ClassNameCache {
 
-	private LoggerFactory log = LoggerFactory.getInstance(this.getClass());
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	private static ClassNameCache instance;
 
