@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block head_content %}
+<style type="text/css">
+    .btn-group2 {
+        margin-top: -5px !important;
+    }
+</style>
+{% endblock %}
+{% block body_content %}
+        <div class="container">
+            <div class="tab-content overflow">
+                <div class="tab-pane fade in active" id="login">
+                    <form class="form form-horizontal span2 offset3" method="post" name="login_form">
+                        <div class="pull-left">
+                            <div class="navbar">
+                                <div class="span4 navbar-inner">
+                                    <fieldset>
+                                        <h3>Sign in with your ID</h3>
+                                        <hr class="btn-group2">
+                                        <p>
+                                            <input id="user" class="input-block-level" type="text" name="user" placeholder="username">
+                                        </p>
+                                        <p>
+                                            <input id="password" class="input-block-level" type="password" name="password" placeholder="password">
+                                        </p>
+
+                                        <button type="submit" class="btn btn-success btn-block btn-large">SIGN IN</button>
+
+                                        <hr class="margin-xm">
+                                        <label class="checkbox pull-left">
+                                            <input type=checkbox name=remember value=yes class="checkbox">
+                                            Remember me </label>
+                                        <a href="#forgot" class="link pull-right" data-toggle="tab">Forgot Password?</a>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="tab-pane fade" id="forgot">
+                    <form class="form form-horizontal span2 offset3" method="post" name="forgot_password">
+                        <div class="pull-left">
+                            <div class="navbar">
+                                <div class="span4 navbar-inner">
+                                    <h3>Forgot your password?</h3>
+                                    <p class="note">Enter your e-mail address, we will send you an e-mail code for password reset.</p>
+                                    <p>
+                                        <input id="email" class="input-block-level" type="email" name="id_email_forgot" placeholder="your email">
+                                    </p>
+                                    <p>
+                                        <hr class="margin-xm">
+                                        <button type="submit" class="btn btn-success btn-group2">Submit</button>
+                                    </p>
+
+                                    <p>Have you remembered? <a href="#login" class="link pull-right" data-toggle="tab">Try to log in again.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+{% block script_content %}
+    {%- if exception is defined or (form.user.errors or form.password.errors) %}
+        <script>
+            notyfy({
+                text: '<strong>{{exception.message if exception is defined else "The user/password is incorrect"}}</strong> Please try again.',
+                type: 'error',
+                layout: 'bottomRight',
+                theme: 'boolight',
+                closeWith: ['click']
+            });
+        </script>
+    {%- endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+# Librerias necesarias para correr la aplicacion
+
+flask
+flask-login
+easydict
+flask-wtf
+jinja2
+jsonpickle
+pyjavaproperties
+WTForms
