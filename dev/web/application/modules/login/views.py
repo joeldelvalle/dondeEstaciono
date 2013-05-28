@@ -1,7 +1,7 @@
 from application import app, db
 from forms import LoginForm
 from flask import url_for, redirect, render_template, request
-from application.login import login_blueprint, login_manager
+from application.modules.login import login_blueprint, login_manager
 from flask.ext.login import login_user, logout_user, current_user
 from application.models.model import User
 import services

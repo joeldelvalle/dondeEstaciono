@@ -1,6 +1,6 @@
 from application import app, db
 from flask import url_for, redirect, render_template, request
-from application.login import login_blueprint
+from application.modules.login import login_blueprint
 
 app.register_blueprint(login_blueprint)
 
