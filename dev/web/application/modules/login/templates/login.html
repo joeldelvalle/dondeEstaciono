@@ -65,12 +65,15 @@
 {% block script_content %}
     {%- if exception is defined or (form.user.errors or form.password.errors) %}
         <script>
-            notyfy({
+	        $.extend($.gritter.options, {
+	    		position: 'bottom-right',
+	    		fade_in_speed: 400,
+	    		fade_out_speed: 400,
+	    		time: 4000
+	    	});
+            $.gritter.add({
                 text: '<strong>{{exception.message if exception is defined else "The user/password is incorrect"}}</strong> Please try again.',
-                type: 'error',
-                layout: 'bottomRight',
-                theme: 'boolight',
-                closeWith: ['click']
+               	position: 'bottom-right'
             });
         </script>
     {%- endif %}
