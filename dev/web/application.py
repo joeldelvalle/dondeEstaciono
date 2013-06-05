@@ -15,6 +15,7 @@ def index():
     return render_template('index.html')
 
 @app.route("/app")
+@login_required
 def indexapp():
     return render_template('index-app.html')
 	
