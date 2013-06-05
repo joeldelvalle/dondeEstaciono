@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block body_content %}
+	<div class="container">
+		<div class="navbar navbar">
+	 		<div class="navbar-inner">
+ 				<div class="nav-collapse collapse navbar-inverse-collapse">
+ 					<form class="navbar-search pull-right" action="">
+ 						<input class="search-query span2" type="text" placeholder="Search"></input>
+ 					</form>
+ 					<ul class="nav pull-right">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="icon-wrench"></i> Settings <b class="caret"></b>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Action 1</a>
+								</li>
+								<li>
+									<a href="#">Action 2</a>
+								</li>
+								<li>
+									<a href="#">Action 3</a>
+								</li>
+								<li>
+									<a href="#">Action 4</a>
+								</li>
+							</ul>
+						</li>
+ 					</ul>
+ 				</div>
+	 		</div>
+	    </div>
+	</div>
+	<div class="container">
+		<div class="container-fluid">
+		    <div class="row-fluid">
+			    <div class="span3">
+					<ul id="mainSideMenu" class="left-menu nav nav-list nav-side">
+					    <li class="accordion-group">
+					        <div class="accordion-heading active"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-chevron-right"></i> Collapsable Group #1 </a> </div>
+					        <ul class="accordion-content nav nav-list collapse" id="accDash">
+					            <li> <a href="#"> Option #1 </a> </li>
+					            <li> <a href="#"> Option #2 </a> </li>
+					        </ul>
+					    </li>
+					    <li class="accordion-group">
+					        <div class="accordion-heading"> <a href="#accForms" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-chevron-right"></i> Collapsable Group #2 </a> </div>
+					        <ul class="accordion-content nav nav-list collapse" id="accForms">
+					            <li> <a href="#"> Option #1 </a> </li>
+					            <li> <a href="#"> Option #2 </a> </li>
+					            <li> <a href="#"> Option #3</a> </li>
+					            <li> <a href="#"> Option #4</a> </li>
+					        </ul>
+					    </li>
+					</ul>
+			    </div>
+			    <div class="span9">
+					<ul class="nav nav-tabs">
+					  <li class="active">
+						<a href="#">Home</a>
+					  </li>
+					</ul>
+					<div class="tab-content de-content">
+					</div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+{% endblock %}
