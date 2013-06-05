@@ -29,7 +29,7 @@ def login():
         except URLError as error:
             return render_template('login.html', form=form, exception=Exception(error.reason.strerror))
         login_user(user)
-        return redirect(url_for('index'))
+        return redirect(url_for('indexapp'))
     return render_template('login.html', form=form)
 
 
