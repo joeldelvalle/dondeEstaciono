@@ -36,18 +36,17 @@
 			    <div class="span3">
 					<ul id="mainSideMenu" class="left-menu nav nav-list nav-side">
 					    <li class="accordion-group">
-					        <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-chevron-right"></i> Home </a> </div>
+					        <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-home icon-white"></i><i class="icon-chevron-right"></i> Home </a> </div>
 					        <ul class="accordion-content nav nav-list collapse in" id="accDash">
 					            <li> <a href="#" class="selected"> Dashboard </a> </li>
 					        </ul>
 					    </li>
 					    <li class="accordion-group">
-					        <div class="accordion-heading"> <a href="#accForms" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-chevron-right"></i> Collapsable Group #2 </a> </div>
+					        <div class="accordion-heading"> <a href="#accForms" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-th-list icon-white"></i><i class="icon-chevron-right"></i> Configuration </a> </div>
 					        <ul class="accordion-content nav nav-list collapse" id="accForms">
-					            <li> <a href="#"> Option #1 </a> </li>
-					            <li> <a href="#"> Option #2 </a> </li>
-					            <li> <a href="#"> Option #3</a> </li>
-					            <li> <a href="#"> Option #4</a> </li>
+					            <li> <a href="{{ url_for('configuration_blueprint.abm_vehicle') }}"> Vehicle </a> </li>
+					            <li> <a href="#"> Frecuency </a> </li>
+					            <li> <a href="#"> Price</a> </li>
 					        </ul>
 					    </li>
 					</ul>
