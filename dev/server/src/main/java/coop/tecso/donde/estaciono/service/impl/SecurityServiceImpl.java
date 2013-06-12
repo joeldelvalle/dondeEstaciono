@@ -1,13 +1,10 @@
 package coop.tecso.donde.estaciono.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import coop.tecso.donde.estaciono.dao.MobileHashDao;
-import coop.tecso.donde.estaciono.dao.ParkingHashDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
-import coop.tecso.donde.estaciono.model.Mac;
+import coop.tecso.donde.estaciono.security.Mac;
 import coop.tecso.donde.estaciono.service.SecurityService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESUtils;
@@ -21,12 +18,6 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 public class SecurityServiceImpl implements SecurityService {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
-
-	@Autowired
-	private ParkingHashDao parkingHashDao;
-
-	@Autowired
-	private MobileHashDao mobileHashDao;
 
 	private int keys[] = { 2, 7, 3, 5, 13, 21, 47, 31, 17, 23 };
 
@@ -69,13 +60,13 @@ public class SecurityServiceImpl implements SecurityService {
 	@Override
 	public Boolean validateParkingUserHash(String hash) throws DondeEstacionoServerException {
 		log.logInfo("validateParkingUserHash", "validate parking user hash");
-		return !DESUtils.isNull(this.parkingHashDao.validateHash(hash));
+		return null;
 	}
 
 	@Override
 	public Boolean validateMobileClientHash(String hash) throws DondeEstacionoServerException {
-		log.logInfo("validateMobileClienteHash", "validate mobile cliente hash");
-		return !DESUtils.isNull(this.mobileHashDao.validateHash(hash));
+		log.logInfo("validateMobileClienteHash", "validate mobile hash");
+		return null;
 	}
 
 	private String convertStringToHex(String str) {

@@ -23,4 +23,16 @@ public class DESConstants {
 
 	}
 
+	public static class Database {
+
+		public static class States {
+
+			public static final String ENABLED = "EN";
+
+			public static final String DISABLED = "DI";
+
+		}
+
+	}
+
 }

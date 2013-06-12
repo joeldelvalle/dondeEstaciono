@@ -1,6 +1,6 @@
 package coop.tecso.donde.estaciono.utils;
 
-import coop.tecso.donde.estaciono.model.Coordinates;
+import coop.tecso.donde.estaciono.model.Coordinate;
 
 /**
  * 
@@ -9,7 +9,7 @@ import coop.tecso.donde.estaciono.model.Coordinates;
  */
 public class DESMath {
 
-	public static Double calculateDistanceBetweenToCoordinates(Coordinates coordinatesFrom, Coordinates coordinatesTo) {
+	public static Double calculateDistanceBetweenToCoordinates(Coordinate coordinatesFrom, Coordinate coordinatesTo) {
 		// double earthRadius = 3958.75;//miles
 		double earthRadius = 6371;// kilometers
 		double dLat = Math.toRadians(coordinatesTo.getLatitude() - coordinatesFrom.getLatitude());

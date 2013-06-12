@@ -8,7 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.ParkingDao;
-import coop.tecso.donde.estaciono.model.Coordinates;
+import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
+import coop.tecso.donde.estaciono.model.Coordinate;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.service.ParkingService;
 import coop.tecso.donde.estaciono.utils.DESMath;
@@ -26,12 +27,12 @@ public class ParkingServiceImpl implements ParkingService {
 	private ParkingDao parkingDao;
 
 	@Override
-	public List<Parking> findAllParking() {
+	public List<Parking> findAllParking() throws DondeEstacionoServerException {
 		return this.parkingDao.findAllParking();
 	}
 
 	@Override
-	public List<Parking> findParkingByCoordinates(Coordinates coordinates) {
+	public List<Parking> findParkingByCoordinates(Coordinate coordinates) throws DondeEstacionoServerException {
 
 		List<Parking> parkingList = this.parkingDao.findAllParking();
 
@@ -41,7 +42,7 @@ public class ParkingServiceImpl implements ParkingService {
 
 	}
 
-	private Map<Double, Parking> sortedParkingByDistanceFromOriginalCoordinates(Coordinates coordinates, List<Parking> parkingList) {
+	private Map<Double, Parking> sortedParkingByDistanceFromOriginalCoordinates(Coordinate coordinates, List<Parking> parkingList) {
 
 		Map<Double, Parking> parkingSorted = new TreeMap<Double, Parking>();
 

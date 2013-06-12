@@ -1,7 +1,7 @@
 package coop.tecso.donde.estaciono.service;
 
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.model.Mac;
+import coop.tecso.donde.estaciono.security.Mac;
 
 /**
  * 

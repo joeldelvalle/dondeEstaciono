@@ -2,7 +2,7 @@ package coop.tecso.donde.estaciono.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
+import coop.tecso.donde.estaciono.communication.model.LoginRequest;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
 import coop.tecso.donde.estaciono.service.CommunicatorConverterService;
@@ -22,7 +22,7 @@ public class CommunicatorLoginConverterServiceImpl implements CommunicatorConver
 		log.logStartMethod("convertToModelObject");
 
 		Login login = new Login();
-		login.setUser(requestObject.getUser());
+		login.setUserName(requestObject.getUser());
 		login.setPassword(requestObject.getPassword());
 
 		log.logEndMethod("convertToModelObject");

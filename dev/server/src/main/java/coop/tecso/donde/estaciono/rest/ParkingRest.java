@@ -15,7 +15,7 @@ import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
-import coop.tecso.donde.estaciono.model.Coordinates;
+import coop.tecso.donde.estaciono.model.Coordinate;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
 import coop.tecso.donde.estaciono.service.ParkingService;
@@ -101,7 +101,7 @@ public class ParkingRest extends SecureRest {
 
 			this.securityValidationsForMobileAccess(request);
 
-			Coordinates coordinates = request.getPayload(Coordinates.class);
+			Coordinate coordinates = request.getPayload(Coordinate.class);
 
 			List<Parking> parkingList = this.parkingService.findParkingByCoordinates(coordinates);
 

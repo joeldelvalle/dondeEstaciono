@@ -6,7 +6,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.json.CustomJsonDeserialize;
 import coop.tecso.donde.estaciono.json.CustomJsonSerializer;
-import coop.tecso.donde.estaciono.model.Mac;
+import coop.tecso.donde.estaciono.security.Mac;
 
 /**
  * 

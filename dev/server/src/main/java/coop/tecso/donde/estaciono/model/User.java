@@ -1,48 +1,44 @@
 package coop.tecso.donde.estaciono.model;
 
-import java.util.Calendar;
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import coop.tecso.donde.estaciono.model.common.State;
 
 /**
  * 
  * @author joel.delvalle
  * 
  */
-@Document
-public class User {
+public class User extends State {
 
-	@Id
-	private ObjectId id;
+	private Long id;
+
+	private Parking parking;
 
 	private String name;
 
 	// aka DNI
-	private String identificationCode;
-
-	private String email;
+	private String numberIdentification;
 
 	private UserType userType;
 
-	private Parking parking;
+	private String phone;
 
-	private List<Permission> permission;
+	private String email;
 
-	private String state;
+	private String photoFileName;
 
-	private Calendar stateDate;
+	private List<Permission> permissions;
 
 	@JsonIgnore
-	public ObjectId getId() {
+	public Long getId() {
 		return id;
 	}
 
 	@JsonIgnore
-	public void setId(ObjectId id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -62,36 +58,12 @@ public class User {
 		this.parking = parking;
 	}
 
-	public List<Permission> getPermission() {
-		return permission;
+	public String getNumberIdentification() {
+		return numberIdentification;
 	}
 
-	public void setPermission(List<Permission> permission) {
-		this.permission = permission;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public Calendar getStateDate() {
-		return stateDate;
-	}
-
-	public void setStateDate(Calendar stateDate) {
-		this.stateDate = stateDate;
-	}
-
-	public String getIdentificationCode() {
-		return identificationCode;
-	}
-
-	public void setIdentificationCode(String identificationCode) {
-		this.identificationCode = identificationCode;
+	public void setNumberIdentification(String numberIdentification) {
+		this.numberIdentification = numberIdentification;
 	}
 
 	public String getEmail() {
@@ -110,9 +82,33 @@ public class User {
 		this.userType = userType;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPhotoFileName() {
+		return photoFileName;
+	}
+
+	public void setPhotoFileName(String photoFileName) {
+		this.photoFileName = photoFileName;
+	}
+
+	public List<Permission> getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(List<Permission> permissions) {
+		this.permissions = permissions;
+	}
+
 	@Override
 	public String toString() {
-		return "name: " + this.getName() + "  -  userType: " + this.getUserType().toString() + "  -  parking: " + this.getParking().getName();
+		return "name: " + this.getName() + "  -  userType: " + this.getUserType().toString() + "  -  parking: " + this.getParking().toString();
 	}
 
 	@Override

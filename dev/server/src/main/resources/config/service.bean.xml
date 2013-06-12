@@ -8,7 +8,12 @@
 	<!-- levanta los servicios rest -->
 	<context:component-scan base-package="coop.tecso.donde.estaciono.rest"/>
 
+
 	<!-- levanta los servicios generales del server -->
 	<context:component-scan base-package="coop.tecso.donde.estaciono.service.impl"/>
+	
+
+	<!-- levanta los servicios dao -->
+	<context:component-scan base-package="coop.tecso.donde.estaciono.dao.impl"/>
 
 </beans>

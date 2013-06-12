@@ -5,7 +5,7 @@ import com.sun.jersey.api.client.WebResource;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
-import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
+import coop.tecso.donde.estaciono.communication.model.LoginRequest;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;

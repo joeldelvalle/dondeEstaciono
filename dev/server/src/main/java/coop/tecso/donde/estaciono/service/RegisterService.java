@@ -1,8 +1,5 @@
 package coop.tecso.donde.estaciono.service;
 
-import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
-import coop.tecso.donde.estaciono.model.MobileHash;
-import coop.tecso.donde.estaciono.model.MobileRegister;
 
 /**
  * 
@@ -11,6 +8,6 @@ import coop.tecso.donde.estaciono.model.MobileRegister;
  */
 public interface RegisterService {
 
-	public MobileHash mobileRegister(MobileRegister mobileRegister) throws DondeEstacionoServerException;
+//	public MobileHash mobileRegister(MobileRegister mobileRegister) throws DondeEstacionoServerException;
 
 }

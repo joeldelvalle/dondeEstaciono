@@ -3,8 +3,13 @@ package coop.tecso.donde.estaciono.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
+
 import coop.tecso.donde.estaciono.dao.ParkingDao;
-import coop.tecso.donde.estaciono.dao.generic.DaoGeneric;
+import coop.tecso.donde.estaciono.dao.queries.ParkingQuery;
+import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
+import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.model.Parking;
 
 /**
@@ -12,7 +17,8 @@ import coop.tecso.donde.estaciono.model.Parking;
  * @author joel.delvalle
  * 
  */
-public class ParkingDaoImpl extends DaoGeneric implements ParkingDao {
+@Service
+public class ParkingDaoImpl implements ParkingDao {
 
 	private List<Parking> parkingListCache = new ArrayList<Parking>();
 
@@ -20,13 +26,27 @@ public class ParkingDaoImpl extends DaoGeneric implements ParkingDao {
 	// un estacionamiento
 
 	@Override
-	public List<Parking> findAllParking() {
+	public List<Parking> findAllParking() throws DondeEstacionoServerException {
 
 		if (this.getParkingListCache().size() > 0) {
 			return this.getParkingListCache();
 		}
 
-		List<Parking> parkingList = this.getMongoTemplate().findAll(Parking.class);
+		List<Parking> parkingList = null;
+
+		try {
+
+			SqlSession session = DatabaseConnection.getInstance().getSession();
+
+			ParkingQuery query = session.getMapper(ParkingQuery.class);
+
+			parkingList = query.findAllQuery();
+
+			session.close();
+
+		} catch (Exception e) {
+			throw new DondeEstacionoServerException(e);
+		}
 
 		this.saveInCache(parkingList);
 

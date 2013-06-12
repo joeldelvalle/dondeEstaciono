@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+
+<mapper namespace="insert">
+	
+	<insert id="insertDatosCountry" parameterType="coop.tecso.donde.estaciono.model.Country"> 
+		INSERT INTO country (id, name, state, state_date) VALUES ( #{id}, #{name}, #{state}, #{stateDate} )
+	</insert>
+	
+	<insert id="insertDatosProvince" parameterType="coop.tecso.donde.estaciono.model.Province"> 
+		INSERT INTO province (id, id_country, name, state, state_date) VALUES ( #{id}, #{country.id}, #{name}, #{state}, #{stateDate} )
+	</insert>
+	
+	<insert id="insertDatoslocality" parameterType="coop.tecso.donde.estaciono.model.Locality"> 
+		INSERT INTO locality (id, id_province, name, state, state_date) VALUES ( #{id}, #{province.id}, #{name}, #{state}, #{stateDate} )
+	</insert>
+	
+	<insert id="insertDatosParking" parameterType="coop.tecso.donde.estaciono.model.Parking"> 
+		INSERT INTO parking (id, identification_code, name, address, id_locality, total_places, state, state_date) 
+		VALUES ( #{id}, #{identificationCode}, #{name}, #{address}, #{locality.id}, #{totalPlaces}, #{state}, #{stateDate} )
+	</insert>
+	
+	<insert id="insertDatosUserType" parameterType="coop.tecso.donde.estaciono.model.UserType"> 
+		INSERT INTO user_type (id, description) 
+		VALUES ( #{id}, #{description} )
+	</insert>
+
+	<insert id="insertDatosUser" parameterType="coop.tecso.donde.estaciono.model.User"> 
+		INSERT INTO user (id, id_parking, name, number_identification, id_user_type, phone, email, photo_file_name, state, state_date) 
+		VALUES ( #{id}, #{parking.id}, #{name}, #{numberIdentification}, #{userType.id}, #{phone}, #{email}, #{photoFileName}, #{state}, #{stateDate} )
+	</insert>
+
+	<insert id="insertDatosLogin" parameterType="coop.tecso.donde.estaciono.model.Login"> 
+		INSERT INTO login (id, id_parking, id_user, username, password, state, state_date) 
+		VALUES ( #{id}, #{parking.id}, #{userId}, #{userName}, #{password}, #{state}, #{stateDate} )
+	</insert>
+	
+</mapper>

@@ -9,9 +9,6 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.springframework.stereotype.Service;
 
-import coop.tecso.donde.estaciono.model.MobileHash;
-import coop.tecso.donde.estaciono.model.MobileRegister;
-import coop.tecso.donde.estaciono.model.ParkingHash;
 import coop.tecso.donde.estaciono.service.HashGeneratorService;
 
 /**
@@ -22,23 +19,23 @@ import coop.tecso.donde.estaciono.service.HashGeneratorService;
 @Service
 public class HashGeneratorServiceImpl implements HashGeneratorService {
 
-	@Override
-	public MobileHash generateMobileHash(MobileRegister mobileRegister) {
-
-		String input = mobileRegister.getNumber();
-		String hash = this.createHash(input);
-
-		MobileHash mobileHash = new MobileHash();
-		mobileHash.setHash(hash);
-
-		return mobileHash;
-	}
-
-	@Override
-	public ParkingHash generateParkingHas(ParkingHash parkingHash) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public MobileHash generateMobileHash(MobileRegister mobileRegister) {
+//
+//		String input = mobileRegister.getNumber();
+//		String hash = this.createHash(input);
+//
+//		MobileHash mobileHash = new MobileHash();
+//		mobileHash.setHash(hash);
+//
+//		return mobileHash;
+//	}
+//
+//	@Override
+//	public ParkingHash generateParkingHas(ParkingHash parkingHash) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	private String createHash(String input) {
 

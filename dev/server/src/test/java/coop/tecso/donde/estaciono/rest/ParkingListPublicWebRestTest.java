@@ -17,7 +17,8 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  */
 public class ParkingListPublicWebRestTest {
 
-	public void getAllParkings() {
+	public static void main(String...strings) {
+//	public void getAllParkings() {
 		
 		try {
 

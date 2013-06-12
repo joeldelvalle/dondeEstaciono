@@ -23,12 +23,20 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDao loginDao;
 
 	public Login authenticate(Login login) throws DondeEstacionoServerException {
-		String mehotd = "authenticate";
-		log.logStartMethod(mehotd);
+		String method = "authenticate";
+		log.logStartMethod(method);
 
-		Login loginAuthenticated = this.loginDao.authenticate(login);
+		Login loginAuthenticated = null;
+		try {
 
-		log.logEndMethod(mehotd);
+			loginAuthenticated = this.loginDao.authenticate(login);
+
+		} catch (Exception e) {
+			log.logError(method, "database error", e);
+			throw new DondeEstacionoServerException(e);
+		}
+
+		log.logEndMethod(method);
 		return loginAuthenticated;
 	}
 

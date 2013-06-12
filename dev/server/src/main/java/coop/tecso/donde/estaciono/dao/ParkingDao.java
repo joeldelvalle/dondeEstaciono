@@ -2,6 +2,7 @@ package coop.tecso.donde.estaciono.dao;
 
 import java.util.List;
 
+import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.model.Parking;
 
 /**
@@ -11,6 +12,6 @@ import coop.tecso.donde.estaciono.model.Parking;
  */
 public interface ParkingDao {
 
-	public List<Parking> findAllParking();
+	public List<Parking> findAllParking() throws DondeEstacionoServerException;
 
 }

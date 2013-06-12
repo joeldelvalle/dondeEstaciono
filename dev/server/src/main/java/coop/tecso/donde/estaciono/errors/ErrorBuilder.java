@@ -1,7 +1,7 @@
 package coop.tecso.donde.estaciono.errors;
 
+import coop.tecso.donde.estaciono.errors.model.Error;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
-import coop.tecso.donde.estaciono.model.Error;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**

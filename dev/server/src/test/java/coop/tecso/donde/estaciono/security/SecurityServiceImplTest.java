@@ -3,7 +3,6 @@ package coop.tecso.donde.estaciono.security;
 import org.junit.Assert;
 import org.junit.Test;
 
-import coop.tecso.donde.estaciono.model.Mac;
 import coop.tecso.donde.estaciono.service.SecurityService;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;
 

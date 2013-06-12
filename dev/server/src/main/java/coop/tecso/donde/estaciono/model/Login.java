@@ -1,33 +1,30 @@
 package coop.tecso.donde.estaciono.model;
 
-import org.bson.types.ObjectId;
-import org.codehaus.jackson.annotate.JsonIgnore;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import coop.tecso.donde.estaciono.model.common.State;
 
 /**
  * 
  * @author joel.delvalle
  * 
  */
-@Document
-public class Login {
+public class Login extends State {
 
-	@Id
-	private ObjectId id;
+	private Long id;
 
-	private String user;
+	private Parking parking;
+
+	private Long userId;
+
+	private String userName;
 
 	private String password;
 
-	private Long idUser;
-
-	public String getUser() {
-		return user;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getPassword() {
@@ -38,22 +35,28 @@ public class Login {
 		this.password = password;
 	}
 
-	@JsonIgnore
-	public Long getIdUser() {
-		return idUser;
+	public Parking getParking() {
+		return parking;
 	}
 
-	@JsonIgnore
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
+	public void setParking(Parking parking) {
+		this.parking = parking;
 	}
 
-	public ObjectId getId() {
-		return id;
+	public Long getUser() {
+		return userId;
 	}
 
-	public void setId(ObjectId id) {
-		this.id = id;
+	public void setUser(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	@Override

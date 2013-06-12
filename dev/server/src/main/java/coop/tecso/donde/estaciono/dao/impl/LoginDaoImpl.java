@@ -1,10 +1,11 @@
 package coop.tecso.donde.estaciono.dao.impl;
 
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.LoginDao;
-import coop.tecso.donde.estaciono.dao.generic.DaoGeneric;
+import coop.tecso.donde.estaciono.dao.queries.LoginQuery;
+import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
@@ -14,7 +15,8 @@ import coop.tecso.donde.estaciono.model.Login;
  * @author joel.delvalle
  * 
  */
-public class LoginDaoImpl extends DaoGeneric implements LoginDao {
+@Service
+public class LoginDaoImpl implements LoginDao {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
@@ -22,18 +24,23 @@ public class LoginDaoImpl extends DaoGeneric implements LoginDao {
 		String method = "authenticate";
 		log.logStartMethod(method);
 
-		Login updatedLogin = null;
+		Login authenticateLogin = null;
 		try {
-			updatedLogin = this.getMongoTemplate().findOne(
-					new Query(Criteria.where("user").is(login.getUser()).andOperator(Criteria.where("password").is(login.getPassword()))),
-					Login.class, "login");
+
+			SqlSession session = DatabaseConnection.getInstance().getSession();
+
+			LoginQuery query = session.getMapper(LoginQuery.class);
+
+			authenticateLogin = query.authenticateQuery(login);
+
+			session.close();
 
 		} catch (Exception e) {
 			throw new DondeEstacionoServerException(e);
 		}
 
 		log.logEndMethod(method);
-		return updatedLogin;
+		return authenticateLogin;
 	}
 
 }

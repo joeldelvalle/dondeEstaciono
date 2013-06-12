@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
-import coop.tecso.donde.estaciono.communication.model.web.LoginRequest;
+import coop.tecso.donde.estaciono.communication.model.LoginRequest;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;

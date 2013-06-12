@@ -1,72 +1,68 @@
 package coop.tecso.donde.estaciono.model;
 
-import java.util.Calendar;
-
-import org.bson.types.ObjectId;
-import org.codehaus.jackson.annotate.JsonIgnore;
+import coop.tecso.donde.estaciono.model.common.State;
 
 /**
  * 
  * @author joel.delvalle
  * 
  */
-public class Permission {
+public class Permission extends State {
 
-	private ObjectId id;
+	private Long id;
 
-	private String code;
+	private ServiceDES service;
+
+	private PermissionAction permissionAction;
+
+	private String identificationCode;
 
 	private String description;
 
-	private String state;
-
-	private Calendar stateDate;
-
-	@JsonIgnore
-	public ObjectId getId() {
+	public Long getId() {
 		return id;
 	}
 
-	@JsonIgnore
-	public void setId(ObjectId id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getCode() {
-		return code;
+	public ServiceDES getService() {
+		return service;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setService(ServiceDES service) {
+		this.service = service;
+	}
+
+	public PermissionAction getPermissionAction() {
+		return permissionAction;
+	}
+
+	public void setPermissionAction(PermissionAction permissionAction) {
+		this.permissionAction = permissionAction;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String descripcion) {
-		this.description = descripcion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getState() {
-		return state;
+	public String getIdentificationCode() {
+		return identificationCode;
 	}
 
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public Calendar getStateDate() {
-		return stateDate;
-	}
-
-	public void setStateDate(Calendar stateDate) {
-		this.stateDate = stateDate;
+	public void setIdentificationCode(String identificationCode) {
+		this.identificationCode = identificationCode;
 	}
 
 	@Override
 	public String toString() {
-		return "code: " + this.getCode() + "  -  description: " + this.getDescription() + "  -  state: " + this.getState();
+		return "description: " + this.getDescription() + "  -  service" + this.getService().toString() + "  -  permissionAcction: "
+				+ this.getPermissionAction().toString() + "  -  state: " + this.getState();
 	}
 
 	@Override
@@ -95,10 +91,6 @@ public class Permission {
 		int hashCode = 3;
 
 		hashCode = 7 * hashCode + this.getId().hashCode();
-
-		hashCode = 7 * hashCode + this.getCode().hashCode();
-
-		hashCode = 7 * hashCode + this.getDescription().hashCode();
 
 		return hashCode;
 

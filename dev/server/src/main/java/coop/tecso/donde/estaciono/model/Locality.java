@@ -1,38 +1,29 @@
 package coop.tecso.donde.estaciono.model;
 
-import java.util.Calendar;
-
-import org.bson.types.ObjectId;
 import org.codehaus.jackson.annotate.JsonIgnore;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import coop.tecso.donde.estaciono.model.common.State;
 
 /**
  * 
  * @author joel.delvalle
  * 
  */
-@Document
-public class Locality {
+public class Locality extends State {
 
-	@Id
-	private ObjectId id;
-
-	private String name;
+	private Long id;
 
 	private Province province;
 
-	private String state;
-
-	private Calendar stateDate;
+	private String name;
 
 	@JsonIgnore
-	public ObjectId getId() {
+	public Long getId() {
 		return id;
 	}
 
 	@JsonIgnore
-	public void setId(ObjectId id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -50,22 +41,6 @@ public class Locality {
 
 	public void setProvince(Province province) {
 		this.province = province;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public Calendar getStateDate() {
-		return stateDate;
-	}
-
-	public void setStateDate(Calendar stateDate) {
-		this.stateDate = stateDate;
 	}
 
 	@Override

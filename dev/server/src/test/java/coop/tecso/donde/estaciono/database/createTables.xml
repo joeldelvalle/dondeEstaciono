@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "org/apache/ibatis/builder/xml/mybatis-3-mapper.dtd">
+
+<mapper namespace="create">
+	
+	<update id="tableCountry">
+		create table COUNTRY (
+			ID  int  not null,
+			NAME  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_COUNTRY" primary key(ID)
+		)
+	</update>
+
+
+	<update id="tableProvince">
+		create table PROVINCE (
+			ID  int  not null,
+			ID_COUNTRY  int  not null,  
+			NAME  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_PROVINCE" primary key(ID),
+			constraint "FK_COUNTRY" foreign key (ID_COUNTRY) references COUNTRY(ID)
+		)
+	</update>
+
+	
+	<update id="tableLocality">
+		create table LOCALITY (
+			ID  bigint  not null,
+			ID_PROVINCE  int  not null,  
+			NAME  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_LOCALITY" primary key(ID),
+			constraint "FK_PROVINCE" foreign key (ID_PROVINCE) references PROVINCE(ID)
+		)
+	</update>
+
+
+	<update id="tableParking">
+		create table PARKING (
+			ID  bigint  not null,		
+			IDENTIFICATION_CODE  varchar(100)  not null,
+			NAME  varchar(50)  not null,
+			ADDRESS  varchar(150)  not null,
+			ID_LOCALITY  bigint  not null,
+			TOTAL_PLACES  int  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_PARKING" primary key(ID),
+			constraint "FK_LOCALITY" foreign key (ID_LOCALITY) references LOCALITY(ID)
+		)
+	</update>
+	
+	
+	<update id="tableCoordinate">
+		create table COORDINATE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			LOTITUDE  double  not null,
+			LONGITUDE  double  not null,
+			constraint "PK_COORDINATE" primary key(ID),
+			constraint "FK_COORD_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>
+	
+	
+	<update id="tablePhone">
+		create table PHONE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			DESCRIPTION  varchar(50),
+			NUMBER  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_PHONE" primary key(ID),
+			constraint "FK_PHONE_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>
+	
+	
+	<update id="tableEmail">
+		create table EMAIL (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			DESCRIPTION  varchar(50),
+			MAIL  varchar(100)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_EMAIL" primary key(ID),
+			constraint "FK_EMAIL_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>
+	
+	
+	<update id="tableService">
+		create table SERVICE (
+			ID  int  not null,		
+			DESCRIPTION  varchar(50)  not null,
+			IDENTIFICATION_CODE  varchar(3)  not null,
+			BILLED  boolean  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_SERVICE" primary key(ID)
+		)
+	</update>
+	
+	
+	
+	<update id="tableParkingService">
+		create table PARKING_SERVICE (
+			ID_PARKING  bigint  not null,
+			ID_SERVICE  int  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "FK_SELEC_PARK" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_SELEC_SERV" foreign key (ID_SERVICE) references SERVICE(ID)
+		)
+	</update>
+	
+	
+	<update id="tableVehicleType">
+		create table VEHICLE_TYPE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			DESCRIPTION  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_VEHICLETYPE" primary key(ID),
+			constraint "FK_VEHI_TYPE_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>
+	
+	
+	<update id="tableTimeType">
+		create table TIME_TYPE (
+			ID  int  not null,		
+			DESCRIPTION  varchar(50)  not null,
+			constraint "PK_TIMETYPE" primary key(ID)
+		)
+	</update>
+	
+	
+	<update id="tableFrequencyType">
+		create table FREQUENCY_TYPE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			DESCRIPTION  varchar(50)  not null,
+			TIPE  int  not null,		<!-- posibles valores: frecuencia/fijo -->
+			TIME  int  not null,		<!-- valor numerico del tiempo -->
+			ID_TIME_TYPE  int  not null,
+			PRIORITY  int  not null,
+			COMBINABLE_PREVIOUS_FREQ  boolean  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_FREQ_TYPE" primary key(ID),
+			constraint "FK_FREQ_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_FREQ_TIME" foreign key (ID_TIME_TYPE) references TIME_TYPE(ID)
+		)
+	</update>
+	
+	
+	<update id="tablePermissionAcction">  <!-- aca irian los valores VER | VER-EDITAR -->
+		create table PERMISSION_ACTION (
+			ID  int  not null,		
+			DESCRIPTION  varchar(15)  not null,
+			constraint "PK_PERM_ACTION" primary key(ID)
+		)
+	</update>
+	
+	
+	<update id="tablePermission">
+		create table PERMISSION (
+			ID  bigint  not null,		
+			ID_SERVICE  int  not null,
+			ID_ACTION  int  not null,
+			IDENTIFICATION_CODE  varchar(3)  not null,
+			DESCRIPTION  varchar(50)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_PERMISSION" primary key(ID),
+			constraint "FK_PERM_SERVICE" foreign key (ID_SERVICE) references SERVICE(ID),
+			constraint "FK_PERM_ACTION" foreign key (ID_ACTION) references PERMISSION_ACTION(ID)
+		)
+	</update>
+	
+	
+	<update id="tableUserType">
+		create table USER_TYPE (
+			ID  int  not null,		
+			DESCRIPTION  varchar(50)  not null,
+			constraint "PK_USER_TYPE" primary key(ID)
+		)
+	</update>
+	
+	
+	<update id="tableUser">
+		create table USER (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			NAME  varchar(100)  not null,
+			NUMBER_IDENTIFICATION  varchar(20)  not null,
+			ID_USER_TYPE  int  not null,
+			PHONE  varchar(50),
+			EMAIL  varchar(100),
+			PHOTO_FILE_NAME  varchar(100),
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_USER" primary key(ID),
+			constraint "FK_USER_TYPE" foreign key (ID_USER_TYPE) references USER_TYPE(ID)
+		)
+	</update>
+	
+	
+	<update id="tableLogin">
+		create table LOGIN (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			ID_USER  bigint  not null,
+			USERNAME  varchar(100)  not null,
+			PASSWORD  varchar(100)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_LOGIN" primary key(ID),
+			constraint "FK_LOGIN_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>	
+	
+	
+	<update id="tableUserPermission">
+		create table USER_PERMISSION (
+			ID  bigint  not null,		
+			ID_USER  bigint  not null,
+			ID_PERMISSION  bigint  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "PK_USER_PERM" primary key(ID),
+			constraint "FK_SELEC_US" foreign key (ID_USER) references USER(ID),
+			constraint "FK_SELEC_PERM" foreign key (ID_PERMISSION) references PERMISSION(ID)
+		)
+	</update>		
+	
+	
+	<update id="tableUserHash">
+		create table USER_HASH (
+			ID_USER  bigint  not null,
+			HASH  varchar(300)  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,			
+			constraint "FK_SELEC_US_HASH" foreign key (ID_USER) references USER(ID)
+		)
+	</update>		
+	
+	
+	<update id="tablePlaceAvailable">
+		create table PLACES_AVAILABLE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			FREE_PLACES  int  not null,
+			constraint "PK_PLACES" primary key(ID),
+			constraint "FK_PLACES_PARKING" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>		
+	
+	
+	<update id="tableParkingRates">
+		create table PARKING_RATES (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			ID_VEHICLE_TYPE  bigint  not null,
+			ID_FREQUENCY_TYPE  bigint  not null,
+			AMOUNT  double  not null,
+			constraint "PK_RATES" primary key(ID),
+			constraint "FK_RATES_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_RATES_VEHICLE" foreign key (ID_VEHICLE_TYPE) references VEHICLE_TYPE(ID),
+			constraint "FK_RATES_FREQ" foreign key (ID_FREQUENCY_TYPE) references FREQUENCY_TYPE(ID)
+		)
+	</update>		
+	
+	
+	<update id="tableParkedVehicle">
+		create table PARKED_VEHICLE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			PLACE_IDENTIFICATION  varchar(10),  <!-- aca pondriamos el numero del lugar asignado, en caso de que el estacionamiento maneje esta data -->
+			DESCRIPTION  varchar(50)  not null,  <!-- aca ponemos la patente o el nombre del dueño del auto -->
+			DATE  date  not null,
+			ID_VEHICLE_TYPE  bigint  not null,
+			ID_FREQUENCY_TYPE  bigint,
+			START_TIME  datetime  not null,
+			END_TIME  datetime,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_PARKED" primary key(ID),
+			constraint "FK_PARKED_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_PARKED_VEHICLE" foreign key (ID_VEHICLE_TYPE) references VEHICLE_TYPE(ID),
+			constraint "FK_PARKED_FREQ" foreign key (ID_FREQUENCY_TYPE) references FREQUENCY_TYPE(ID)
+		)
+	</update>	
+	
+	
+	<update id="tableMarketingType">
+		create table MARKETING_TYPE (
+			ID  int  not null,		
+			DESCRIPTION  varchar(30)  not null,
+			IS_OFFER  boolean  not null, <!-- aca ponemos si es una oferta o una publicidad/ si es oferta representa un cambio en el precio al momento de generar el ticket -->
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_MTK_TYPE" primary key(ID)
+		)
+	</update>	
+	
+	
+	<update id="tableMarketing">
+		create table MARKETING (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			ID_MARKETING_TYPE  int  not null,  
+			DATE  date  not null,
+			SUBJECT  varchar(60)  not null,
+			DESCRIPTION  varchar(250)  not null,
+			START  datetime  not null,
+			END  datetime not null,
+			DISCOUNT_PERCENTAGE  double,
+			REAL_TIME  boolean  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_MKT" primary key(ID),
+			constraint "FK_MTK_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_MTK_TYPE" foreign key (ID_MARKETING_TYPE) references MARKETING_TYPE(ID)
+		)
+	</update>	
+	
+	
+	<update id="tableTicket">
+		create table TICKET (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			ID_VEHICLE_TYPE  bigint  not null,
+			ID_FREQUENCY_TYPE  bigint  not null,
+			DATE  date  not null,
+			START_TIME  datetime  not null,
+			END_TIME  datetime not null,
+			VEHICLE_DESCRIPTION  varchar(50)  not null,
+			AMOUNT  double  not null,
+			ID_MARKETING  bigint,
+			DISCOUNT_AMOUNT  double,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_TKT" primary key(ID),
+			constraint "FK_TKT_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_TKT_VEHICLE" foreign key (ID_VEHICLE_TYPE) references VEHICLE_TYPE(ID),
+			constraint "FK_TKT_FREQ" foreign key (ID_FREQUENCY_TYPE) references FREQUENCY_TYPE(ID),
+			constraint "FK_TKT_MTK" foreign key (ID_MARKETING) references MARKETING(ID)
+		)
+	</update>		
+	
+	
+	<update id="tableCashFlowType">  <!-- los genericos que son:  INGRESO / EGRESO, esos irian sin tener id_parking asignado -->
+		create table CASH_FLOW_TYPE (
+			ID  bigint  not null,		
+			ID_PARKING  bigint,
+			DESCRIPTION  varchar(50)  not null,
+			IN_OUT  varchar(3)  not null,  <!-- aca debemos poner si el tipo de movimiento suma o resta en el estado de cuenta -->
+			DEFAULT_VEHICLE_OUTPUT  boolean  not null,  <!-- aca ponemos cual es el registro que vincula la salida del vehiculo del estacionamiento con el flujo de caja -->
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_CASH_TYPE" primary key(ID),
+			constraint "FK_CASH_T_PARK" foreign key (ID_PARKING) references PARKING(ID)
+		)
+	</update>	
+	
+	
+	<update id="tableCashFlow">
+		create table CASH_FLOW (
+			ID  bigint  not null,		
+			ID_PARKING  bigint  not null,
+			DATE  date  not null,
+			ID_CASH_FLOW_TYPE  bigint not null,
+			DESCRIPTION  varchar(50)  not null,
+			AMOUNT  double  not null,
+			STATE  varchar(2)  not null,
+			STATE_DATE  datetime  not null,
+			constraint "PK_CASH" primary key(ID),
+			constraint "FK_CASH_PARKING" foreign key (ID_PARKING) references PARKING(ID),
+			constraint "FK_CASH_TYPE" foreign key (ID_CASH_FLOW_TYPE) references CASH_FLOW_TYPE(ID)
+		)
+	</update>		
+	
+</mapper>
