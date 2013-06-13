@@ -9,6 +9,7 @@ import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Login;
+import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**
  * 
@@ -25,18 +26,26 @@ public class LoginDaoImpl implements LoginDao {
 		log.logStartMethod(method);
 
 		Login authenticateLogin = null;
+		SqlSession session = null;
+
 		try {
 
-			SqlSession session = DatabaseConnection.getInstance().getSession();
+			session = DatabaseConnection.getInstance().getSession();
 
 			LoginQuery query = session.getMapper(LoginQuery.class);
 
 			authenticateLogin = query.authenticateQuery(login);
 
-			session.close();
-
 		} catch (Exception e) {
+			log.logError(method, "error al autenticar usuario", e);
 			throw new DondeEstacionoServerException(e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
 		}
 
 		log.logEndMethod(method);
