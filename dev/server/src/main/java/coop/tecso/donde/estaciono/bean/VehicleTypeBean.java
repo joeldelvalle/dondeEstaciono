@@ -34,7 +34,7 @@ public class VehicleTypeBean implements GenericBean<VehicleType> {
 
 	@Override
 	public void saveValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		System.out.println("validoo");
+		this.vehicleTypeService.validate(vehicleType);
 	}
 
 	@Override

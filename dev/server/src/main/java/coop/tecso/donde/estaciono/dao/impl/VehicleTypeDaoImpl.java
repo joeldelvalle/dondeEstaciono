@@ -25,8 +25,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Override
-	public void save(VehicleType vehicleType)
-			throws DondeEstacionoServerException {
+	public void save(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "save";
 		log.logStartMethod(method);
 
@@ -84,8 +83,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		}
 
-		log.logInfo(method, "cantidad de vehicleType encontrados: "
-				+ vehicleTypeList.size());
+		log.logInfo(method, "cantidad de vehicleType encontrados: " + vehicleTypeList.size());
 		log.logEndMethod(method);
 
 		return vehicleTypeList;
@@ -95,6 +93,46 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	public List<VehicleType> findByParking(String identificationCode) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Boolean existsInDatabase(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "existsInDatabase";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		VehicleType vehicleTypeResult = null;
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			vehicleTypeResult = query.existsInDatabaseQuery(vehicleType);
+
+		} catch (Exception e) {
+			log.logError(method, "error al buscar vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		if (!DESUtils.isNull(vehicleTypeResult)) {
+			log.logInfo(method, "vehicleType exists in database");
+			log.logEndMethod(method);
+			return Boolean.TRUE;
+		}
+
+		log.logInfo(method, "vehicleType don't exists in database");
+		log.logEndMethod(method);
+		return Boolean.FALSE;
+
 	}
 
 }

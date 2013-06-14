@@ -12,4 +12,6 @@ public interface VehicleTypeService {
 
 	public void save(VehicleType vehicleType) throws DondeEstacionoServerException;
 
+	public void validate(VehicleType vehicleType) throws DondeEstacionoServerException;
+
 }

@@ -35,5 +35,15 @@ public interface VehicleTypeQuery extends GenericQuery {
 			@Result(property="parking", column="id_parking", javaType=Parking.class, one=@One(select = "findParkingById"))
 		})
 	public List<VehicleType> findAllQuery() throws Exception;
+
 	
+	
+	@Select("SELECT * " +
+			"FROM vehicle_type vt, parking k" +
+			"WHERE k.identification_code = '#{parking.identificationCode}'" +
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "'" +
+			"AND vt.id_parking = k.id " +
+			"AND vt.description = '#{description}' " +
+			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
+	public VehicleType existsInDatabaseQuery(VehicleType vehicleType) throws Exception;
 }
