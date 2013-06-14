@@ -54,7 +54,9 @@ public class ClassNameCache {
 		Reflections reflections = new Reflections(new ConfigurationBuilder().setScanners(new SubTypesScanner(false), new ResourcesScanner())
 				.setUrls(ClasspathHelper.forClassLoader(classLoadersList.toArray(new ClassLoader[0])))
 				.filterInputsBy(new FilterBuilder().include(FilterBuilder.prefix("coop.tecso.donde.estaciono.communication.model"))
-													.include(FilterBuilder.prefix("coop.tecso.donde.estaciono.model"))));
+												   .include(FilterBuilder.prefix("coop.tecso.donde.estaciono.model"))
+												   .include(FilterBuilder.prefix("coop.tecso.donde.estaciono.bean"))
+												   ));
 
 		Set<Class<? extends Object>> classes = reflections.getSubTypesOf(Object.class);
 

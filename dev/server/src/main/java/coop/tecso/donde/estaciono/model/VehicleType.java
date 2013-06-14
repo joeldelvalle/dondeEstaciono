@@ -1,6 +1,8 @@
 package coop.tecso.donde.estaciono.model;
 
 import coop.tecso.donde.estaciono.model.common.State;
+import coop.tecso.donde.estaciono.utils.DESConstants;
+import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
  * 
@@ -14,6 +16,18 @@ public class VehicleType extends State {
 	private Parking parking;
 
 	private String description;
+
+	public VehicleType() {
+		this.setState(DESConstants.Database.States.ENABLED);
+		this.setStateDate(DESTime.getToday().getTime());
+	}
+
+	public VehicleType(Parking parking, String description) {
+		this.parking = parking;
+		this.description = description;
+		this.setState(DESConstants.Database.States.ENABLED);
+		this.setStateDate(DESTime.getToday().getTime());
+	}
 
 	public Long getId() {
 		return id;

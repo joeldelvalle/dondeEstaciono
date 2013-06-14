@@ -1,5 +1,6 @@
 package coop.tecso.donde.estaciono.service;
 
+import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 
 /**
  * 
@@ -8,6 +9,6 @@ package coop.tecso.donde.estaciono.service;
  */
 public interface CommunicatorConverterService<RequestObject, ModelObject> {
 
-	public ModelObject convertToModelObject(RequestObject requestObject);
-	
+	public ModelObject convertToModelObject(RequestObject requestObject) throws DondeEstacionoServerException;
+
 }

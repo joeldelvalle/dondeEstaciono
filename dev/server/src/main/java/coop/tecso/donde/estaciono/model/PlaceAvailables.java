@@ -1,11 +1,13 @@
 package coop.tecso.donde.estaciono.model;
 
+import coop.tecso.donde.estaciono.model.common.GenericModel;
+
 /**
  * 
  * @author joel.delvalle
  * 
  */
-public class PlaceAvailables {
+public class PlaceAvailables extends GenericModel {
 
 	private Long id;
 

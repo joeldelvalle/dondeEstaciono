@@ -7,7 +7,7 @@ import java.util.Date;
  * @author joel.delvalle
  * 
  */
-public class State {
+public class State extends GenericModel {
 
 	private String state;
 

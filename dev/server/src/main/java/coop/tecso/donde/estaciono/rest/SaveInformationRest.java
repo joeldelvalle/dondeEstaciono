@@ -3,24 +3,21 @@ package coop.tecso.donde.estaciono.rest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import coop.tecso.donde.estaciono.bean.common.GenericBean;
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
-import coop.tecso.donde.estaciono.communication.model.LoginRequest;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
-import coop.tecso.donde.estaciono.model.Login;
-import coop.tecso.donde.estaciono.model.User;
+import coop.tecso.donde.estaciono.model.common.GenericModel;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
-import coop.tecso.donde.estaciono.service.CommunicatorConverterService;
-import coop.tecso.donde.estaciono.service.LoginService;
-import coop.tecso.donde.estaciono.service.UserService;
+import coop.tecso.donde.estaciono.spring.AppContextService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
@@ -28,30 +25,25 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  * @author joel.delvalle
  * 
- *         restful de autenticacion de usuarios
+ *         restful que se utiliza para grabar informacion proveniente de la web
+ *         y mobile
  * 
  */
 @Component
-@Path("/login")
-public class LoginAuthenticationRest extends SecureRest {
+@Path("/save")
+public class SaveInformationRest extends SecureRest {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	@Autowired
-	private UserService userService;
+	private AppContextService appContextService;
 
-	@Autowired
-	private LoginService loginService;
-
-	@Autowired
-	@Qualifier("communicatorLoginConverterService")
-	private CommunicatorConverterService<LoginRequest, Login> communicatorLoginConverterService;
-
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@POST
-	@Path("/authentication")
+	@Path("/{objectToSave}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String authentication(String json) {
-		String method = "authentication";
+	public String save(String json, @PathParam("objectToSave") String objectToSave) {
+		String method = "save";
 		log.logStartMethod(method);
 
 		DESResponse dondeEstacionoResponse = new DESResponse();
@@ -63,19 +55,17 @@ public class LoginAuthenticationRest extends SecureRest {
 
 			this.securityValidations(request);
 
-			Login login = this.communicatorLoginConverterService.convertToModelObject(request.getPayload(LoginRequest.class));
+			log.logInfo(method, "get bean");
+			GenericBean bean = this.appContextService.getCustomBean(this.createBeanName(objectToSave));
 
-			Login loginAuthenticated = this.loginService.authenticate(login);
-			if (!DESUtils.isNull(loginAuthenticated)) {
-				log.logInfo(method, "login OK =)");
-				User user = this.userService.findMockUser();
-				dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
-				dondeEstacionoResponse.setPayload(user);
-			} else {
-				log.logInfo(method, "login ERROR =(");
-				dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.ERROR);
-				dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError("loginInvalido"));
-			}
+			log.logInfo(method, "convert to model objetc");
+			GenericModel genericModel = bean.convertToModelObject(request);
+
+			log.logInfo(method, "start validations");
+			bean.saveValidation(genericModel);
+
+			log.logInfo(method, "start execution");
+			bean.saveExecute(genericModel);
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);
@@ -97,6 +87,14 @@ public class LoginAuthenticationRest extends SecureRest {
 		this.macValidation(request);
 
 		log.logEndMethod(method);
+	}
+
+	private String createBeanName(String objectToSave) {
+
+		StringBuilder beanName = new StringBuilder(objectToSave.replace("request", ""));
+		beanName.append("bean");
+
+		return beanName.toString();
 	}
 
 }

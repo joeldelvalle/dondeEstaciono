@@ -3,7 +3,7 @@ package coop.tecso.donde.estaciono.communication.model;
 /**
  * 
  * @author joel.delvalle
- *
+ * 
  */
 public class LoginRequest {
 

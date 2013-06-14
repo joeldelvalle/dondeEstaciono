@@ -1,17 +1,16 @@
 package coop.tecso.donde.estaciono.dao.impl;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.VehicleTypeDao;
 import coop.tecso.donde.estaciono.dao.queries.VehicleTypeQuery;
 import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
-import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.model.VehicleType;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
@@ -20,34 +19,14 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * @author joel.delvalle
  * 
  */
+@Service
 public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
-//	public static void main(String... strings) throws DondeEstacionoServerException {
-//		VehicleTypeDaoImpl vv = new VehicleTypeDaoImpl();
-//
-//		Parking pp = new Parking();
-//		pp.setId(1L);
-//
-////		VehicleType vehicleType = new VehicleType();
-////		vehicleType.setDescription("fsdfafdsaf");
-////		vehicleType.setParking(pp);
-////		vehicleType.setState("EN");
-////		vehicleType.setStateDate(Calendar.getInstance().getTime());
-////		
-////		vv.save(vehicleType);
-//		
-//		List<VehicleType> tt = vv.findAll();
-//		
-//		for (VehicleType vehicleType2 : tt) {
-//			System.out.println(vehicleType2.toString());
-//		}
-//		
-//	}
-
 	@Override
-	public void save(VehicleType vehicleType) throws DondeEstacionoServerException {
+	public void save(VehicleType vehicleType)
+			throws DondeEstacionoServerException {
 		String method = "save";
 		log.logStartMethod(method);
 
@@ -84,7 +63,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		SqlSession session = null;
 		List<VehicleType> vehicleTypeList = new ArrayList<VehicleType>();
-		
+
 		try {
 
 			session = DatabaseConnection.getInstance().getSession();
@@ -105,9 +84,10 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		}
 
-		log.logInfo(method, "cantidad de vehicleType encontrados: " + vehicleTypeList.size());
+		log.logInfo(method, "cantidad de vehicleType encontrados: "
+				+ vehicleTypeList.size());
 		log.logEndMethod(method);
-		
+
 		return vehicleTypeList;
 	}
 

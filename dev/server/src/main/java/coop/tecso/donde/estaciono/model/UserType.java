@@ -2,12 +2,14 @@ package coop.tecso.donde.estaciono.model;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import coop.tecso.donde.estaciono.model.common.GenericModel;
+
 /**
  * 
  * @author joel.delvalle
  * 
  */
-public class UserType {
+public class UserType extends GenericModel {
 
 	private Long id;
 

@@ -8,10 +8,12 @@ import coop.tecso.donde.estaciono.model.Parking;
 /**
  * 
  * @author joel.delvalle
- *
+ * 
  */
 public interface ParkingDao {
 
 	public List<Parking> findAllParking() throws DondeEstacionoServerException;
+
+	public Parking findByIdentificationCode(String identificationCode) throws DondeEstacionoServerException;
 
 }

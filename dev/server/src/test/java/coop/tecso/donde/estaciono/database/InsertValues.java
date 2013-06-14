@@ -40,7 +40,7 @@ public class InsertValues {
 		
 		System.out.println("*---- Insert Registros en Locality -----*");
 		session.insert("insert.insertDatoslocality", getLocality());
-		System.out.println("=====4=======================================");
+		System.out.println("============================================");
 		
 		System.out.println("*---- Insert Registros en Parking -----*");
 		session.insert("insert.insertDatosParking", getParking());

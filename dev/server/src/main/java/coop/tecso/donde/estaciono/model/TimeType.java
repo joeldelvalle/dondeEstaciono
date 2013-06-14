@@ -1,11 +1,13 @@
 package coop.tecso.donde.estaciono.model;
 
+import coop.tecso.donde.estaciono.model.common.GenericModel;
+
 /**
  * 
  * @author joel.delvalle
  * 
  */
-public class TimeType {
+public class TimeType extends GenericModel {
 
 	private Long id;
 

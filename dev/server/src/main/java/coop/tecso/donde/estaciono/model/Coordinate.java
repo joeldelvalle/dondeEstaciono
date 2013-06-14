@@ -2,7 +2,9 @@ package coop.tecso.donde.estaciono.model;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
-public class Coordinate {
+import coop.tecso.donde.estaciono.model.common.GenericModel;
+
+public class Coordinate extends GenericModel {
 
 	private Long id;
 

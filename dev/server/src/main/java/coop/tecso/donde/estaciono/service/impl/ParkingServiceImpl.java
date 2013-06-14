@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.ParkingDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
+import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Coordinate;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.service.ParkingService;
@@ -23,11 +24,14 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 @Service
 public class ParkingServiceImpl implements ParkingService {
 
+	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
+
 	@Autowired
 	private ParkingDao parkingDao;
 
 	@Override
 	public List<Parking> findAllParking() throws DondeEstacionoServerException {
+		log.logInfo("findAllParking", "findAllParking");
 		return this.parkingDao.findAllParking();
 	}
 

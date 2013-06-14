@@ -15,5 +15,13 @@
 
 	<!-- levanta los servicios dao -->
 	<context:component-scan base-package="coop.tecso.donde.estaciono.dao.impl"/>
+	
+	
+	<!-- levanta el servicio de acceso al contexto -->
+	<context:component-scan base-package="coop.tecso.donde.estaciono.spring"/>
+	
+	
+	<!-- levanta los beans de save - upload - delete -->
+	<context:component-scan base-package="coop.tecso.donde.estaciono.bean"/>
 
 </beans>

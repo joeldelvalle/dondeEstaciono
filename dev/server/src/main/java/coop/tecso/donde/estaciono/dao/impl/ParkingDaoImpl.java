@@ -45,9 +45,23 @@ public class ParkingDaoImpl implements ParkingDao {
 
 	}
 
+	@Override
+	public Parking findByIdentificationCode(String identificationCode) throws DondeEstacionoServerException {
+
+		for (Parking parking : this.parkingListCache) {
+
+			if (identificationCode.equals(parking.getIdentificationCode())) {
+				return parking;
+			}
+
+		}
+
+		throw new DondeEstacionoServerException("parking.idetification.code.not.found");
+	}
+
 	private Boolean isUpdateCaheParkingList() {
 
-		if (DESTime.calculateDifferenceBetweenTwoCalendars(this.lastUpdateCache, DESTime.getToday()) > 10) {
+		if (DESUtils.isNull(this.lastUpdateCache) || DESTime.calculateDifferenceBetweenTwoCalendars(this.lastUpdateCache, DESTime.getToday()) > 10) {
 			return Boolean.TRUE;
 		}
 
@@ -77,7 +91,7 @@ public class ParkingDaoImpl implements ParkingDao {
 
 		} catch (Exception e) {
 
-			throw new DondeEstacionoServerException(e);
+			throw new DondeEstacionoServerException("parking.find.database.error", e);
 
 		} finally {
 
