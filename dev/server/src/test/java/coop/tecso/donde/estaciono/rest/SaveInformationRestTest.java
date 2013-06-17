@@ -31,8 +31,8 @@ public class SaveInformationRestTest {
 			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/save/vehicletyperequest");
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
-			vehicleTypeRequest.setParkingIdentificationCode("");
-			vehicleTypeRequest.setDescription("Moto");
+			vehicleTypeRequest.setParkingIdentificationCode("OTT");
+			vehicleTypeRequest.setDescription("Auto");
 
 			
 			DESRequest request = new DESRequest();

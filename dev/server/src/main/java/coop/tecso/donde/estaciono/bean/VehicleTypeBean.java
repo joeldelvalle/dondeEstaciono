@@ -34,24 +34,23 @@ public class VehicleTypeBean implements GenericBean<VehicleType> {
 
 	@Override
 	public void saveValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		this.vehicleTypeService.validate(vehicleType);
+		this.vehicleTypeService.saveValidation(vehicleType);
 	}
 
 	@Override
-	public void saveExecute(VehicleType vehicleType) throws DondeEstacionoServerException {
+	public void saveExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
 		this.vehicleTypeService.save(vehicleType);
 	}
 
 	@Override
 	public void updateValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
+		this.vehicleTypeService.updateValidation(vehicleType);
 
 	}
 
 	@Override
-	public void updateExecute(VehicleType vehicleType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+	public void updateExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
+		this.vehicleTypeService.update(vehicleType);
 	}
 
 	@Override
@@ -61,7 +60,7 @@ public class VehicleTypeBean implements GenericBean<VehicleType> {
 	}
 
 	@Override
-	public void deleteExecute(VehicleType vehicleType) throws DondeEstacionoServerException {
+	public void deleteExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
 		// TODO Auto-generated method stub
 
 	}

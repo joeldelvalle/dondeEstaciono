@@ -41,8 +41,39 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 			session.commit();
 
 		} catch (Exception e) {
-			log.logError(method, "error al buscar vehicleType", e);
-			throw new DondeEstacionoServerException(e);
+			log.logError(method, "error to save vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logEndMethod(method);
+	}
+
+	@Override
+	public void update(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "update";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			query.updateQuery(vehicleType);
+
+			session.commit();
+
+		} catch (Exception e) {
+			log.logError(method, "error to update vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
 
 		} finally {
 
@@ -72,8 +103,8 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 			vehicleTypeList = query.findAllQuery();
 
 		} catch (Exception e) {
-			log.logError(method, "error al buscar vehicleType", e);
-			throw new DondeEstacionoServerException(e);
+			log.logError(method, "error to find all vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
 
 		} finally {
 
@@ -83,21 +114,15 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		}
 
-		log.logInfo(method, "cantidad de vehicleType encontrados: " + vehicleTypeList.size());
+		log.logInfo(method, "vehicleType size found: " + vehicleTypeList.size());
 		log.logEndMethod(method);
 
 		return vehicleTypeList;
 	}
 
 	@Override
-	public List<VehicleType> findByParking(String identificationCode) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean existsInDatabase(VehicleType vehicleType) throws DondeEstacionoServerException {
-		String method = "existsInDatabase";
+	public Boolean existsInDatabaseToSave(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "existsInDatabaseToSave";
 		log.logStartMethod(method);
 
 		SqlSession session = null;
@@ -109,10 +134,10 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
 
-			vehicleTypeResult = query.existsInDatabaseQuery(vehicleType);
+			vehicleTypeResult = query.existsInDatabaseToSaveQuery(vehicleType);
 
 		} catch (Exception e) {
-			log.logError(method, "error al buscar vehicleType", e);
+			log.logError(method, "error to validate vehicleType", e);
 			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
 
 		} finally {
@@ -133,6 +158,52 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 		log.logEndMethod(method);
 		return Boolean.FALSE;
 
+	}
+
+	@Override
+	public Boolean existsInDatabaseToUpdate(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "existsInDatabaseToUpdate";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		VehicleType vehicleTypeResult = null;
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			vehicleTypeResult = query.existsInDatabaseToUpdateQuery(vehicleType);
+
+		} catch (Exception e) {
+			log.logError(method, "error to validate vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		if (!DESUtils.isNull(vehicleTypeResult)) {
+			log.logInfo(method, "vehicleType exists in database");
+			log.logEndMethod(method);
+			return Boolean.TRUE;
+		}
+
+		log.logInfo(method, "vehicleType don't exists in database");
+		log.logEndMethod(method);
+		return Boolean.FALSE;
+
+	}
+
+	@Override
+	public List<VehicleType> findByParking(String identificationCode) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

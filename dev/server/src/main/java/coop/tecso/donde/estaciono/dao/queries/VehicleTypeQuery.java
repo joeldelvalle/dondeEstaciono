@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
 import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
@@ -39,11 +40,80 @@ public interface VehicleTypeQuery extends GenericQuery {
 	
 	
 	@Select("SELECT * " +
-			"FROM vehicle_type vt, parking k" +
-			"WHERE k.identification_code = '#{parking.identificationCode}'" +
-			"AND k.state = '" + DESConstants.Database.States.ENABLED + "'" +
+			"FROM vehicle_type vt, parking k " +
+			"WHERE k.identification_code = #{parking.identificationCode} " +
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " +
 			"AND vt.id_parking = k.id " +
-			"AND vt.description = '#{description}' " +
+			"AND vt.description = #{description} " +
 			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
-	public VehicleType existsInDatabaseQuery(VehicleType vehicleType) throws Exception;
+	public VehicleType existsInDatabaseToSaveQuery(VehicleType vehicleType) throws Exception;
+	
+	
+	
+	@Select("SELECT * " +
+			"FROM vehicle_type vt, parking k " +
+			"WHERE k.identification_code = #{parking.identificationCode} " +
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " +
+			"AND vt.id_parking = k.id " +
+			"AND vt.id = #{id} " +
+			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
+	public VehicleType existsInDatabaseToUpdateQuery(VehicleType vehicleType) throws Exception;
+
+
+	
+	@Update("UPDATE TABLE vehicle_type " +
+			"SET description = #{description} " +
+			"WHERE id = #{id}")
+	public void updateQuery(VehicleType vehicleType);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

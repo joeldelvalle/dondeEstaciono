@@ -65,8 +65,11 @@ public class SaveInformationRest extends SecureRest {
 			bean.saveValidation(genericModel);
 
 			log.logInfo(method, "start execution");
-			bean.saveExecute(genericModel);
+			bean.saveExecution(genericModel);
 
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload("Save OK");
+			
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);

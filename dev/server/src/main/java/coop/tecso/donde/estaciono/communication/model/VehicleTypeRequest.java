@@ -7,9 +7,19 @@ package coop.tecso.donde.estaciono.communication.model;
  */
 public class VehicleTypeRequest {
 
+	private Long id;
+
 	private String parkingIdentificationCode;
 
 	private String description;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getParkingIdentificationCode() {
 		return parkingIdentificationCode;

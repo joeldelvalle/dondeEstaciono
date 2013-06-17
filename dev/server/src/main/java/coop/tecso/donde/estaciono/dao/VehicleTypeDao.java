@@ -11,6 +11,8 @@ import coop.tecso.donde.estaciono.model.VehicleType;
  */
 public interface VehicleTypeDao extends GenericDao<VehicleType> {
 
-	public Boolean existsInDatabase(VehicleType vehicleType) throws DondeEstacionoServerException;
+	public Boolean existsInDatabaseToSave(VehicleType vehicleType) throws DondeEstacionoServerException;
+
+	public Boolean existsInDatabaseToUpdate(VehicleType vehicleType) throws DondeEstacionoServerException;
 
 }

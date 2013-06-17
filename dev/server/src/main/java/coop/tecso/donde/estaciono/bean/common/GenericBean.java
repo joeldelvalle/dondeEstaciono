@@ -15,14 +15,14 @@ public interface GenericBean<T extends GenericModel> {
 
 	public void saveValidation(T value) throws DondeEstacionoServerException;
 
-	public void saveExecute(T value) throws DondeEstacionoServerException;
+	public void saveExecution(T value) throws DondeEstacionoServerException;
 
 	public void updateValidation(T value) throws DondeEstacionoServerException;
 
-	public void updateExecute(T value) throws DondeEstacionoServerException;
+	public void updateExecution(T value) throws DondeEstacionoServerException;
 
 	public void deleteValidation(T value) throws DondeEstacionoServerException;
 
-	public void deleteExecute(T value) throws DondeEstacionoServerException;
+	public void deleteExecution(T value) throws DondeEstacionoServerException;
 
 }

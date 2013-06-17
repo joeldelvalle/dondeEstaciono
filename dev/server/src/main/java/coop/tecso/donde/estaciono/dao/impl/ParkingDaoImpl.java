@@ -34,21 +34,15 @@ public class ParkingDaoImpl implements ParkingDao {
 	public List<Parking> findAllParking() throws DondeEstacionoServerException {
 		String method = "findAllParking";
 		log.logStartMethod(method);
-
-		if (this.isUpdateCaheParkingList()) {
-			this.updateCache();
-		}
-
 		log.logEndMethod(method);
 
-		return this.parkingListCache;
-
+		return this.getParkingListCache();
 	}
 
 	@Override
 	public Parking findByIdentificationCode(String identificationCode) throws DondeEstacionoServerException {
 
-		for (Parking parking : this.parkingListCache) {
+		for (Parking parking : this.getParkingListCache()) {
 
 			if (identificationCode.equals(parking.getIdentificationCode())) {
 				return parking;
@@ -101,6 +95,15 @@ public class ParkingDaoImpl implements ParkingDao {
 
 		}
 
+	}
+
+	private List<Parking> getParkingListCache() throws DondeEstacionoServerException {
+
+		if (this.isUpdateCaheParkingList()) {
+			this.updateCache();
+		}
+
+		return this.parkingListCache;
 	}
 
 }

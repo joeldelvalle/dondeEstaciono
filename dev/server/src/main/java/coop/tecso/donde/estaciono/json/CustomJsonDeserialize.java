@@ -10,6 +10,7 @@ import org.codehaus.jackson.ObjectCodec;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
 
+import coop.tecso.donde.estaciono.cache.ClassNameCache;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**

@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import coop.tecso.donde.estaciono.bean.common.GenericBean;
-import coop.tecso.donde.estaciono.json.ClassNameCache;
+import coop.tecso.donde.estaciono.cache.ClassNameCache;
 
 /**
  * 

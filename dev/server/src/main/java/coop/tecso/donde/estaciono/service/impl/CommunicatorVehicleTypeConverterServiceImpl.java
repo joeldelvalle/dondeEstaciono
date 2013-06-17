@@ -30,7 +30,7 @@ public class CommunicatorVehicleTypeConverterServiceImpl implements Communicator
 
 		Parking parking = this.parkingDao.findByIdentificationCode(requestObject.getParkingIdentificationCode());
 
-		VehicleType vehicleType = new VehicleType(parking, requestObject.getDescription());
+		VehicleType vehicleType = new VehicleType(requestObject.getId(), parking, requestObject.getDescription());
 
 		log.logEndMethod("convertToModelObject");
 		return vehicleType;

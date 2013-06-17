@@ -13,6 +13,8 @@ public interface GenericDao<T> {
 
 	public void save(T value) throws DondeEstacionoServerException;
 
+	public void update(T value) throws DondeEstacionoServerException;
+
 	public List<T> findAll() throws DondeEstacionoServerException;
 
 	public List<T> findByParking(String identificationCode) throws DondeEstacionoServerException;

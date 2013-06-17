@@ -3,16 +3,21 @@ package coop.tecso.donde.estaciono.rest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import coop.tecso.donde.estaciono.bean.common.GenericBean;
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
+import coop.tecso.donde.estaciono.model.common.GenericModel;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
+import coop.tecso.donde.estaciono.spring.AppContextService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
@@ -20,25 +25,25 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  * @author joel.delvalle
  * 
- *         restful que se utiliza para actualizar cualquier objeto en la base de
- *         datos. Por ejemplo: Parking information
+ *         restful que se utiliza para grabar informacion proveniente de la web
+ *         y mobile
  * 
  */
 @Component
 @Path("/update")
 public class UpdateInformationRest extends SecureRest {
 
-	// posibilidad de cargar la informacion del EST, nombre, telefono, email,
-	// cantidad de
-	// lugares totales, precios y horarios
-
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
+	@Autowired
+	private AppContextService appContextService;
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@POST
-	@Path("/parking/information")
+	@Path("/{objectToSave}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String parkingInformation(String json) {
-		String method = "authentication";
+	public String update(String json, @PathParam("objectToSave") String objectToUpdate) {
+		String method = "save";
 		log.logStartMethod(method);
 
 		DESResponse dondeEstacionoResponse = new DESResponse();
@@ -50,9 +55,20 @@ public class UpdateInformationRest extends SecureRest {
 
 			this.securityValidations(request);
 
-			
-			// TODO: poner la conversion del objeto de comunicacion donde se evia la data de los mails para actualizar
-			
+			log.logInfo(method, "get bean");
+			GenericBean bean = this.appContextService.getCustomBean(this.createBeanName(objectToUpdate));
+
+			log.logInfo(method, "convert to model objetc");
+			GenericModel genericModel = bean.convertToModelObject(request);
+
+			log.logInfo(method, "start validations");
+			bean.updateValidation(genericModel);
+
+			log.logInfo(method, "start execution");
+			bean.updateExecution(genericModel);
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload("Update OK");
 			
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);
@@ -63,7 +79,7 @@ public class UpdateInformationRest extends SecureRest {
 		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
 
 		log.logEndMethod(method);
-		return null;
+		return jsonResponse;
 	}
 
 	private void securityValidations(DESRequest request) throws DondeEstacionoServerException {
@@ -75,4 +91,13 @@ public class UpdateInformationRest extends SecureRest {
 
 		log.logEndMethod(method);
 	}
+
+	private String createBeanName(String objectToSave) {
+
+		StringBuilder beanName = new StringBuilder(objectToSave.replace("request", ""));
+		beanName.append("bean");
+
+		return beanName.toString();
+	}
+
 }

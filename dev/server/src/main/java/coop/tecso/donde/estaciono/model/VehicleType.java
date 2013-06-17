@@ -22,7 +22,8 @@ public class VehicleType extends State {
 		this.setStateDate(DESTime.getToday().getTime());
 	}
 
-	public VehicleType(Parking parking, String description) {
+	public VehicleType(Long id, Parking parking, String description) {
+		this.id = id;
 		this.parking = parking;
 		this.description = description;
 		this.setState(DESConstants.Database.States.ENABLED);

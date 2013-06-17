@@ -35,5 +35,9 @@
 	<listener>
 		<listener-class>coop.tecso.donde.estaciono.logger.configuration.LoggerConfiguration</listener-class>
 	</listener>
+	
+	<listener>
+		<listener-class>coop.tecso.donde.estaciono.cache.configuration.CacheLoader</listener-class>
+	</listener>
 
 </web-app>

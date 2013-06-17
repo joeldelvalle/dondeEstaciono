@@ -1,4 +1,4 @@
-package coop.tecso.donde.estaciono.json;
+package coop.tecso.donde.estaciono.cache;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,8 +40,7 @@ public class ClassNameCache {
 	}
 
 	private ClassNameCache() {
-		this.classNameCache = new HashMap<String, Class<? extends Object>>();
-		loadClasses();
+		
 	}
 
 	private void loadClasses() {
@@ -77,6 +76,12 @@ public class ClassNameCache {
 		this.classNameCache.put("list", List.class);
 		this.classNameCache.put("hashmap", HashMap.class);
 		this.classNameCache.put("map", Map.class);
+		this.classNameCache.put("string", String.class);
+	}
+	
+	public void initialize() {
+		this.classNameCache = new HashMap<String, Class<? extends Object>>();
+		loadClasses();
 	}
 
 	public Class<? extends Object> getClassFromCache(String className) {
