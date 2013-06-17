@@ -1,5 +1,7 @@
 package coop.tecso.donde.estaciono.service;
 
+import java.util.List;
+
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.model.VehicleType;
 
@@ -17,5 +19,9 @@ public interface VehicleTypeService {
 	public void update(VehicleType vehicleType) throws DondeEstacionoServerException;
 
 	public void updateValidation(VehicleType vehicleType) throws DondeEstacionoServerException;
+
+	public List<VehicleType> findByParking(VehicleType vehicleType) throws DondeEstacionoServerException;
+
+	public void findByParkingValidation(VehicleType vehicleType) throws DondeEstacionoServerException;
 
 }

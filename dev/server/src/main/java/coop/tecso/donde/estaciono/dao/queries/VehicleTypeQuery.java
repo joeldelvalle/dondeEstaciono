@@ -24,96 +24,62 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
 @Component
 public interface VehicleTypeQuery extends GenericQuery {
 
-	@Insert("INSERT INTO vehicle_type VALUES (#{id}, #{parking.id}, #{description}, #{state}, #{stateDate})")
-	@SelectKey(statement="call identity()", keyProperty="id", before=false, resultType=long.class)
+	@Insert("INSERT INTO vehicle_type " +
+			"VALUES (#{id}, #{parking.id}, #{description}, #{state}, #{stateDate})")
+	@SelectKey(statement = "call identity()", keyProperty = "id", before = false, resultType = long.class)
 	public void saveQuery(VehicleType vehicleType) throws Exception;
 
 	
-	@Select("SELECT * " +
-			"FROM vehicle_type " +
+	
+	@Select("SELECT * " + 
+			"FROM vehicle_type " + 
 			"WHERE state ='" + DESConstants.Database.States.ENABLED + "'")
-	@Results(value = {
-			@Result(property="parking", column="id_parking", javaType=Parking.class, one=@One(select = "findParkingById"))
-		})
+	@Results(value = { 
+			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
+			}
+	)
 	public List<VehicleType> findAllQuery() throws Exception;
 
 	
 	
-	@Select("SELECT * " +
-			"FROM vehicle_type vt, parking k " +
-			"WHERE k.identification_code = #{parking.identificationCode} " +
-			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " +
-			"AND vt.id_parking = k.id " +
-			"AND vt.description = #{description} " +
+	@Select("SELECT * " + 
+			"FROM vehicle_type vt, parking k " + 
+			"WHERE k.identification_code = #{identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND vt.id_parking = k.id " + 
+			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
+	@Results(value = { 
+			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
+			}
+	)
+	public List<VehicleType> findByParkingQuery(String identificationCode) throws Exception;
+	
+	
+	@Select("SELECT * " + 
+			"FROM vehicle_type vt, parking k " + 
+			"WHERE k.identification_code = #{parking.identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND vt.id_parking = k.id " + 
+			"AND vt.description = #{description} " + 
 			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
 	public VehicleType existsInDatabaseToSaveQuery(VehicleType vehicleType) throws Exception;
+
 	
 	
-	
-	@Select("SELECT * " +
-			"FROM vehicle_type vt, parking k " +
-			"WHERE k.identification_code = #{parking.identificationCode} " +
-			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " +
-			"AND vt.id_parking = k.id " +
-			"AND vt.id = #{id} " +
+	@Select("SELECT * " + 
+			"FROM vehicle_type vt, parking k " + 
+			"WHERE k.identification_code = #{parking.identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND vt.id_parking = k.id " + 
+			"AND vt.id = #{id} " + 
 			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
 	public VehicleType existsInDatabaseToUpdateQuery(VehicleType vehicleType) throws Exception;
 
-
 	
-	@Update("UPDATE TABLE vehicle_type " +
-			"SET description = #{description} " +
+	
+	@Update("UPDATE TABLE vehicle_type " + 
+			"SET description = #{description} " + 
 			"WHERE id = #{id}")
 	public void updateQuery(VehicleType vehicleType);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

@@ -1,5 +1,7 @@
 package coop.tecso.donde.estaciono.rest;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -25,13 +27,13 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  * @author joel.delvalle
  * 
- *         restful que se utiliza para actualizar informacion proveniente de la
- *         web y mobile
+ *         restful que se utiliza para buscar informacion proveniente de la web
+ *         y mobile
  * 
  */
 @Component
-@Path("/update")
-public class UpdateInformationRest extends SecureRest {
+@Path("/find")
+public class FindInformationRest extends SecureRest {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
@@ -40,10 +42,10 @@ public class UpdateInformationRest extends SecureRest {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@POST
-	@Path("/{objectToUpdate}")
+	@Path("/byParking/{objectToFind}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String update(String json, @PathParam("objectToUpdate") String objectToUpdate) {
-		String method = "save";
+	public String findByParking(String json, @PathParam("objectToFind") String objectToFind) {
+		String method = "findByParking";
 		log.logStartMethod(method);
 
 		DESResponse dondeEstacionoResponse = new DESResponse();
@@ -56,19 +58,19 @@ public class UpdateInformationRest extends SecureRest {
 			this.securityValidations(request);
 
 			log.logInfo(method, "get bean");
-			GenericBean bean = this.appContextService.getCustomBean(this.createBeanName(objectToUpdate));
+			GenericBean bean = this.appContextService.getCustomBean(this.createBeanName(objectToFind));
 
 			log.logInfo(method, "convert to model objetc");
 			GenericModel genericModel = bean.convertToModelObject(request);
 
 			log.logInfo(method, "start validations");
-			bean.updateValidation(genericModel);
+			bean.findByParkingValidation(genericModel);
 
 			log.logInfo(method, "start execution");
-			bean.updateExecution(genericModel);
+			List resultList = bean.findByParkingExecution(genericModel);
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
-			dondeEstacionoResponse.setPayload("Update OK");
+			dondeEstacionoResponse.setPayload(resultList);
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);

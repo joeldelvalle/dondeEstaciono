@@ -121,6 +121,40 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	}
 
 	@Override
+	public List<VehicleType> findByParking(String identificationCode) throws DondeEstacionoServerException {
+		String method = "findAll";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		List<VehicleType> vehicleTypeList = new ArrayList<VehicleType>();
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			vehicleTypeList = query.findByParkingQuery(identificationCode);
+
+		} catch (Exception e) {
+			log.logError(method, "error to find all vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logInfo(method, "vehicleType size found: " + vehicleTypeList.size());
+		log.logEndMethod(method);
+
+		return vehicleTypeList;
+	}
+
+	@Override
 	public Boolean existsInDatabaseToSave(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "existsInDatabaseToSave";
 		log.logStartMethod(method);
@@ -198,12 +232,6 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 		log.logEndMethod(method);
 		return Boolean.FALSE;
 
-	}
-
-	@Override
-	public List<VehicleType> findByParking(String identificationCode) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

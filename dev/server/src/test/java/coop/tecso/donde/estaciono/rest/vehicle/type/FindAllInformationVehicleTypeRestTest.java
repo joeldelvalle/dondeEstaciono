@@ -1,4 +1,4 @@
-package coop.tecso.donde.estaciono.rest;
+package coop.tecso.donde.estaciono.rest.vehicle.type;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -16,7 +16,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  *         clase test de un cliente que se conecta al restful de save
  */
-public class SaveInformationRestTest {
+public class FindAllInformationVehicleTypeRestTest {
 
 	public static void main(String[] args) {
 
@@ -28,11 +28,10 @@ public class SaveInformationRestTest {
 
 			Client client = Client.create();
 
-			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/save/vehicletyperequest");
+			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/find/byParking/vehicletyperequest");
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
-			vehicleTypeRequest.setDescription("Auto");
 
 			
 			DESRequest request = new DESRequest();
