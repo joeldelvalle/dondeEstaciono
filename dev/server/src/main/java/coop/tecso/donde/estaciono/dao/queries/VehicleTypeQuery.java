@@ -77,7 +77,7 @@ public interface VehicleTypeQuery extends GenericQuery {
 
 	
 	
-	@Update("UPDATE TABLE vehicle_type " + 
+	@Update("UPDATE vehicle_type " + 
 			"SET description = #{description} " + 
 			"WHERE id = #{id}")
 	public void updateQuery(VehicleType vehicleType);
