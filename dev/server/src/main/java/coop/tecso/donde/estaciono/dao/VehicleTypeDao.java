@@ -13,6 +13,6 @@ public interface VehicleTypeDao extends GenericDao<VehicleType> {
 
 	public Boolean existsInDatabaseToSave(VehicleType vehicleType) throws DondeEstacionoServerException;
 
-	public Boolean existsInDatabaseToUpdate(VehicleType vehicleType) throws DondeEstacionoServerException;
+	public Boolean existsInDatabaseToUpdateOrDelete(VehicleType vehicleType) throws DondeEstacionoServerException;
 
 }

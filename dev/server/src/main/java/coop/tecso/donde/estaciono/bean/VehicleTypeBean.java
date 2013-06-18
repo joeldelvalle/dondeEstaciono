@@ -57,14 +57,12 @@ public class VehicleTypeBean implements GenericBean<VehicleType> {
 
 	@Override
 	public void deleteValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+		this.vehicleTypeService.deleteValidation(vehicleType);
 	}
 
 	@Override
 	public void deleteExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+		this.vehicleTypeService.delete(vehicleType);
 	}
 
 	@Override

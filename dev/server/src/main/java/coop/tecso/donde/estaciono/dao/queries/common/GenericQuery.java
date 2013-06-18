@@ -11,7 +11,8 @@ public interface GenericQuery {
 	@Select("SELECT * FROM parking WHERE id = #{id}")
 	@Results(value = {
 			@Result(property="identificationCode", column="identification_code"),
-			@Result(property="totalPlaces", column="total_places")
+			@Result(property="totalPlaces", column="total_places"),
+			@Result(property="stateDate", column="state_date")
 		})
 	Parking findParkingById(Long id);
 	

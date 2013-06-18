@@ -87,6 +87,38 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	}
 
 	@Override
+	public void delete(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "delete";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			query.deleteQuery(vehicleType);
+
+			session.commit();
+
+		} catch (Exception e) {
+			log.logError(method, "error to update vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logEndMethod(method);
+
+	}
+
+	@Override
 	public List<VehicleType> findAll() throws DondeEstacionoServerException {
 		String method = "findAll";
 		log.logStartMethod(method);
@@ -195,7 +227,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	}
 
 	@Override
-	public Boolean existsInDatabaseToUpdate(VehicleType vehicleType) throws DondeEstacionoServerException {
+	public Boolean existsInDatabaseToUpdateOrDelete(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "existsInDatabaseToUpdate";
 		log.logStartMethod(method);
 

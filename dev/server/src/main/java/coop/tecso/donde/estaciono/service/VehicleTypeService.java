@@ -24,4 +24,8 @@ public interface VehicleTypeService {
 
 	public void findByParkingValidation(VehicleType vehicleType) throws DondeEstacionoServerException;
 
+	public void delete(VehicleType vehicleType) throws DondeEstacionoServerException;
+
+	public void deleteValidation(VehicleType vehicleType) throws DondeEstacionoServerException;
+
 }

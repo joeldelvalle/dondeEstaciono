@@ -11,6 +11,7 @@ import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.VehicleType;
 import coop.tecso.donde.estaciono.service.VehicleTypeService;
+import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
@@ -57,6 +58,20 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 	}
 
 	@Override
+	public void delete(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "delete";
+		log.logStartMethod(method);
+
+		// se setea el estado y la fecha de estado
+		vehicleType.setState(DESConstants.Database.States.DISABLED);
+		vehicleType.setStateDate(DESTime.getToday().getTime());
+
+		this.vehicleTypeDao.delete(vehicleType);
+
+		log.logEndMethod(method);
+	}
+
+	@Override
 	public List<VehicleType> findByParking(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "findfindByParking";
 		log.logStartMethod(method);
@@ -70,7 +85,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 
 	@Override
 	public void saveValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		String method = "validate";
+		String method = "saveValidation";
 		log.logStartMethod(method);
 
 		Boolean exists = this.vehicleTypeDao.existsInDatabaseToSave(vehicleType);
@@ -86,10 +101,10 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 
 	@Override
 	public void updateValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
-		String method = "validate";
+		String method = "updateValidation";
 		log.logStartMethod(method);
 
-		Boolean exists = this.vehicleTypeDao.existsInDatabaseToUpdate(vehicleType);
+		Boolean exists = this.vehicleTypeDao.existsInDatabaseToUpdateOrDelete(vehicleType);
 
 		if (!exists) {
 			log.logError(method, "vehicleType does not exists in database - vehicleType: " + vehicleType.toString());
@@ -106,6 +121,22 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 		log.logStartMethod(method);
 
 		this.parkingDao.findByIdentificationCode(vehicleType.getParking().getIdentificationCode());
+
+		log.logEndMethod(method);
+
+	}
+
+	@Override
+	public void deleteValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "deleteValidation";
+		log.logStartMethod(method);
+
+		Boolean exists = this.vehicleTypeDao.existsInDatabaseToUpdateOrDelete(vehicleType);
+
+		if (!exists) {
+			log.logError(method, "vehicleType does not exists in database - vehicleType: " + vehicleType.toString());
+			throw new DondeEstacionoServerException("vehicle.type.not.exists");
+		}
 
 		log.logEndMethod(method);
 
