@@ -34,7 +34,8 @@ public interface VehicleTypeQuery extends GenericQuery {
 	@Select("SELECT * " + 
 			"FROM vehicle_type " + 
 			"WHERE state ='" + DESConstants.Database.States.ENABLED + "'")
-	@Results(value = { 
+	@Results(value = {
+			@Result(property="stateDate", column="state_date"),
 			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
 			}
 	)
@@ -48,7 +49,8 @@ public interface VehicleTypeQuery extends GenericQuery {
 			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
 			"AND vt.id_parking = k.id " + 
 			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
-	@Results(value = { 
+	@Results(value = {
+			@Result(property="stateDate", column="state_date"),
 			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
 			}
 	)

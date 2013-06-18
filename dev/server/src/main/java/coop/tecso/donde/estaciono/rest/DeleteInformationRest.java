@@ -68,7 +68,7 @@ public class DeleteInformationRest extends SecureRest {
 			bean.deleteExecution(genericModel);
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
-			dondeEstacionoResponse.setPayload("Update OK");
+			dondeEstacionoResponse.setPayload("Delete OK");
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);

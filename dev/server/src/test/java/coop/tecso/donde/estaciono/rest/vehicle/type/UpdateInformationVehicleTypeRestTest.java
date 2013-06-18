@@ -33,7 +33,7 @@ public class UpdateInformationVehicleTypeRestTest {
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
 			vehicleTypeRequest.setId(1L);
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
-			vehicleTypeRequest.setDescription("Automovil");
+			vehicleTypeRequest.setDescription("Auto");
 
 			
 			DESRequest request = new DESRequest();

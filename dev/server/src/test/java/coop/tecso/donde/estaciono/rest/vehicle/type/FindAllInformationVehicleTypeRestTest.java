@@ -4,7 +4,6 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
-import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.communication.model.VehicleTypeRequest;
 import coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;
@@ -54,9 +53,9 @@ public class FindAllInformationVehicleTypeRestTest {
 
 			
 
-			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
+//			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
 			
-			System.out.println(resp.toString());
+//			System.out.println(resp.toString());
 
 		} catch (Exception e) {
 
