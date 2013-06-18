@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
-import coop.tecso.donde.estaciono.model.Parking;
+import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 
 /**
@@ -16,15 +16,13 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
  *
  */
 @Component
-public interface ParkingQuery {
+public interface CountryQuery {
 
 	@Select("SELECT * " +
-			"FROM parking " +
+			"FROM country " +
 			"WHERE state = '" + DESConstants.Database.States.ENABLED + "'")
 	@Results(value = {
-			@Result(property="identificationCode", column="identification_code"),
-			@Result(property="totalPlaces", column="total_places"),
 			@Result(property="stateDate", column="state_date")
 		})
-	public List<Parking> findAllQuery() throws Exception;
+	public List<Country> findAllQuery() throws Exception;
 }
