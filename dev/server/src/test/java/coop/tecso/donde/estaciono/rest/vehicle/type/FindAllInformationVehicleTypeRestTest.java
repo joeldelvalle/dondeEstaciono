@@ -31,17 +31,21 @@ public class FindAllInformationVehicleTypeRestTest {
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
-
+			
 			
 			DESRequest request = new DESRequest();
 			request.setUserHash("HASH-PUBLIC-WEB");
 			request.setPayload(vehicleTypeRequest);
 			request.setMac(ss.buildMac(DESUtils.convertObjectToJson(vehicleTypeRequest)));
+			
+			
 
 			String requestJson = DESUtils.convertObjectToJson(request);
 			System.out.println("request json  " + requestJson);
 			
-			String ppp = pp.encrypt(requestJson);
+			String test = "{\"userHash\":\"HASH-PUBLIC-WEB\",\"mac\":\"3433316289153921\",\"payload\":{\"vehicletyperequest\":{\"parkingIdentificationCode\":\"OTT\"}}}";
+//			String ppp = pp.encrypt(requestJson);
+			String ppp = pp.encrypt(test);
 			System.out.println("request json encrypted  " + ppp);
 			
 			String response = webResource.type("application/json").post(String.class, ppp);

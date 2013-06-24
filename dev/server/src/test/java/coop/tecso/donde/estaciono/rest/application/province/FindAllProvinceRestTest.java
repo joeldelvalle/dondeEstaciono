@@ -1,4 +1,4 @@
-package coop.tecso.donde.estaciono.rest.application.country;
+package coop.tecso.donde.estaciono.rest.application.province;
 
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
@@ -14,7 +14,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  *         clase test de un cliente que se conecta al restful de find countries
  */
-public class FindAllCountryRestTest {
+public class FindAllProvinceRestTest {
 
 	public static void main(String[] args) {
 
@@ -26,7 +26,7 @@ public class FindAllCountryRestTest {
 
 			Client client = Client.create();
 
-			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/application/list/country/all");
+			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/application/list/province/all");
 
 			
 			DESRequest request = new DESRequest();

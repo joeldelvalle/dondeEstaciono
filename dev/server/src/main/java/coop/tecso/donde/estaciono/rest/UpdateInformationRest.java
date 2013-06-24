@@ -68,7 +68,6 @@ public class UpdateInformationRest extends SecureRest {
 			bean.updateExecution(genericModel);
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
-			dondeEstacionoResponse.setPayload("Update OK");
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);

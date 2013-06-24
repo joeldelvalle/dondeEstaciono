@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 
+import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Parking;
 
 public interface GenericQuery {
@@ -15,5 +16,14 @@ public interface GenericQuery {
 			@Result(property="stateDate", column="state_date")
 		})
 	Parking findParkingById(Long id);
+	
+	
+	
+	@Select("SELECT * FROM province WHERE id = #{id}")
+	@Results(value = {
+			@Result(property="stateDate", column="state_date")
+		})
+	Country findCountryById(Long id);
+	
 	
 }

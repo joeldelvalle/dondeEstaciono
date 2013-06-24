@@ -1,6 +1,8 @@
 package coop.tecso.donde.estaciono.json;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.List;
 
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonProcessingException;
@@ -16,12 +18,27 @@ public class CustomJsonSerializer extends JsonSerializer<Object> {
 
 	public void serialize(Object value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
 
- 		jgen.writeStartObject();
+		jgen.writeStartObject();
 
-		jgen.writeObjectField(value.getClass().getSimpleName().toLowerCase(), value);
+		jgen.writeObjectField(this.createClassName(value), value);
 
 		jgen.writeEndObject();
 
 	}
-	
+
+	@SuppressWarnings("rawtypes")
+	private String createClassName(Object value) {
+
+		if (Collection.class.isAssignableFrom(value.getClass())) {
+
+			List list = (List) value;
+			if (list.size() > 0) {
+				return list.get(0).getClass().getSimpleName().toLowerCase() + "list";
+			}
+
+		}
+
+		return value.getClass().getSimpleName().toLowerCase();
+	}
+
 }
