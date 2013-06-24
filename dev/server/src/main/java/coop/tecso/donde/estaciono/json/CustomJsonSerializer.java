@@ -35,6 +35,8 @@ public class CustomJsonSerializer extends JsonSerializer<Object> {
 			if (list.size() > 0) {
 				return list.get(0).getClass().getSimpleName().toLowerCase() + "list";
 			}
+			
+			return "emptylist";
 
 		}
 
