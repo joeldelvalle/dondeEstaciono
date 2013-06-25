@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.CountryDao;
+import coop.tecso.donde.estaciono.dao.LocalityDao;
 import coop.tecso.donde.estaciono.dao.ProvinceDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Country;
+import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
 import coop.tecso.donde.estaciono.service.ApplicationService;
 
@@ -29,6 +31,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Autowired
 	private ProvinceDao provinceDao;
+
+	@Autowired
+	private LocalityDao localityDao;
 
 	@Override
 	public List<Country> getCountryList() throws DondeEstacionoServerException {
@@ -69,6 +74,32 @@ public class ApplicationServiceImpl implements ApplicationService {
 		log.logInfo(method, "province list size: " + provinceList.size());
 		log.logEndMethod(method);
 		return provinceList;
+	}
+
+	@Override
+	public List<Locality> getLocalityList() throws DondeEstacionoServerException {
+		String method = "getLocalityList";
+		log.logStartMethod(method);
+
+		List<Locality> provinceList = new ArrayList<Locality>();
+
+		provinceList.addAll(this.localityDao.findAll());
+
+		log.logInfo(method, "locality list size: " + provinceList.size());
+		log.logEndMethod(method);
+		return provinceList;
+	}
+
+	@Override
+	public List<Locality> getLocalityListByProvince(Integer provinceId) throws DondeEstacionoServerException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Locality> getLocalityListByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

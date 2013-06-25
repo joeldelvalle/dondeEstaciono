@@ -17,6 +17,7 @@ import coop.tecso.donde.estaciono.errors.ErrorBuilder;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Country;
+import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
 import coop.tecso.donde.estaciono.service.ApplicationService;
@@ -124,6 +125,39 @@ public class ApplicationInformationRest extends SecureRest {
 			this.validateCountryId(countryId);
 
 			List<Province> provinceList = this.applicationService.getProvinceListByCountry(Integer.valueOf(countryId));
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload(provinceList);
+
+		} catch (DondeEstacionoServerException e) {
+			log.logError(method, "ERROR FALTAL", e);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
+		}
+
+		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
+
+		log.logEndMethod(method);
+		return jsonResponse;
+	}
+	
+	@POST
+	@Path("/list/locality/all")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String findLocalities(String json) {
+		String method = "findLocalities";
+		log.logStartMethod(method);
+
+		DESResponse dondeEstacionoResponse = new DESResponse();
+
+		DESRequest request = null;
+		try {
+
+			request = DESUtils.convertJsonToObject(json, DESRequest.class);
+
+			this.securityValidations(request);
+
+			List<Locality> provinceList = this.applicationService.getLocalityList();
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
 			dondeEstacionoResponse.setPayload(provinceList);
