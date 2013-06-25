@@ -24,6 +24,6 @@ public interface ApplicationService {
 
 	public List<Locality> getLocalityListByProvince(Integer provinceId) throws DondeEstacionoServerException;;
 
-	public List<Locality> getLocalityListByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException;;
+	public List<Locality> getLocalityListByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException;
 
 }

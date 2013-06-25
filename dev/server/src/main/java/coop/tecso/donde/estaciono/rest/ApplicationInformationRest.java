@@ -140,7 +140,7 @@ public class ApplicationInformationRest extends SecureRest {
 		log.logEndMethod(method);
 		return jsonResponse;
 	}
-	
+
 	@POST
 	@Path("/list/locality/all")
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -158,6 +158,39 @@ public class ApplicationInformationRest extends SecureRest {
 			this.securityValidations(request);
 
 			List<Locality> provinceList = this.applicationService.getLocalityList();
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload(provinceList);
+
+		} catch (DondeEstacionoServerException e) {
+			log.logError(method, "ERROR FALTAL", e);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
+		}
+
+		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
+
+		log.logEndMethod(method);
+		return jsonResponse;
+	}
+
+	@POST
+	@Path("/list/locality/{provinceId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String findLocalitiesByProvince(String json, @PathParam("provinceId") String provinceId) {
+		String method = "findLocalitiesByProvince";
+		log.logStartMethod(method);
+
+		DESResponse dondeEstacionoResponse = new DESResponse();
+
+		DESRequest request = null;
+		try {
+
+			request = DESUtils.convertJsonToObject(json, DESRequest.class);
+
+			this.securityValidations(request);
+
+			List<Locality> provinceList = this.applicationService.getLocalityListByProvince(Integer.valueOf(provinceId));
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
 			dondeEstacionoResponse.setPayload(provinceList);

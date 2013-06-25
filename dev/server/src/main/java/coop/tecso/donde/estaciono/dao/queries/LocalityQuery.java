@@ -30,4 +30,16 @@ public interface LocalityQuery extends GenericQuery {
 		})
 	public List<Locality> findAllQuery() throws Exception;
 
+	
+	
+	@Select("SELECT * " +
+			"FROM locality " +
+			"WHERE id_province = #{provinceId} " +
+			"AND state = '" + DESConstants.Database.States.ENABLED + "'")
+	@Results(value = {
+			@Result(property = "province", column = "id_province", javaType = Province.class, one = @One(select = "findProvinceById")),
+			@Result(property="stateDate", column="state_date")
+		})
+	public List<Locality> findByProvinceQuery(Integer provinceId);
+
 }

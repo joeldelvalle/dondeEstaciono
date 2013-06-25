@@ -57,4 +57,37 @@ public class LocalityDaoImpl implements LocalityDao {
 		return localityList;
 	}
 
+	@Override
+	public List<Locality> findByProvince(Integer provinceId) throws DondeEstacionoServerException {
+		String method = "findByProvince";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		List<Locality> localityList = new ArrayList<Locality>();
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			LocalityQuery query = session.getMapper(LocalityQuery.class);
+
+			localityList.addAll(query.findByProvinceQuery(provinceId));
+
+		} catch (Exception e) {
+			log.logError(method, "error to find localities", e);
+			throw new DondeEstacionoServerException("locality.database.error", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logInfo(method, "localityList size: " + localityList.size());
+		log.logEndMethod(method);
+		return localityList;
+	}
+
 }

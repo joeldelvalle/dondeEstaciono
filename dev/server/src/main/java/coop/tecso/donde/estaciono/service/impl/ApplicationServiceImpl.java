@@ -81,19 +81,27 @@ public class ApplicationServiceImpl implements ApplicationService {
 		String method = "getLocalityList";
 		log.logStartMethod(method);
 
-		List<Locality> provinceList = new ArrayList<Locality>();
+		List<Locality> localityList = new ArrayList<Locality>();
 
-		provinceList.addAll(this.localityDao.findAll());
+		localityList.addAll(this.localityDao.findAll());
 
-		log.logInfo(method, "locality list size: " + provinceList.size());
+		log.logInfo(method, "locality list size: " + localityList.size());
 		log.logEndMethod(method);
-		return provinceList;
+		return localityList;
 	}
 
 	@Override
 	public List<Locality> getLocalityListByProvince(Integer provinceId) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-		return null;
+		String method = "getLocalityListByProvince";
+		log.logStartMethod(method);
+
+		List<Locality> localityList = new ArrayList<Locality>();
+
+		localityList.addAll(this.localityDao.findByProvince(provinceId));
+
+		log.logInfo(method, "locality list size: " + localityList.size());
+		log.logEndMethod(method);
+		return localityList;
 	}
 
 	@Override

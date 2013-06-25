@@ -12,6 +12,8 @@ import coop.tecso.donde.estaciono.model.Locality;
  */
 public interface LocalityDao {
 
-	List<Locality> findAll() throws DondeEstacionoServerException;
+	public List<Locality> findAll() throws DondeEstacionoServerException;
+
+	public List<Locality> findByProvince(Integer provinceId) throws DondeEstacionoServerException;
 
 }
