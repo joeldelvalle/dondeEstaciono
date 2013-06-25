@@ -189,8 +189,45 @@ public class ApplicationInformationRest extends SecureRest {
 			request = DESUtils.convertJsonToObject(json, DESRequest.class);
 
 			this.securityValidations(request);
+			this.validateProvinceId(provinceId);
 
 			List<Locality> provinceList = this.applicationService.getLocalityListByProvince(Integer.valueOf(provinceId));
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload(provinceList);
+
+		} catch (DondeEstacionoServerException e) {
+			log.logError(method, "ERROR FALTAL", e);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
+		}
+
+		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
+
+		log.logEndMethod(method);
+		return jsonResponse;
+	}
+
+	@POST
+	@Path("/list/locality/{countryId}/{provinceId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String findLocalitiesByCountryByProvince(String json, @PathParam("countryId") String countryId, @PathParam("provinceId") String provinceId) {
+		String method = "findLocalitiesByProvince";
+		log.logStartMethod(method);
+
+		DESResponse dondeEstacionoResponse = new DESResponse();
+
+		DESRequest request = null;
+		try {
+
+			request = DESUtils.convertJsonToObject(json, DESRequest.class);
+
+			this.securityValidations(request);
+			this.validateCountryId(countryId);
+			this.validateProvinceId(provinceId);
+
+			List<Locality> provinceList = this.applicationService.getLocalityListByProvinceByCountry(Integer.valueOf(provinceId),
+					Integer.valueOf(countryId));
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
 			dondeEstacionoResponse.setPayload(provinceList);
@@ -212,6 +249,14 @@ public class ApplicationInformationRest extends SecureRest {
 			Integer.valueOf(countryId);
 		} catch (NumberFormatException e) {
 			new DondeEstacionoServerException("application.list.countryId.numeric");
+		}
+	}
+
+	private void validateProvinceId(String provinceId) throws DondeEstacionoServerException {
+		try {
+			Integer.valueOf(provinceId);
+		} catch (NumberFormatException e) {
+			new DondeEstacionoServerException("application.list.provinceId.numeric");
 		}
 	}
 

@@ -16,4 +16,6 @@ public interface LocalityDao {
 
 	public List<Locality> findByProvince(Integer provinceId) throws DondeEstacionoServerException;
 
+	public List<Locality> findByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException;
+
 }

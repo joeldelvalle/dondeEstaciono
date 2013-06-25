@@ -106,8 +106,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Override
 	public List<Locality> getLocalityListByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-		return null;
+		String method = "getLocalityListByProvinceByCountry";
+		log.logStartMethod(method);
+
+		List<Locality> localityList = new ArrayList<Locality>();
+
+		localityList.addAll(this.localityDao.findByProvinceByCountry(provinceId, countryId));
+
+		log.logInfo(method, "locality list size: " + localityList.size());
+		log.logEndMethod(method);
+		return localityList;
 	}
 
 }
