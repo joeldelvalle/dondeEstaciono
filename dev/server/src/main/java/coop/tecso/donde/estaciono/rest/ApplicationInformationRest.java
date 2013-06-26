@@ -19,6 +19,7 @@ import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
+import coop.tecso.donde.estaciono.model.TimeType;
 import coop.tecso.donde.estaciono.rest.security.SecureRest;
 import coop.tecso.donde.estaciono.service.ApplicationService;
 import coop.tecso.donde.estaciono.utils.DESConstants;
@@ -231,6 +232,39 @@ public class ApplicationInformationRest extends SecureRest {
 
 			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
 			dondeEstacionoResponse.setPayload(provinceList);
+
+		} catch (DondeEstacionoServerException e) {
+			log.logError(method, "ERROR FALTAL", e);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
+		}
+
+		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
+
+		log.logEndMethod(method);
+		return jsonResponse;
+	}
+	
+	@POST
+	@Path("/list/timeType/all")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String findTimeType(String json) {
+		String method = "findTimeType";
+		log.logStartMethod(method);
+
+		DESResponse dondeEstacionoResponse = new DESResponse();
+
+		DESRequest request = null;
+		try {
+
+			request = DESUtils.convertJsonToObject(json, DESRequest.class);
+
+			this.securityValidations(request);
+
+			List<TimeType> timeTypeList = this.applicationService.getTimeTypeList();
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload(timeTypeList);
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);

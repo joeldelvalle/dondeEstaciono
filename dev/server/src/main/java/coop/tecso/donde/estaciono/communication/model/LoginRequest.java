@@ -1,10 +1,13 @@
 package coop.tecso.donde.estaciono.communication.model;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 /**
  * 
  * @author joel.delvalle
  * 
  */
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL) 
 public class LoginRequest {
 
 	private String user;

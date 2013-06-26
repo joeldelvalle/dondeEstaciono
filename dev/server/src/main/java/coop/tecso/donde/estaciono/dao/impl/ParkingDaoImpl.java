@@ -1,20 +1,17 @@
 package coop.tecso.donde.estaciono.dao.impl;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 import coop.tecso.donde.estaciono.dao.ParkingDao;
+import coop.tecso.donde.estaciono.dao.common.HaveCache;
 import coop.tecso.donde.estaciono.dao.queries.ParkingQuery;
-import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Parking;
-import coop.tecso.donde.estaciono.utils.DESTime;
-import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**
  * 
@@ -22,13 +19,11 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  */
 @Service
-public class ParkingDaoImpl implements ParkingDao {
+public class ParkingDaoImpl extends HaveCache<Parking> implements ParkingDao {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
 
 	private List<Parking> parkingListCache = new ArrayList<Parking>();
-
-	private Calendar lastUpdateCache;
 
 	@Override
 	public List<Parking> findAllParking() throws DondeEstacionoServerException {
@@ -36,13 +31,21 @@ public class ParkingDaoImpl implements ParkingDao {
 		log.logStartMethod(method);
 		log.logEndMethod(method);
 
-		return this.getParkingListCache();
+		if (this.isUpdateCaheList()) {
+			this.updateCache();
+		}
+
+		return this.getCacheList();
 	}
 
 	@Override
 	public Parking findByIdentificationCode(String identificationCode) throws DondeEstacionoServerException {
 
-		for (Parking parking : this.getParkingListCache()) {
+		if (this.isUpdateCaheList()) {
+			this.updateCache();
+		}
+
+		for (Parking parking : this.getCacheList()) {
 
 			if (identificationCode.equals(parking.getIdentificationCode())) {
 				return parking;
@@ -53,57 +56,19 @@ public class ParkingDaoImpl implements ParkingDao {
 		throw new DondeEstacionoServerException("parking.idetification.code.not.found");
 	}
 
-	private Boolean isUpdateCaheParkingList() {
-
-		if (DESUtils.isNull(this.lastUpdateCache) || DESTime.calculateDifferenceBetweenTwoCalendars(this.lastUpdateCache, DESTime.getToday()) > 10) {
-			return Boolean.TRUE;
-		}
-
-		return Boolean.FALSE;
-
-	}
-
-	private synchronized void updateCache() throws DondeEstacionoServerException {
-
-		this.parkingListCache.clear();
-
-		this.lastUpdateCache = Calendar.getInstance();
-
-		SqlSession session = null;
-
-		try {
-
-			session = DatabaseConnection.getInstance().getSession();
-
-			ParkingQuery query = session.getMapper(ParkingQuery.class);
-
-			this.parkingListCache.addAll(query.findAllQuery());
-
-			log.logInfo("updateCache", "cantidad de parkings encontrados: " + parkingListCache.size());
-
-			session.close();
-
-		} catch (Exception e) {
-
-			throw new DondeEstacionoServerException("parking.find.database.error", e);
-
-		} finally {
-
-			if (!DESUtils.isNull(session)) {
-				session.close();
-			}
-
-		}
-
-	}
-
-	private List<Parking> getParkingListCache() throws DondeEstacionoServerException {
-
-		if (this.isUpdateCaheParkingList()) {
-			this.updateCache();
-		}
-
+	@Override
+	protected List<Parking> getCacheList() {
 		return this.parkingListCache;
 	}
 
+	@Override
+	protected List<Parking> excuteQuery(SqlSession session) throws Exception {
+		ParkingQuery query = session.getMapper(ParkingQuery.class);
+		return query.findAllQuery();
+	}
+
+	@Override
+	protected String getErrorKey() {
+		return "parking.find.database.error";
+	}
 }

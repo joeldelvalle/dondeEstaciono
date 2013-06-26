@@ -16,6 +16,7 @@ import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Login;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.model.Province;
+import coop.tecso.donde.estaciono.model.TimeType;
 import coop.tecso.donde.estaciono.model.User;
 import coop.tecso.donde.estaciono.model.UserType;
 
@@ -72,6 +73,14 @@ public class InsertValues {
 		
 		System.out.println("*---- Insert Registros en Login 3 -----*");
 		session.insert("insert.insertDatosLogin", getLogin_3());
+		System.out.println("============================================");
+
+		System.out.println("*---- Insert Registros en TimeType 1 -----*");
+		session.insert("insert.insertDatosTimeType", getTimeType_1());
+		System.out.println("============================================");
+		
+		System.out.println("*---- Insert Registros en TimeType 2 -----*");
+		session.insert("insert.insertDatosTimeType", getTimeType_2());
 		System.out.println("============================================");
 		
 		session.commit();
@@ -214,6 +223,20 @@ public class InsertValues {
 		ll.setUserName("nalderete");
 		
 		return ll;		
+	}
+	
+	private static TimeType getTimeType_1() {
+		TimeType tt = new TimeType();
+		tt.setId(1);
+		tt.setDescription("Horas");
+		return tt;
+	}
+	
+	private static TimeType getTimeType_2() {
+		TimeType tt = new TimeType();
+		tt.setId(2);
+		tt.setDescription("Minutos");
+		return tt;
 	}
 	
 	private static Date getCalendar() {

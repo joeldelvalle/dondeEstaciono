@@ -6,6 +6,7 @@ import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
+import coop.tecso.donde.estaciono.model.TimeType;
 
 /**
  * 
@@ -25,5 +26,7 @@ public interface ApplicationService {
 	public List<Locality> getLocalityListByProvince(Integer provinceId) throws DondeEstacionoServerException;;
 
 	public List<Locality> getLocalityListByProvinceByCountry(Integer provinceId, Integer countryId) throws DondeEstacionoServerException;
+
+	public List<TimeType> getTimeTypeList() throws DondeEstacionoServerException;
 
 }

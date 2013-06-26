@@ -9,11 +9,13 @@ import org.springframework.stereotype.Service;
 import coop.tecso.donde.estaciono.dao.CountryDao;
 import coop.tecso.donde.estaciono.dao.LocalityDao;
 import coop.tecso.donde.estaciono.dao.ProvinceDao;
+import coop.tecso.donde.estaciono.dao.TimeTypeDao;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
+import coop.tecso.donde.estaciono.model.TimeType;
 import coop.tecso.donde.estaciono.service.ApplicationService;
 
 /**
@@ -34,6 +36,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 
 	@Autowired
 	private LocalityDao localityDao;
+	
+	@Autowired
+	private TimeTypeDao timeTypeDao;
 
 	@Override
 	public List<Country> getCountryList() throws DondeEstacionoServerException {
@@ -116,6 +121,20 @@ public class ApplicationServiceImpl implements ApplicationService {
 		log.logInfo(method, "locality list size: " + localityList.size());
 		log.logEndMethod(method);
 		return localityList;
+	}
+	
+	@Override
+	public List<TimeType> getTimeTypeList() throws DondeEstacionoServerException {
+		String method = "getTimeTypeList";
+		log.logStartMethod(method);
+
+		List<TimeType> timeTypeList = new ArrayList<TimeType>();
+
+		timeTypeList.addAll(this.timeTypeDao.findAll());
+
+		log.logInfo(method, "locality list size: " + timeTypeList.size());
+		log.logEndMethod(method);
+		return timeTypeList;
 	}
 
 }

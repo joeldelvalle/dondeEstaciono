@@ -37,4 +37,9 @@
 		VALUES ( #{id}, #{parking.id}, #{userId}, #{userName}, #{password}, #{state}, #{stateDate} )
 	</insert>
 	
+	<insert id="insertDatosTimeType" parameterType="coop.tecso.donde.estaciono.model.TimeType"> 
+		INSERT INTO time_type (id, description) 
+		VALUES ( #{id}, #{description} )
+	</insert>
+	
 </mapper>

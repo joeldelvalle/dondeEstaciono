@@ -9,15 +9,15 @@ import coop.tecso.donde.estaciono.model.common.GenericModel;
  */
 public class TimeType extends GenericModel {
 
-	private Long id;
+	private Integer id;
 
 	private String description;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
