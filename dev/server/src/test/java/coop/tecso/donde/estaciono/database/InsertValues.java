@@ -85,6 +85,8 @@ public class InsertValues {
 		
 		session.commit();
 		
+		session.close();
+		
 	}
 	
 	private static Country getCountry() {

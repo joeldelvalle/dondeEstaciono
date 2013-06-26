@@ -5,25 +5,41 @@ import coop.tecso.donde.estaciono.model.common.State;
 /**
  * 
  * @author joel.delvalle
- *
+ * 
  */
 public class FrequencyType extends State {
 
 	private Long id;
-	
+
 	private Parking parking;
-	
+
 	private String description;
-	
+
 	private Integer type;
-	
+
 	private Integer time;
-	
+
 	private TimeType timeType;
-	
+
 	private Integer priority;
-	
+
 	private Boolean combinablePreviousFrequency;
+
+	public FrequencyType() {
+
+	}
+
+	public FrequencyType(Long id, Parking parking, String description, Integer type, Integer time, TimeType timeType, Integer priority,
+			Boolean combinablePreviousFrequency) {
+		this.id = id;
+		this.parking = parking;
+		this.description = description;
+		this.type = type;
+		this.time = time;
+		this.timeType = timeType;
+		this.priority = priority;
+		this.combinablePreviousFrequency = combinablePreviousFrequency;
+	}
 
 	public Long getId() {
 		return id;
@@ -88,7 +104,7 @@ public class FrequencyType extends State {
 	public void setCombinablePreviousFrequency(Boolean combinablePreviousFrequency) {
 		this.combinablePreviousFrequency = combinablePreviousFrequency;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "parking: " + this.getParking() + "  -  description: " + this.getDescription() + "  -  state: " + this.getState();

@@ -30,6 +30,10 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 	@Autowired
 	private ParkingDao parkingDao;
 
+	/*
+	 * EXECUTION METHODS
+	 */
+
 	@Override
 	public void save(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "save";
@@ -82,6 +86,10 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 		log.logEndMethod(method);
 		return vehicleTypeList;
 	}
+
+	/*
+	 * VALIDATION METHODS
+	 */
 
 	@Override
 	public void saveValidation(VehicleType vehicleType) throws DondeEstacionoServerException {
