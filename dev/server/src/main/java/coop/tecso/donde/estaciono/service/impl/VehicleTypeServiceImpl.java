@@ -77,7 +77,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 
 	@Override
 	public List<VehicleType> findByParking(VehicleType vehicleType) throws DondeEstacionoServerException {
-		String method = "findfindByParking";
+		String method = "findByParking";
 		log.logStartMethod(method);
 
 		List<VehicleType> vehicleTypeList = this.vehicleTypeDao.findByParking(vehicleType.getParking().getIdentificationCode());

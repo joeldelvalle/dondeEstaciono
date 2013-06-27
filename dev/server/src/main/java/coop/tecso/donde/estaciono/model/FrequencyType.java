@@ -1,6 +1,8 @@
 package coop.tecso.donde.estaciono.model;
 
 import coop.tecso.donde.estaciono.model.common.State;
+import coop.tecso.donde.estaciono.utils.DESConstants;
+import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
  * 
@@ -39,6 +41,8 @@ public class FrequencyType extends State {
 		this.timeType = timeType;
 		this.priority = priority;
 		this.combinablePreviousFrequency = combinablePreviousFrequency;
+		this.setState(DESConstants.Database.States.ENABLED);
+		this.setStateDate(DESTime.getToday().getTime());
 	}
 
 	public Long getId() {

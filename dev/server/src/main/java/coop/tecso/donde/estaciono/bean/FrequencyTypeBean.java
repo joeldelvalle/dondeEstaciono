@@ -28,7 +28,7 @@ public class FrequencyTypeBean implements GenericBean<FrequencyType> {
 
 	@Autowired
 	private FrequencyTypeService frequencyTypeService;
-	
+
 	@Override
 	public FrequencyType convertToModelObject(DESRequest request) throws DondeEstacionoServerException {
 		return this.communicatorConverterService.convertToModelObject(request.getPayload(FrequencyTypeRequest.class));
@@ -45,39 +45,37 @@ public class FrequencyTypeBean implements GenericBean<FrequencyType> {
 	}
 
 	@Override
-	public void updateValidation(FrequencyType FrequencyType) throws DondeEstacionoServerException {
+	public void updateValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void updateExecution(FrequencyType FrequencyType) throws DondeEstacionoServerException {
+	public void updateExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteValidation(FrequencyType FrequencyType) throws DondeEstacionoServerException {
+	public void deleteValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void deleteExecution(FrequencyType FrequencyType) throws DondeEstacionoServerException {
+	public void deleteExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void findByParkingValidation(FrequencyType FrequencyType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+	public void findByParkingValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		this.frequencyTypeService.findByParkingValidation(frequencyType);
 	}
 
 	@Override
-	public List<FrequencyType> findByParkingExecution(FrequencyType FrequencyType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<FrequencyType> findByParkingExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		return this.frequencyTypeService.findByParking(frequencyType);
 	}
 
 }

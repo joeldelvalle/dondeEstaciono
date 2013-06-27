@@ -22,7 +22,7 @@ public class FindAllInformationVehicleTypeRestTest {
 		try {
 
 			EncryptServiceImpl pp = new EncryptServiceImpl();
-			
+
 			SecurityServiceImpl ss = new SecurityServiceImpl();
 
 			Client client = Client.create();
@@ -31,23 +31,18 @@ public class FindAllInformationVehicleTypeRestTest {
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
-			
-			
+
 			DESRequest request = new DESRequest();
 			request.setUserHash("HASH-PUBLIC-WEB");
 			request.setPayload(vehicleTypeRequest);
 			request.setMac(ss.buildMac(DESUtils.convertObjectToJson(vehicleTypeRequest)));
-			
-			
 
 			String requestJson = DESUtils.convertObjectToJson(request);
 			System.out.println("request json  " + requestJson);
-			
-			String test = "{\"userHash\":\"HASH-PUBLIC-WEB\",\"mac\":\"3433316289153921\",\"payload\":{\"vehicletyperequest\":{\"parkingIdentificationCode\":\"OTT\"}}}";
-//			String ppp = pp.encrypt(requestJson);
-			String ppp = pp.encrypt(test);
+
+			String ppp = pp.encrypt(requestJson);
 			System.out.println("request json encrypted  " + ppp);
-			
+
 			String response = webResource.type("application/json").post(String.class, ppp);
 
 			System.out.println("RESULT encripted:  " + response);
@@ -55,11 +50,11 @@ public class FindAllInformationVehicleTypeRestTest {
 			String dencryptedMessage = pp.dencrypt(response);
 			System.out.println("RESULT dencripted:  " + dencryptedMessage);
 
-			
+			// DESResponse resp =
+			// DESUtils.convertJsonToObject(dencryptedMessage,
+			// DESResponse.class);
 
-//			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
-			
-//			System.out.println(resp.toString());
+			// System.out.println(resp.toString());
 
 		} catch (Exception e) {
 

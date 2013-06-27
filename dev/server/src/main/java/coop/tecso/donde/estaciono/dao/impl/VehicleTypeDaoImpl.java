@@ -42,7 +42,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to save vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.save", e);
 
 		} finally {
 
@@ -73,7 +73,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to update vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.update", e);
 
 		} finally {
 
@@ -104,7 +104,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to update vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.delete", e);
 
 		} finally {
 
@@ -136,7 +136,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to find all vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find", e);
 
 		} finally {
 
@@ -154,7 +154,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 	@Override
 	public List<VehicleType> findByParking(String identificationCode) throws DondeEstacionoServerException {
-		String method = "findAll";
+		String method = "findByParking";
 		log.logStartMethod(method);
 
 		SqlSession session = null;
@@ -170,7 +170,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to find all vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find", e);
 
 		} finally {
 
@@ -204,7 +204,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to validate vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find", e);
 
 		} finally {
 
@@ -244,7 +244,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to validate vehicleType", e);
-			throw new DondeEstacionoServerException("vehicle.type.database.error", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find", e);
 
 		} finally {
 

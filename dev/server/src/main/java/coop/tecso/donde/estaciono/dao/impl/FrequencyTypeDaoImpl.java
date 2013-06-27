@@ -1,5 +1,8 @@
 package coop.tecso.donde.estaciono.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,88 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
 public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 
 	private CustomLogger log = new CustomLogger(getClass().getCanonicalName());
+
+	@Override
+	public void save(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "save";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			query.saveQuery(frequencyType);
+
+			session.commit();
+
+		} catch (Exception e) {
+			log.logError(method, "error to save frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.save", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logEndMethod(method);
+	}
+
+	@Override
+	public void update(FrequencyType value) throws DondeEstacionoServerException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(FrequencyType value) throws DondeEstacionoServerException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<FrequencyType> findAll() throws DondeEstacionoServerException {
+		return null;
+	}
+
+	@Override
+	public List<FrequencyType> findByParking(String identificationCode) throws DondeEstacionoServerException {
+		String method = "findByParking";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		List<FrequencyType> frequencyTypeList = new ArrayList<FrequencyType>();
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			frequencyTypeList = query.findByParkingQuery(identificationCode);
+
+		} catch (Exception e) {
+			log.logError(method, "error to find all frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.find", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logInfo(method, "frequencyType size found: " + frequencyTypeList.size());
+		log.logEndMethod(method);
+
+		return frequencyTypeList;
+	}
 
 	@Override
 	public Boolean existsInDatabaseToSave(FrequencyType frequencyType) throws DondeEstacionoServerException {
@@ -79,7 +164,7 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 
 		} catch (Exception e) {
 			log.logError(method, "error to validate frequencyType", e);
-			throw new DondeEstacionoServerException("frequency.type.database.error", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.find", e);
 
 		} finally {
 

@@ -4,7 +4,6 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
 import coop.tecso.donde.estaciono.communication.DESRequest;
-import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest;
 import coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;
@@ -16,29 +15,23 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  *         clase test de un cliente que se conecta al restful de save
  */
-public class SaveInformationFrequencyTypeRestTest {
+public class FindInformationFrequencyTypeRestTest {
 
 	public static void main(String[] args) {
 
 		try {
 
 			EncryptServiceImpl pp = new EncryptServiceImpl();
-			
+
 			SecurityServiceImpl ss = new SecurityServiceImpl();
 
 			Client client = Client.create();
 
-			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/save/frequencytyperequest");
+			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/find/byParking/frequencytyperequest");
 
 			FrequencyTypeRequest frequencyTypeRequest = new FrequencyTypeRequest();
-			frequencyTypeRequest.setType(2);
-			frequencyTypeRequest.setTime(30);
-			frequencyTypeRequest.setIdTimeType(1);
-			frequencyTypeRequest.setDescription("media hora");
 			frequencyTypeRequest.setParkingIdentificationCode("OTT");
-			frequencyTypeRequest.setCombinablePreviousFreq(false);
-			frequencyTypeRequest.setPriority(1);
-			
+
 			DESRequest request = new DESRequest();
 			request.setUserHash("HASH-PUBLIC-WEB");
 			request.setPayload(frequencyTypeRequest);
@@ -46,10 +39,10 @@ public class SaveInformationFrequencyTypeRestTest {
 
 			String requestJson = DESUtils.convertObjectToJson(request);
 			System.out.println("request json  " + requestJson);
-			
+
 			String ppp = pp.encrypt(requestJson);
 			System.out.println("request json encrypted  " + ppp);
-			
+
 			String response = webResource.type("application/json").post(String.class, ppp);
 
 			System.out.println("RESULT encripted:  " + response);
@@ -57,11 +50,11 @@ public class SaveInformationFrequencyTypeRestTest {
 			String dencryptedMessage = pp.dencrypt(response);
 			System.out.println("RESULT dencripted:  " + dencryptedMessage);
 
-			
+			// DESResponse resp =
+			// DESUtils.convertJsonToObject(dencryptedMessage,
+			// DESResponse.class);
 
-			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
-			
-			System.out.println(resp.toString());
+			// System.out.println(resp.toString());
 
 		} catch (Exception e) {
 
