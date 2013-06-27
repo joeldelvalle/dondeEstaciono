@@ -228,7 +228,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 	@Override
 	public Boolean existsInDatabaseToUpdateOrDelete(VehicleType vehicleType) throws DondeEstacionoServerException {
-		String method = "existsInDatabaseToUpdate";
+		String method = "existsInDatabaseToUpdateOrDelete";
 		log.logStartMethod(method);
 
 		SqlSession session = null;

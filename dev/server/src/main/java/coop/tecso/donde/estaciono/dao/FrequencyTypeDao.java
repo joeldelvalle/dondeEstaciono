@@ -15,4 +15,6 @@ public interface FrequencyTypeDao extends GenericDao<FrequencyType> {
 
 	public Boolean existsFrequencyWithSamePriority(FrequencyType frequencyType) throws DondeEstacionoServerException;
 
+	public Boolean existsInDatabaseToUpdateOrDelete(FrequencyType frequencyType) throws DondeEstacionoServerException;
+
 }

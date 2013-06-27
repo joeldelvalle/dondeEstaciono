@@ -59,16 +59,28 @@ public interface FrequencyTypeQuery extends GenericQuery {
 
 
 	@Select("SELECT * " + 
-			"FROM frequency_type vt, parking k " + 
+			"FROM frequency_type ft, parking k " + 
 			"WHERE k.identification_code = #{identificationCode} " + 
 			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
-			"AND vt.id_parking = k.id " + 
-			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
+			"AND ft.id_parking = k.id " + 
+			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
 	@Results(value = {
 			@Result(property="stateDate", column="state_date"),
 			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
 			}
 	)
 	public List<FrequencyType> findByParkingQuery(String identificationCode) throws Exception;
+
+
+	
+
+	@Select("SELECT * " + 
+			"FROM frequency_type ft, parking k " + 
+			"WHERE k.identification_code = #{parking.identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND ft.id_parking = k.id " + 
+			"AND ft.id = #{id} " + 
+			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
+	public FrequencyType existsInDatabaseToUpdateQuery(FrequencyType frequencyType);
 	
 }

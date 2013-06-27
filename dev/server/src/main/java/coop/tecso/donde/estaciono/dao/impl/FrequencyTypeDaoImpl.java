@@ -186,4 +186,44 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 
 	}
 
+	@Override
+	public Boolean existsInDatabaseToUpdateOrDelete(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "existsInDatabaseToUpdateOrDelete";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		FrequencyType frequencyTypeResult = null;
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			frequencyTypeResult = query.existsInDatabaseToUpdateQuery(frequencyType);
+
+		} catch (Exception e) {
+			log.logError(method, "error to validate frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.find", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		if (!DESUtils.isNull(frequencyTypeResult)) {
+			log.logInfo(method, "frequencyType exists in database");
+			log.logEndMethod(method);
+			return Boolean.TRUE;
+		}
+
+		log.logInfo(method, "frequencyType don't exists in database");
+		log.logEndMethod(method);
+		return Boolean.FALSE;
+
+	}
+
 }

@@ -99,6 +99,22 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		log.logEndMethod(method);
 
 	}
+	
+	@Override
+	public void updateValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "updateValidation";
+		log.logStartMethod(method);
+
+		Boolean exists = this.frequencyTypeDao.existsInDatabaseToUpdateOrDelete(frequencyType);
+
+		if (!exists) {
+			log.logError(method, "frequencyType does not exists in database - frequencyType: " + frequencyType.toString());
+			throw new DondeEstacionoServerException("frequency.type.not.exists");
+		}
+
+		log.logEndMethod(method);
+
+	}
 
 	private Boolean haveFrequencyEqualsInDatabase(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		String method = "haveFrequencyEqualsInDatabase";

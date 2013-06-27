@@ -20,4 +20,6 @@ public interface FrequencyTypeService {
 
 	public List<FrequencyType> findByParking(FrequencyType frequencyType) throws DondeEstacionoServerException;
 
+	public void updateValidation(FrequencyType frequencyType) throws DondeEstacionoServerException;
+
 }
