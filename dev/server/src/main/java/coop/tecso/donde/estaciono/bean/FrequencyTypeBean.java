@@ -51,8 +51,7 @@ public class FrequencyTypeBean implements GenericBean<FrequencyType> {
 
 	@Override
 	public void updateExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+		this.frequencyTypeService.update(frequencyType);
 	}
 
 	@Override

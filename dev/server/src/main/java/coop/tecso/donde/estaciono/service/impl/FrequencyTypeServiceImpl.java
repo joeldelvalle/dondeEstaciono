@@ -11,6 +11,7 @@ import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.FrequencyType;
 import coop.tecso.donde.estaciono.service.FrequencyTypeService;
+import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
  * 
@@ -57,6 +58,20 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		return frequencyTypeList;
 	}
 
+	@Override
+	public void update(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "update";
+		log.logStartMethod(method);
+
+		// se setea la fecha de estado para refrescar la fecha de cuando se hizo
+		// la ultima actualizacion
+		frequencyType.setStateDate(DESTime.getToday().getTime());
+
+		this.frequencyTypeDao.update(frequencyType);
+
+		log.logEndMethod(method);
+	}
+
 	/*
 	 * VALIDATION METHODS
 	 */
@@ -99,17 +114,25 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		log.logEndMethod(method);
 
 	}
-	
+
 	@Override
 	public void updateValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		String method = "updateValidation";
 		log.logStartMethod(method);
 
-		Boolean exists = this.frequencyTypeDao.existsInDatabaseToUpdateOrDelete(frequencyType);
-
-		if (!exists) {
+		if (!this.frequencyTypeDao.existsInDatabaseToUpdateOrDelete(frequencyType)) {
 			log.logError(method, "frequencyType does not exists in database - frequencyType: " + frequencyType.toString());
 			throw new DondeEstacionoServerException("frequency.type.not.exists");
+		}
+
+		if (this.haveFrequencyEqualsInDatabase(frequencyType)) {
+			log.logError(method, "frequencyType exists in database - frequencyType: " + frequencyType.toString());
+			throw new DondeEstacionoServerException("frequency.type.exists");
+		}
+
+		if (this.haveFrequencyWithSamePriority(frequencyType)) {
+			log.logError(method, "frequencyType with this priority exists in database - frequencyType: " + frequencyType.toString());
+			throw new DondeEstacionoServerException("frequency.type.priority.exists");
 		}
 
 		log.logEndMethod(method);

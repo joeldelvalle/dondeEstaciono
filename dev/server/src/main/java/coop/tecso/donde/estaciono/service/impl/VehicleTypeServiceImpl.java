@@ -96,9 +96,7 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 		String method = "saveValidation";
 		log.logStartMethod(method);
 
-		Boolean exists = this.vehicleTypeDao.existsInDatabaseToSave(vehicleType);
-
-		if (exists) {
+		if (this.haveVehicleEqualsInDatabase(vehicleType)) {
 			log.logError(method, "vehicleType exists in database - vehicleType: " + vehicleType.toString());
 			throw new DondeEstacionoServerException("vehicle.type.exists");
 		}
@@ -112,11 +110,14 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 		String method = "updateValidation";
 		log.logStartMethod(method);
 
-		Boolean exists = this.vehicleTypeDao.existsInDatabaseToUpdateOrDelete(vehicleType);
-
-		if (!exists) {
+		if (!this.vehicleTypeDao.existsInDatabaseToUpdateOrDelete(vehicleType)) {
 			log.logError(method, "vehicleType does not exists in database - vehicleType: " + vehicleType.toString());
 			throw new DondeEstacionoServerException("vehicle.type.not.exists");
+		}
+
+		if (this.haveVehicleEqualsInDatabase(vehicleType)) {
+			log.logError(method, "vehicleType exists in database - vehicleType: " + vehicleType.toString());
+			throw new DondeEstacionoServerException("vehicle.type.exists");
 		}
 
 		log.logEndMethod(method);
@@ -148,6 +149,17 @@ public class VehicleTypeServiceImpl implements VehicleTypeService {
 
 		log.logEndMethod(method);
 
+	}
+
+	private Boolean haveVehicleEqualsInDatabase(VehicleType vehicleType) throws DondeEstacionoServerException {
+		String method = "haveVehicleEqualsInDatabase";
+		log.logStartMethod(method);
+
+		Boolean result = this.vehicleTypeDao.existsInDatabaseToSave(vehicleType);
+
+		log.logInfo(method, "result: " + result);
+		log.logEndMethod(method);
+		return result;
 	}
 
 }

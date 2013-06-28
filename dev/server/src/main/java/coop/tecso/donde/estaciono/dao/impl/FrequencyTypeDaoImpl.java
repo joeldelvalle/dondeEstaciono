@@ -56,9 +56,34 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 	}
 
 	@Override
-	public void update(FrequencyType value) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
+	public void update(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "update";
+		log.logStartMethod(method);
 
+		SqlSession session = null;
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			query.updateQuery(frequencyType);
+
+			session.commit();
+
+		} catch (Exception e) {
+			log.logError(method, "error to update frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.update", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logEndMethod(method);
 	}
 
 	@Override

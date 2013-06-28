@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.Update;
 
 import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
 import coop.tecso.donde.estaciono.model.FrequencyType;
@@ -42,7 +43,8 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"FROM frequency_type ft, parking k " + 
 			"WHERE k.identification_code = #{parking.identificationCode} " + 
 			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
-			"AND ft.id_parking = k.id " + 
+			"AND ft.id != #{id} " + 
+			"AND ft.id_parking = k.id " +
 			"AND ft.priority = #{priority} " + 
 			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
 	public FrequencyType existsWithSamePriorityQuery(FrequencyType frequencyType) throws Exception;
@@ -65,6 +67,7 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"AND ft.id_parking = k.id " + 
 			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
 	@Results(value = {
+			@Result(property="combinablePreviousFrequency", column="combinable_previous_freq"),
 			@Result(property="stateDate", column="state_date"),
 			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
 			}
@@ -82,5 +85,18 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"AND ft.id = #{id} " + 
 			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
 	public FrequencyType existsInDatabaseToUpdateQuery(FrequencyType frequencyType);
+
+
+
+	@Update("UPDATE frequency_type " + 
+			"SET description = #{description}, " +
+			"type = #{type}, " +
+			"time = #{time}, " +
+			"id_time_type = #{timeType.id}, " + 
+			"priority = #{priority}, " +
+			"combinable_previous_freq = #{combinablePreviousFrequency}, " +
+			"state_date = #{stateDate} " +
+			"WHERE id = #{id}")
+	public void updateQuery(FrequencyType frequencyType);
 	
 }

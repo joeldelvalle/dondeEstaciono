@@ -43,7 +43,7 @@ public class UpdateInformationRest extends SecureRest {
 	@Path("/{objectToUpdate}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String update(String json, @PathParam("objectToUpdate") String objectToUpdate) {
-		String method = "save";
+		String method = "update";
 		log.logStartMethod(method);
 
 		DESResponse dondeEstacionoResponse = new DESResponse();
