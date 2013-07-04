@@ -7,10 +7,12 @@ import jsonpickle, utils
 
 KEY_ERROR = 'error'
 KEY_USER = 'user'
+KEY_VEHICLE_TYPE = 'vehicletypelist'
 
 keys = {
     KEY_USER: User,
-    KEY_ERROR: Error
+    KEY_ERROR: Error,
+    KEY_VEHICLE_TYPE: VehicleTypeList
 }
 
 def json2object(d):
@@ -20,8 +22,6 @@ def json2object(d):
             r = d.payload[key]
             obj = keys[key](r)
             break
-    if type(obj) is Error:
-        raise Exception(obj.message)
     return obj
 
 def object2json(obj):
