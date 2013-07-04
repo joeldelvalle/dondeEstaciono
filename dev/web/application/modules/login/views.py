@@ -1,13 +1,13 @@
 from application import app, db
-from forms import LoginForm
-from flask import url_for, redirect, render_template, request
-from application.modules.login import login_blueprint, login_manager
-from flask.ext.login import login_user, logout_user, current_user
-from application.models.model import User
-import services
-from flask.ext import wtf
 from application.commons.exceptions import LoginException
+from application.models.model import User
+from application.modules.login import login_blueprint, login_manager
+from flask import url_for, redirect, render_template, request
+from flask.ext import wtf
+from flask.ext.login import login_user, logout_user, current_user
+from forms import LoginForm
 from urllib2 import URLError
+import services
 
 login_manager.login_view = "login_blueprint.login"
 
