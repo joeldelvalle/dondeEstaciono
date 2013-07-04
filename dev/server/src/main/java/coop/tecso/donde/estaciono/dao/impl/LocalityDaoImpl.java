@@ -39,7 +39,7 @@ public class LocalityDaoImpl implements LocalityDao {
 
 			LocalityQuery query = session.getMapper(LocalityQuery.class);
 
-			localityList.addAll(query.findAllQuery());
+			localityList.addAll(query.findAllLocalityQuery());
 
 		} catch (Exception e) {
 			log.logError(method, "error to find localities", e);

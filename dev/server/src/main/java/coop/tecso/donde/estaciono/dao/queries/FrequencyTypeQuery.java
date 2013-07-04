@@ -10,9 +10,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
-import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
 import coop.tecso.donde.estaciono.model.FrequencyType;
-import coop.tecso.donde.estaciono.model.Parking;
+import coop.tecso.donde.estaciono.model.TimeType;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 
 /**
@@ -20,7 +19,7 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
  * @author joel.delvalle
  *
  */
-public interface FrequencyTypeQuery extends GenericQuery {
+public interface FrequencyTypeQuery extends TimeTypeQuery {
 
 	
 	@Select("SELECT * " + 
@@ -43,12 +42,22 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"FROM frequency_type ft, parking k " + 
 			"WHERE k.identification_code = #{parking.identificationCode} " + 
 			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND ft.id_parking = k.id " +
+			"AND ft.priority = #{priority} " + 
+			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
+	public FrequencyType existsWithSamePriorityToSaveQuery(FrequencyType frequencyType) throws Exception;
+
+	
+	
+	@Select("SELECT * " + 
+			"FROM frequency_type ft, parking k " + 
+			"WHERE k.identification_code = #{parking.identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
 			"AND ft.id != #{id} " + 
 			"AND ft.id_parking = k.id " +
 			"AND ft.priority = #{priority} " + 
 			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
-	public FrequencyType existsWithSamePriorityQuery(FrequencyType frequencyType) throws Exception;
-
+	public FrequencyType existsWithSamePriorityToUpdateOrDeleteQuery(FrequencyType frequencyType) throws Exception;
 
 
 
@@ -68,12 +77,11 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
 	@Results(value = {
 			@Result(property="combinablePreviousFrequency", column="combinable_previous_freq"),
-			@Result(property="stateDate", column="state_date"),
-			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
+			@Result(property = "timeType", column = "id_time_type", javaType = TimeType.class, one = @One(select = "findTimeTypeById")),
+			@Result(property="stateDate", column="state_date")
 			}
 	)
 	public List<FrequencyType> findByParkingQuery(String identificationCode) throws Exception;
-
 
 	
 
@@ -98,5 +106,13 @@ public interface FrequencyTypeQuery extends GenericQuery {
 			"state_date = #{stateDate} " +
 			"WHERE id = #{id}")
 	public void updateQuery(FrequencyType frequencyType);
+
+
+
+	@Update("UPDATE frequency_type " + 
+			"SET state = #{state}, " +
+			"state_date = #{stateDate} " +
+			"WHERE id = #{id}")
+	public void deleteQuery(FrequencyType frequencyType);
 	
 }

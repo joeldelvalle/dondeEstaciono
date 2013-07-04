@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
-import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
 import coop.tecso.donde.estaciono.model.Country;
 import coop.tecso.donde.estaciono.model.Province;
 import coop.tecso.donde.estaciono.utils.DESConstants;
@@ -19,7 +18,7 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
  *
  */
 @Component
-public interface ProvinceQuery extends GenericQuery {
+public interface ProvinceQuery extends CountryQuery {
 
 	@Select("SELECT * " +
 			"FROM province " +
@@ -28,7 +27,7 @@ public interface ProvinceQuery extends GenericQuery {
 			@Result(property = "country", column = "id_country", javaType = Country.class, one = @One(select = "findCountryById")),
 			@Result(property="stateDate", column="state_date")
 		})
-	public List<Province> findAllQuery() throws Exception;
+	public List<Province> findAllProvinceQuery() throws Exception;
 
 
 	
@@ -42,4 +41,13 @@ public interface ProvinceQuery extends GenericQuery {
 		})
 	public List<Province> findByCountryIdQuery(Integer countryId) throws Exception;
 
+	
+	
+	@Select("SELECT * FROM province WHERE id = #{id}")
+	@Results(value = {
+			@Result(property = "country", column = "id_country", javaType = Province.class, one = @One(select = "findCountryById")),
+			@Result(property="stateDate", column="state_date")
+		})
+	public Province findProvinceById(Long id);
+	
 }

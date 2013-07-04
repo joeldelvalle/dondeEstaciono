@@ -24,4 +24,8 @@ public interface FrequencyTypeService {
 
 	public void update(FrequencyType frequencyType) throws DondeEstacionoServerException;
 
+	public void deleteValidation(FrequencyType frequencyType) throws DondeEstacionoServerException;
+
+	public void delete(FrequencyType frequencyType) throws DondeEstacionoServerException;
+
 }

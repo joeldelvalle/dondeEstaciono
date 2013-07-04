@@ -15,7 +15,7 @@ public class ParkedVehicle extends State {
 
 	private Parking parking;
 
-	// aka patente del auto/nombre del dueño
+	// aka patente del auto/nombre del duenio
 	private String description;
 
 	// aka numeroDeLaCochera/Descripcion del lugar donde estaciono

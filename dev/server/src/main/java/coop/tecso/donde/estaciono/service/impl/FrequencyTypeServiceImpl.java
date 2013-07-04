@@ -11,6 +11,7 @@ import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.FrequencyType;
 import coop.tecso.donde.estaciono.service.FrequencyTypeService;
+import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
@@ -71,6 +72,20 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 
 		log.logEndMethod(method);
 	}
+	
+	@Override
+	public void delete(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "delete";
+		log.logStartMethod(method);
+
+		// se setea el estado y la fecha de estado
+		frequencyType.setState(DESConstants.Database.States.DISABLED);
+		frequencyType.setStateDate(DESTime.getToday().getTime());
+
+		this.frequencyTypeDao.delete(frequencyType);
+
+		log.logEndMethod(method);
+	}
 
 	/*
 	 * VALIDATION METHODS
@@ -96,7 +111,7 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 			throw new DondeEstacionoServerException("frequency.type.exists");
 		}
 
-		if (this.haveFrequencyWithSamePriority(frequencyType)) {
+		if (this.haveFrequencyWithSamePriority(frequencyType, DESConstants.Action.SAVE)) {
 			log.logError(method, "frequencyType with this priority exists in database - frequencyType: " + frequencyType.toString());
 			throw new DondeEstacionoServerException("frequency.type.priority.exists");
 		}
@@ -130,13 +145,28 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 			throw new DondeEstacionoServerException("frequency.type.exists");
 		}
 
-		if (this.haveFrequencyWithSamePriority(frequencyType)) {
+		if (this.haveFrequencyWithSamePriority(frequencyType, DESConstants.Action.UPDATE)) {
 			log.logError(method, "frequencyType with this priority exists in database - frequencyType: " + frequencyType.toString());
 			throw new DondeEstacionoServerException("frequency.type.priority.exists");
 		}
 
 		log.logEndMethod(method);
 
+	}
+
+	@Override
+	public void deleteValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "deleteValidation";
+		log.logStartMethod(method);
+
+		Boolean exists = this.frequencyTypeDao.existsInDatabaseToUpdateOrDelete(frequencyType);
+
+		if (!exists) {
+			log.logError(method, "frequencyType does not exists in database - frequencyType: " + frequencyType.toString());
+			throw new DondeEstacionoServerException("frequency.type.not.exists");
+		}
+
+		log.logEndMethod(method);
 	}
 
 	private Boolean haveFrequencyEqualsInDatabase(FrequencyType frequencyType) throws DondeEstacionoServerException {
@@ -150,11 +180,11 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		return result;
 	}
 
-	private Boolean haveFrequencyWithSamePriority(FrequencyType frequencyType) throws DondeEstacionoServerException {
+	private Boolean haveFrequencyWithSamePriority(FrequencyType frequencyType, DESConstants.Action action) throws DondeEstacionoServerException {
 		String method = "haveFrequencyWithSamePriority";
 		log.logStartMethod(method);
 
-		Boolean result = this.frequencyTypeDao.existsFrequencyWithSamePriority(frequencyType);
+		Boolean result = this.frequencyTypeDao.existsFrequencyWithSamePriority(frequencyType, action);
 
 		log.logInfo(method, "result: " + result);
 		log.logEndMethod(method);

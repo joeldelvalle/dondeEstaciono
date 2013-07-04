@@ -14,6 +14,10 @@ import coop.tecso.donde.estaciono.model.TimeType;
 public interface TimeTypeQuery {
 
 	@Select("SELECT * FROM time_type")
-	public List<TimeType> findAll() throws Exception;
+	public List<TimeType> findAllTimeTypeQuery() throws Exception;
+	
+	
+	@Select("SELECT * FROM time_type WHERE id = #{id}")
+	public TimeType findTimeTypeById(Long id);
 	
 }

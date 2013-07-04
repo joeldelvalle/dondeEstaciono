@@ -62,7 +62,7 @@ public class TimeTypeDaoImpl extends HaveCache<TimeType> implements TimeTypeDao 
 	@Override
 	protected List<TimeType> excuteQuery(SqlSession session) throws Exception {
 		TimeTypeQuery query = session.getMapper(TimeTypeQuery.class);
-		return query.findAll();
+		return query.findAllTimeTypeQuery();
 	}
 
 	@Override

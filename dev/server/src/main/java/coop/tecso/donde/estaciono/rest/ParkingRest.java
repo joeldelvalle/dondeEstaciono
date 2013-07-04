@@ -68,7 +68,7 @@ public class ParkingRest extends SecureRest {
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);
-			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.ERROR);
 			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
 		}
 
@@ -110,7 +110,7 @@ public class ParkingRest extends SecureRest {
 
 		} catch (DondeEstacionoServerException e) {
 			log.logError(method, "ERROR FALTAL", e);
-			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.FAIL);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.ERROR);
 			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
 		}
 

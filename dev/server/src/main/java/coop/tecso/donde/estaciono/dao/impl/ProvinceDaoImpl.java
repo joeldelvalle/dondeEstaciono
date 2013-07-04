@@ -38,7 +38,7 @@ public class ProvinceDaoImpl implements ProvinceDao {
 
 			ProvinceQuery query = session.getMapper(ProvinceQuery.class);
 
-			provinceList.addAll(query.findAllQuery());
+			provinceList.addAll(query.findAllProvinceQuery());
 
 		} catch (Exception e) {
 			log.logError(method, "error to find provinces", e);

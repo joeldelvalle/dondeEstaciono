@@ -50,9 +50,9 @@ public class ParkingListPublicWebRestTest {
 			System.out.println("RESULT dencripted:  " + dencryptedMessage);
 
 
-			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
-			
-			System.out.println(resp.toString());
+//			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
+//			
+//			System.out.println(resp.toString());
 
 		} catch (Exception e) {
 

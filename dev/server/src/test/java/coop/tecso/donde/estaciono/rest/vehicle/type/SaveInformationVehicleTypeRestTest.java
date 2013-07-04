@@ -32,7 +32,7 @@ public class SaveInformationVehicleTypeRestTest {
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
-			vehicleTypeRequest.setDescription("Auto");
+			vehicleTypeRequest.setDescription("Cuatriciclo");
 
 			
 			DESRequest request = new DESRequest();
@@ -55,9 +55,9 @@ public class SaveInformationVehicleTypeRestTest {
 
 			
 
-			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
-			
-			System.out.println(resp.toString());
+//			DESResponse resp = DESUtils.convertJsonToObject(dencryptedMessage, DESResponse.class);
+//			
+//			System.out.println(resp.toString());
 
 		} catch (Exception e) {
 

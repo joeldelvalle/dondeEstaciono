@@ -11,7 +11,6 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Component;
 
-import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
 import coop.tecso.donde.estaciono.model.Parking;
 import coop.tecso.donde.estaciono.model.VehicleType;
 import coop.tecso.donde.estaciono.utils.DESConstants;
@@ -22,7 +21,7 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
  * 
  */
 @Component
-public interface VehicleTypeQuery extends GenericQuery {
+public interface VehicleTypeQuery extends ParkingQuery {
 
 	@Insert("INSERT INTO vehicle_type " +
 			"VALUES (#{id}, #{parking.id}, #{description}, #{state}, #{stateDate})")
@@ -39,7 +38,7 @@ public interface VehicleTypeQuery extends GenericQuery {
 			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
 			}
 	)
-	public List<VehicleType> findAllQuery() throws Exception;
+	public List<VehicleType> findAllVehicleTypeQuery() throws Exception;
 
 	
 	
@@ -50,8 +49,7 @@ public interface VehicleTypeQuery extends GenericQuery {
 			"AND vt.id_parking = k.id " + 
 			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
 	@Results(value = {
-			@Result(property="stateDate", column="state_date"),
-			@Result(property = "parking", column = "id_parking", javaType = Parking.class, one = @One(select = "findParkingById")) 
+			@Result(property="stateDate", column="state_date")
 			}
 	)
 	public List<VehicleType> findByParkingQuery(String identificationCode) throws Exception;

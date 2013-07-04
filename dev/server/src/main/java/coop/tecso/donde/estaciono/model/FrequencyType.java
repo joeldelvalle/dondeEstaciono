@@ -1,5 +1,7 @@
 package coop.tecso.donde.estaciono.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import coop.tecso.donde.estaciono.model.common.State;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESTime;
@@ -31,7 +33,8 @@ public class FrequencyType extends State {
 
 	}
 
-	public FrequencyType(Long id, Parking parking, String description, Integer type, Integer time, TimeType timeType, Integer priority,
+	public FrequencyType(Long id, Parking parking, String description,
+			Integer type, Integer time, TimeType timeType, Integer priority,
 			Boolean combinablePreviousFrequency) {
 		this.id = id;
 		this.parking = parking;
@@ -53,10 +56,12 @@ public class FrequencyType extends State {
 		this.id = id;
 	}
 
+	@JsonIgnore
 	public Parking getParking() {
 		return parking;
 	}
 
+	@JsonIgnore
 	public void setParking(Parking parking) {
 		this.parking = parking;
 	}
@@ -105,13 +110,15 @@ public class FrequencyType extends State {
 		return combinablePreviousFrequency;
 	}
 
-	public void setCombinablePreviousFrequency(Boolean combinablePreviousFrequency) {
+	public void setCombinablePreviousFrequency(
+			Boolean combinablePreviousFrequency) {
 		this.combinablePreviousFrequency = combinablePreviousFrequency;
 	}
 
 	@Override
 	public String toString() {
-		return "parking: " + this.getParking() + "  -  description: " + this.getDescription() + "  -  state: " + this.getState();
+		return "parking: " + this.getParking() + "  -  description: "
+				+ this.getDescription() + "  -  state: " + this.getState();
 	}
 
 	@Override
@@ -131,7 +138,8 @@ public class FrequencyType extends State {
 
 		FrequencyType frequencyType = (FrequencyType) obj;
 
-		return (this.getParking().equals(frequencyType.getParking()) && this.getId().equals(frequencyType.getId()));
+		return (this.getParking().equals(frequencyType.getParking()) && this
+				.getId().equals(frequencyType.getId()));
 	}
 
 	@Override

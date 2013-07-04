@@ -31,11 +31,11 @@ public class UpdateInformationFrequencyTypeRestTest {
 			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/update/frequencytyperequest");
 
 			FrequencyTypeRequest frequencyTypeRequest = new FrequencyTypeRequest();
-			frequencyTypeRequest.setId(0L);
+			frequencyTypeRequest.setId(4L);
 			frequencyTypeRequest.setType(2);
 			frequencyTypeRequest.setTime(30);
 			frequencyTypeRequest.setIdTimeType(1);
-			frequencyTypeRequest.setDescription("media hora");
+			frequencyTypeRequest.setDescription("test 2");
 			frequencyTypeRequest.setParkingIdentificationCode("OTT");
 			frequencyTypeRequest.setCombinablePreviousFreq(false);
 			frequencyTypeRequest.setPriority(1);

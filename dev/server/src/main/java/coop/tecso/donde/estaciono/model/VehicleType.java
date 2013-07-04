@@ -1,5 +1,7 @@
 package coop.tecso.donde.estaciono.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import coop.tecso.donde.estaciono.model.common.State;
 import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESTime;
@@ -37,10 +39,12 @@ public class VehicleType extends State {
 		this.id = id;
 	}
 
+	@JsonIgnore
 	public Parking getParking() {
 		return parking;
 	}
 
+	@JsonIgnore
 	public void setParking(Parking parking) {
 		this.parking = parking;
 	}
@@ -55,7 +59,8 @@ public class VehicleType extends State {
 
 	@Override
 	public String toString() {
-		return "parking: " + this.getParking() + "  -  description: " + this.getDescription() + "  -  state: " + this.getState();
+		return "parking: " + this.getParking() + "  -  description: "
+				+ this.getDescription() + "  -  state: " + this.getState();
 	}
 
 	@Override
@@ -75,7 +80,8 @@ public class VehicleType extends State {
 
 		VehicleType vehicleType = (VehicleType) obj;
 
-		return (this.getParking().equals(vehicleType.getParking()) && this.getId().equals(vehicleType.getId()));
+		return (this.getParking().equals(vehicleType.getParking()) && this
+				.getId().equals(vehicleType.getId()));
 	}
 
 	@Override

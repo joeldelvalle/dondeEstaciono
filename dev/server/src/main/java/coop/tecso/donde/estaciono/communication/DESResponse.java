@@ -28,7 +28,7 @@ public class DESResponse {
 		this.status = status;
 	}
 
-	@JsonSerialize(using = CustomJsonSerializer.class)
+	@JsonSerialize(using = CustomJsonSerializer.class, include = JsonSerialize.Inclusion.NON_NULL)
 	public Object getPayload() {
 		return payload;
 	}

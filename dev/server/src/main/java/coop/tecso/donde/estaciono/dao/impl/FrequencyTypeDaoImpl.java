@@ -12,6 +12,7 @@ import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.FrequencyType;
+import coop.tecso.donde.estaciono.utils.DESConstants;
 import coop.tecso.donde.estaciono.utils.DESUtils;
 
 /**
@@ -87,8 +88,34 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 	}
 
 	@Override
-	public void delete(FrequencyType value) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
+	public void delete(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "delete";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			query.deleteQuery(frequencyType);
+
+			session.commit();
+
+		} catch (Exception e) {
+			log.logError(method, "error to update frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.delete", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		log.logEndMethod(method);
 
 	}
 
@@ -172,7 +199,7 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 	}
 
 	@Override
-	public Boolean existsFrequencyWithSamePriority(FrequencyType frequencyType) throws DondeEstacionoServerException {
+	public Boolean existsFrequencyWithSamePriority(FrequencyType frequencyType, DESConstants.Action action) throws DondeEstacionoServerException {
 		String method = "existsFrequencyWithSamePriority";
 		log.logStartMethod(method);
 
@@ -185,7 +212,11 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 
 			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
 
-			frequencyTypeResult = query.existsWithSamePriorityQuery(frequencyType);
+			if (DESConstants.Action.SAVE.equals(action)) {
+				frequencyTypeResult = query.existsWithSamePriorityToSaveQuery(frequencyType);
+			} else {
+				frequencyTypeResult = query.existsWithSamePriorityToUpdateOrDeleteQuery(frequencyType);
+			}
 
 		} catch (Exception e) {
 			log.logError(method, "error to validate frequencyType", e);

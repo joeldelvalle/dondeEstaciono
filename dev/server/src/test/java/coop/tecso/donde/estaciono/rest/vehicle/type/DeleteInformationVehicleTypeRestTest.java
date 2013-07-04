@@ -31,7 +31,7 @@ public class DeleteInformationVehicleTypeRestTest {
 			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/delete/vehicletyperequest");
 
 			VehicleTypeRequest vehicleTypeRequest = new VehicleTypeRequest();
-			vehicleTypeRequest.setId(1L);
+			vehicleTypeRequest.setId(0L);
 			vehicleTypeRequest.setParkingIdentificationCode("OTT");
 
 			

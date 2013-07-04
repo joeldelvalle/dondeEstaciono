@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
-import coop.tecso.donde.estaciono.dao.queries.common.GenericQuery;
 import coop.tecso.donde.estaciono.dao.utils.QueryParameters;
 import coop.tecso.donde.estaciono.model.Locality;
 import coop.tecso.donde.estaciono.model.Province;
@@ -20,7 +19,7 @@ import coop.tecso.donde.estaciono.utils.DESConstants;
  *
  */
 @Component
-public interface LocalityQuery extends GenericQuery {
+public interface LocalityQuery extends ProvinceQuery {
 
 	@Select("SELECT * " +
 			"FROM locality " +
@@ -29,7 +28,7 @@ public interface LocalityQuery extends GenericQuery {
 			@Result(property = "province", column = "id_province", javaType = Province.class, one = @One(select = "findProvinceById")),
 			@Result(property="stateDate", column="state_date")
 		})
-	public List<Locality> findAllQuery() throws Exception;
+	public List<Locality> findAllLocalityQuery() throws Exception;
 
 	
 	

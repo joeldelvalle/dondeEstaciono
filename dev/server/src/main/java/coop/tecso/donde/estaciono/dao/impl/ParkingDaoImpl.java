@@ -64,7 +64,7 @@ public class ParkingDaoImpl extends HaveCache<Parking> implements ParkingDao {
 	@Override
 	protected List<Parking> excuteQuery(SqlSession session) throws Exception {
 		ParkingQuery query = session.getMapper(ParkingQuery.class);
-		return query.findAllQuery();
+		return query.findAllParkingQuery();
 	}
 
 	@Override

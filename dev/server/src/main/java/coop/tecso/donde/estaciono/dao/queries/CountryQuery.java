@@ -24,5 +24,12 @@ public interface CountryQuery {
 	@Results(value = {
 			@Result(property="stateDate", column="state_date")
 		})
-	public List<Country> findAllQuery() throws Exception;
+	public List<Country> findAllCountryQuery() throws Exception;
+	
+	
+	@Select("SELECT * FROM country WHERE id = #{id}")
+	@Results(value = {
+			@Result(property="stateDate", column="state_date")
+		})
+	public Country findCountryById(Long id);
 }

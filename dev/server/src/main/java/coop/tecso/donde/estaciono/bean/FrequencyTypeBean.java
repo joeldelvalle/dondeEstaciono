@@ -56,14 +56,12 @@ public class FrequencyTypeBean implements GenericBean<FrequencyType> {
 
 	@Override
 	public void deleteValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+		this.frequencyTypeService.deleteValidation(frequencyType);
 	}
 
 	@Override
 	public void deleteExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
-		// TODO Auto-generated method stub
-
+		this.frequencyTypeService.delete(frequencyType);
 	}
 
 	@Override

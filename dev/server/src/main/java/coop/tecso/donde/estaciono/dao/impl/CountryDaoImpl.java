@@ -38,7 +38,7 @@ public class CountryDaoImpl implements CountryDao {
 
 			CountryQuery query = session.getMapper(CountryQuery.class);
 
-			countryList.addAll(query.findAllQuery());
+			countryList.addAll(query.findAllCountryQuery());
 
 		} catch (Exception e) {
 			log.logError(method, "error to find countries", e);

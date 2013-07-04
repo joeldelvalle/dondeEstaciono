@@ -6,6 +6,7 @@ import com.sun.jersey.api.client.WebResource;
 import coop.tecso.donde.estaciono.communication.DESRequest;
 import coop.tecso.donde.estaciono.communication.DESResponse;
 import coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest;
+import coop.tecso.donde.estaciono.communication.model.VehicleTypeRequest;
 import coop.tecso.donde.estaciono.service.impl.EncryptServiceImpl;
 import coop.tecso.donde.estaciono.service.impl.SecurityServiceImpl;
 import coop.tecso.donde.estaciono.utils.DESUtils;
@@ -16,7 +17,7 @@ import coop.tecso.donde.estaciono.utils.DESUtils;
  * 
  *         clase test de un cliente que se conecta al restful de save
  */
-public class SaveInformationFrequencyTypeRestTest {
+public class DeleteInformationVehicleTypeRestTest {
 
 	public static void main(String[] args) {
 
@@ -28,16 +29,12 @@ public class SaveInformationFrequencyTypeRestTest {
 
 			Client client = Client.create();
 
-			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/save/frequencytyperequest");
+			WebResource webResource = client.resource("http://localhost:8080/DondeEstacionoServer/rest/delete/frequencytyperequest");
 
 			FrequencyTypeRequest frequencyTypeRequest = new FrequencyTypeRequest();
-			frequencyTypeRequest.setType(2);
-			frequencyTypeRequest.setTime(60);
-			frequencyTypeRequest.setIdTimeType(1);
-			frequencyTypeRequest.setDescription("hora");
+			frequencyTypeRequest.setId(3L);
 			frequencyTypeRequest.setParkingIdentificationCode("OTT");
-			frequencyTypeRequest.setCombinablePreviousFreq(false);
-			frequencyTypeRequest.setPriority(2);
+
 			
 			DESRequest request = new DESRequest();
 			request.setUserHash("HASH-PUBLIC-WEB");

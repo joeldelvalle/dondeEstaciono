@@ -132,7 +132,7 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 
 			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
 
-			vehicleTypeList = query.findAllQuery();
+			vehicleTypeList = query.findAllVehicleTypeQuery();
 
 		} catch (Exception e) {
 			log.logError(method, "error to find all vehicleType", e);

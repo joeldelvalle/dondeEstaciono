@@ -26,5 +26,16 @@ public interface ParkingQuery {
 			@Result(property="totalPlaces", column="total_places"),
 			@Result(property="stateDate", column="state_date")
 		})
-	public List<Parking> findAllQuery() throws Exception;
+	public List<Parking> findAllParkingQuery() throws Exception;
+	
+	
+	
+	@Select("SELECT * FROM parking WHERE id = #{id}")
+	@Results(value = {
+			@Result(property="identificationCode", column="identification_code"),
+			@Result(property="totalPlaces", column="total_places"),
+			@Result(property="stateDate", column="state_date")
+		})
+	public Parking findParkingById(Long id);
+	
 }

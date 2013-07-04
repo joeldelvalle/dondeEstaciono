@@ -1,0 +1,31 @@
+
+nro: 001
+desc: se valida que el usuario que trata de loguearse en la app-web exista.
+
+
+nro: 002
+desc: se valida que el tipo de vehiculo que se intente grabar no exista. Esta validacion es sobre la "description" que se envia en el 
+	  objeto request
+
+
+nro: 003
+desc: se valida que el tipo de vehiculo exista, esto se hace para poder actualizar el objeto. Esta validacion es sobre la "id" que se envia
+	  en el objeto request
+
+
+nro: 004
+desc: se valida que el codigo de pais que se envia sea numerico
+
+
+nro: 005
+desc: se valida que el codigo de provincia que se envia sea numerico
+
+nro: 006
+desc: se valida que el tipo de frecuencia no exista. Esta validacion se hace sobre los campos "description", "type", "time", "timeType", "priority"
+
+
+nro: 007
+desc: se valida que solo haya un tipo de frecuencia con la misma prioridad. Esta validacion se hace sobre el campo "priority"
+
+nro: 008
+desc: se valida que el tipo de frecuencia exista. Esta validacion se hace sobre el campo "id"
