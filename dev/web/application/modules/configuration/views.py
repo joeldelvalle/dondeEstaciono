@@ -1,4 +1,4 @@
-from application.models.model import Error
+from application.models.model import Error, VehicleType
 __author__ = 'gromero'
 
 from application.modules.configuration.forms import VehicleTypeForm
@@ -13,7 +13,7 @@ action = None
 response = None
 
 @configuration_blueprint.route('/app/conf/vehicle', methods=['POST', 'GET'])
-def abm_vehicle():
+def getAllvehicle():
     global action
     global response
     
@@ -22,10 +22,26 @@ def abm_vehicle():
         action = 'save'
         response = services.saveVehicleType("OTT", form.description.data)
     vehicleTypeList = services.getAllVehicleType('OTT')
-    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response, Error=Error)
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
     action = None
     response = None
+    
+    return rt
+
+@configuration_blueprint.route('/app/conf/vehicle/update/<id>/<description>', methods=['POST', 'GET'])
+def updateVehicleType(id, description):
+    global action
+    global response
+    
+    form = VehicleTypeForm(request.form, description=description)
+    if form.validate_on_submit():
+        action = 'update'
+        response = services.updateVehicleType("OTT", id, form.description.data)
+        return redirect(url_for('.getAllvehicle'))
+    
+    vehicleTypeList = services.getAllVehicleType('OTT')
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
     return rt
     
@@ -37,4 +53,5 @@ def removeVehicleType(id):
     action = 'remove'
     response = services.removeVehicleType("OTT", id)
     
-    return redirect(url_for('.abm_vehicle'))
+    return redirect(url_for('.getAllvehicle'))
+    
