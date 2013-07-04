@@ -9,6 +9,7 @@ class User(object):
     def __init__(self, data):
         self.name = data.name
         self.email = data.email
+        self.parking = Parking(data.parking)
 
     def is_authenticated(self):
         return True
@@ -23,7 +24,8 @@ class User(object):
         return 1
 
 class Parking(object):
-    pass
+    def __init__(self, data):
+        self.identificationCode = data.identificationCode
 
 class Permission(object):
     pass

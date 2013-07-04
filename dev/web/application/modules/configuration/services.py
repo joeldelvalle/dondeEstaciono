@@ -1,7 +1,6 @@
 __author__ = 'gromero'
 
 from application.commons.convert import object2json, json2object
-from application.commons.exceptions import LoginException
 from application.communication.request import Payload, sendRequest, Request
 from application.modules.configuration.requests import VehicleTypeRequest
 from application.security import encrypt

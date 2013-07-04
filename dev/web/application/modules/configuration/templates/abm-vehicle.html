@@ -80,12 +80,14 @@
 	</div>
 {% endblock %}
 {% block script_content %}
-    <script type="text/javascript">
-	    var pager = new Pager('results', 5); 
-	    pager.init(); 
-	    pager.showPageNav('pager', 'pageNavPosition'); 
-	    pager.showPage(1);
-	</script>
+	{%- if (vehicleTypeList.vehicles|length) >= 6 %}
+	    <script type="text/javascript">
+		    var pager = new Pager('results', 5); 
+		    pager.init(); 
+		    pager.showPageNav('pager', 'pageNavPosition'); 
+		    pager.showPage(1);
+		</script>
+	{%- endif %}
 	{%- if response == "success" %}
         <script>
 	        notyfy({

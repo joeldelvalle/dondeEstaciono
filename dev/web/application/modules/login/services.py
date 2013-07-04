@@ -23,6 +23,7 @@ def login(user, password):
     request = getRequest(user, password)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL, dataEncrypted)
+    logging.info(response)
     data = json.loads(response)
     try:
         return json2object(edict(data))

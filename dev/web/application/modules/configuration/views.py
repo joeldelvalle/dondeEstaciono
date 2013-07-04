@@ -1,14 +1,11 @@
-from application.models.model import Error, VehicleType
-from application.commons.utils import cleanFields
 __author__ = 'gromero'
 
+from application.commons.utils import cleanFields
+from flask_login import current_user
 from application.modules.configuration.forms import VehicleTypeForm
-from flask import url_for, redirect, render_template, request
+from flask import url_for, redirect, request
 from flask.templating import render_template
-
 from application.modules.configuration import configuration_blueprint, services
-
-import logging
 
 action = None
 response = None
@@ -18,13 +15,12 @@ def getAllVehicle():
     global action
     global response
     
-    
     form = VehicleTypeForm(request.form)
     if form.validate_on_submit():
         action = 'save'
-        response = services.saveVehicleType("OTT", form.description.data)
+        response = services.saveVehicleType(current_user.parking.identificationCode, form.description.data)
         cleanFields(response, form)
-    vehicleTypeList = services.getAllVehicleType('OTT')
+    vehicleTypeList = services.getAllVehicleType(current_user.parking.identificationCode)
     rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
     action = None
@@ -40,10 +36,10 @@ def updateVehicleType(id, description):
     form = VehicleTypeForm(request.form, description=description)
     if form.validate_on_submit():
         action = 'update'
-        response = services.updateVehicleType("OTT", id, form.description.data)
+        response = services.updateVehicleType(current_user.parking.identificationCode, id, form.description.data)
         return redirect(url_for('.getAllVehicle'))
     
-    vehicleTypeList = services.getAllVehicleType('OTT')
+    vehicleTypeList = services.getAllVehicleType(current_user.parking.identificationCode)
     rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
     return rt
@@ -54,7 +50,7 @@ def removeVehicleType(id):
     global response
     
     action = 'remove'
-    response = services.removeVehicleType("OTT", id)
+    response = services.removeVehicleType(current_user.parking.identificationCode, id)
     
     return redirect(url_for('.getAllVehicle'))
     
