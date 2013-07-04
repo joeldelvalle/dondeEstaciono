@@ -17,4 +17,4 @@ class Payload(object):
 def sendRequest(url, request):
     req = urllib2.Request(p['server'] + p['applicationName'] + url, request, headers={"Content-Type": "application/json"})
     resp = urllib2.urlopen(req).read()
-    return encrypt.dencrypted(resp)
+    return unicode(encrypt.dencrypted(resp), errors="ignore")

@@ -47,7 +47,7 @@ def getAllVehicleType(parkingIdentificationCode):
     data = json.loads(response)
     return json2object(edict(data))
 
-def saveVehicleType(parkingIdentificationCode, id, description):
+def saveVehicleType(parkingIdentificationCode, description):
     r = None
     
     request = getSaveVehicleTypeRequest(parkingIdentificationCode, description)
