@@ -35,4 +35,14 @@ public class DESConstants {
 
 	}
 
+	public static enum Action {
+
+		SAVE,
+
+		UPDATE,
+
+		DELETE
+
+	}
+
 }
