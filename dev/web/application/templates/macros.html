@@ -1,0 +1,28 @@
+{% macro deleteVehicleTypeModalWindow(index, itemId, itemDescription) -%}
+    <div id="myModal{{index}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			<h3 id="myModalLabel">Confirmation</h3>
+		</div>
+		<div class="modal-body">
+			<p>Do you want remove this vehicle: {{itemDescription}} ?</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick="javascript:location.href='/app/conf/vehicle/remove/{{itemId}}'">OK</button>
+			<button class="btn" data-dismiss="modal" href="">Cancel</button>
+		</div>
+	</div>
+{%- endmacro %}
+
+{% macro simpleField(field) -%}
+    <div class="control-group {% if field.errors %}error{% endif %}">
+	    <div class="controls">
+	      <input id="{{field.label.text|lower}}" class="input-block-level" type="text" name="{{field.label.text|lower}}" placeholder="{{field.label.text|lower}}" value="{{field.data if field.data != None}}">
+	      {%- if field.errors %}
+	      	{%- for error in field.errors %}
+	      		<p class="help-inline">{{error}}</p>
+	      	{%- endfor %}
+	      {%- endif %}
+	    </div>
+    </div>
+{%- endmacro %}
