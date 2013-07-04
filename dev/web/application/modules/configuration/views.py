@@ -1,4 +1,5 @@
 from application.models.model import Error, VehicleType
+from application.commons.utils import cleanFields
 __author__ = 'gromero'
 
 from application.modules.configuration.forms import VehicleTypeForm
@@ -13,14 +14,16 @@ action = None
 response = None
 
 @configuration_blueprint.route('/app/conf/vehicle', methods=['POST', 'GET'])
-def getAllvehicle():
+def getAllVehicle():
     global action
     global response
+    
     
     form = VehicleTypeForm(request.form)
     if form.validate_on_submit():
         action = 'save'
         response = services.saveVehicleType("OTT", form.description.data)
+        cleanFields(response, form)
     vehicleTypeList = services.getAllVehicleType('OTT')
     rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
@@ -38,7 +41,7 @@ def updateVehicleType(id, description):
     if form.validate_on_submit():
         action = 'update'
         response = services.updateVehicleType("OTT", id, form.description.data)
-        return redirect(url_for('.getAllvehicle'))
+        return redirect(url_for('.getAllVehicle'))
     
     vehicleTypeList = services.getAllVehicleType('OTT')
     rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
@@ -53,5 +56,5 @@ def removeVehicleType(id):
     action = 'remove'
     response = services.removeVehicleType("OTT", id)
     
-    return redirect(url_for('.getAllvehicle'))
+    return redirect(url_for('.getAllVehicle'))
     

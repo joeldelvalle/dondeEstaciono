@@ -1,35 +1,6 @@
 {% extends "base.html" %}
 {% block body_content %}
-	<div class="container">
-		<div class="navbar navbar">
-	 		<div class="navbar-inner">
- 				<div class="nav-collapse collapse navbar-inverse-collapse">
- 					<form class="navbar-search pull-right" action="">
- 						<input class="search-query span2" type="text" placeholder="Search"></input>
- 					</form>
- 					<ul class="nav pull-right">
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <i class="icon-wrench"></i> Settings <b class="caret"></b>
-							<ul class="dropdown-menu">
-								<li>
-									<a href="#">Action 1</a>
-								</li>
-								<li>
-									<a href="#">Action 2</a>
-								</li>
-								<li>
-									<a href="#">Action 3</a>
-								</li>
-								<li>
-									<a href="#"> <i class="icon-user"></i> My Account</a>
-								</li>
-							</ul>
-						</li>
- 					</ul>
- 				</div>
-	 		</div>
-	    </div>
-	</div>
+	{% include 'topbar.html' %}
 	<div class="container">
 		<div class="container-fluid">
 		    <div class="row-fluid">
@@ -100,7 +71,7 @@
                             </div>
 	                    </div>
 						<div class="row row-margin">
-							<form method="post" name="vehicle-type_form">
+							<form id="frm" method="post">
 		                        <div class="well well-nice">
 			                        <fieldset>
 			                        	<legend>Vehicle fields</legend>
@@ -115,7 +86,7 @@
 									      </div>
 									    </div>
 									    <div class="button-bar">
-											<button type="submit" class="btn">Clear</button>
+											<a id="clearBtn" class="btn">Clear</a>
 											<button type="submit" class="btn btn-success">Save Vehicle</button>
 										</div>
 			                        </fieldset>
