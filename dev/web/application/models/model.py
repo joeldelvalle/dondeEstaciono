@@ -5,6 +5,7 @@ class Error(object):
         self.code = data.code
         self.message = data.message
 
+
 class User(object):
     def __init__(self, data):
         self.name = data.name
@@ -23,17 +24,21 @@ class User(object):
     def get_id(self):
         return 1
 
+
 class Parking(object):
     def __init__(self, data):
         self.identificationCode = data.identificationCode
 
+
 class Permission(object):
     pass
+
 
 class VehicleType(object):
     def __init__(self, data):
         self.id = data.id
         self.description = data.description
+
         
 class VehicleTypeList(object):
     def __init__(self, data):
@@ -41,4 +46,47 @@ class VehicleTypeList(object):
         for d in data:
             v = VehicleType(d)
             self.vehicles.append(v)
+
+
+class TimeType(object):
+    def __init__(self, data):
+        self.id = data.id
+        self.description = data.description
         
+        
+class TimeTypeList(object):
+    def __init__(self, data):
+        self.timeTypeList = list()
+        for d in data:
+            v = TimeType(d)
+            self.timeTypeList.append(v)
+
+
+def createFrequencyTypeValue(idValue):
+    from application.commons.databaseCache import getFrequencyTypeValue
+    return getFrequencyTypeValue(idValue)
+
+class FrequencyType(object):
+    def __init__(self, data):
+        self.id = long(data.id)
+        self.description = data.description
+        self.type = createFrequencyTypeValue(int(data.type))
+        self.time = int(data.time)
+        self.timeType = data.timeType
+        self.priority=int(data.priority)
+        self.combinablePreviousFrequency = bool(data.combinablePreviousFrequency)
+
+
+class FrequencyTypeList(object):
+    def __init__(self, data):
+        self.frequencies = list()
+        for d in data:
+            v = FrequencyType(d)
+            self.frequencies.append(v)
+            
+
+# los unicos valores posibles son frecuencia/fijo           
+class FrequencyTypeValue(object):
+    def __init__(self, id, description):
+        self.id = id
+        self.description = description                   

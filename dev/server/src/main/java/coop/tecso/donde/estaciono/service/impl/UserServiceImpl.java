@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
 		est.setName("Estacionamiento Demo");
 		est.setAddress("Avenida Siempreviva 742");
 		est.setEmails(emList);
-		est.setIdentificationCode("ED01");
+		est.setIdentificationCode("OTT");
 		est.setLocality(l1);
 		est.setPhones(phList);
 		est.setState("EN");

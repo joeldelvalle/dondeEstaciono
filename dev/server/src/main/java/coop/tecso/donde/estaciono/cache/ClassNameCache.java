@@ -76,6 +76,7 @@ public class ClassNameCache {
 		this.classNameCache.put("hashmap", HashMap.class);
 		this.classNameCache.put("map", Map.class);
 		this.classNameCache.put("string", String.class);
+		this.classNameCache.put("str", String.class);
 	}
 	
 	public void initialize() {

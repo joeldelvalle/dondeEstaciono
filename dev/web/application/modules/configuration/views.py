@@ -2,10 +2,11 @@ __author__ = 'gromero'
 
 from application.commons.utils import cleanFields
 from flask_login import current_user
-from application.modules.configuration.forms import VehicleTypeForm
+from application.modules.configuration.forms import VehicleTypeForm, FrequencyTypeForm
 from flask import url_for, redirect, request
 from flask.templating import render_template
 from application.modules.configuration import configuration_blueprint, services
+from application.commons import databaseCache
 
 action = None
 response = None
@@ -53,4 +54,36 @@ def removeVehicleType(id):
     response = services.removeVehicleType(current_user.parking.identificationCode, id)
     
     return redirect(url_for('.getAllVehicle'))
+
+
+# metodo que obtiene todos los timeType para cargar el combo
+#@configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
+#def getAllTimeType():
+#    form = FrequencyTypeForm(request.form)
+#    timeTypeList = databaseCache.getAllTimeType
+#    rt = render_template('abm-frequency.html', form=form, timeTypeList=timeTypeList)
+#       
+#    return rt
+
+# metodo que obtiene todas las frecuancias cargadas por un estacionamiento
+@configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
+def getAllFrequency():
+    global action
+    global response
     
+    form = FrequencyTypeForm(request.form)
+    if form.validate_on_submit():
+        action = 'save'
+        response = services.saveFrequencyType(current_user.parking.identificationCode, form.description.data)
+        cleanFields(response, form)
+    
+    frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)
+    
+    timeTypeList = databaseCache.getAllTimeType
+    
+    rt = render_template('abm-frequency.html', form=form, frequencyTypeList=frequencyTypeList, timeTypeList=timeTypeList, action=action, response=response)
+    
+    action = None
+    response = None
+    
+    return rt    

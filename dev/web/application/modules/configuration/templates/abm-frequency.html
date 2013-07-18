@@ -16,8 +16,8 @@
 					    <li class="accordion-group">
 					        <div class="accordion-heading"> <a href="#accForms" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-th-list icon-white"></i><i class="icon-chevron-right"></i> Configuration </a> </div>
 					        <ul class="accordion-content nav nav-list collapse in" id="accForms">
-					            <li> <a href="{{ url_for('configuration_blueprint.getAllVehicle') }}" class="selected"> Vehicle </a> </li>
-					            <li> <a href="{{ url_for('configuration_blueprint.getAllFrequency') }}"> Frecuency </a> </li>
+					            <li> <a href="{{ url_for('configuration_blueprint.getAllVehicle') }}"> Vehicle </a> </li>
+					            <li> <a href="{{ url_for('configuration_blueprint.getAllFrequency') }}" class="selected"> Frecuency</a> </li>
 					            <li> <a href="#"> Price</a> </li>
 					        </ul>
 					    </li>
@@ -26,7 +26,7 @@
 			    <div class="span9">
 					<ul class="nav nav-tabs">
 					  <li class="active">
-						<a href="#">Vehicle</a>
+						<a href="#">Frequency</a>
 					  </li>
 					</ul>
 					<div class="tab-content de-content">
@@ -35,16 +35,30 @@
                                 <table id="results" class="table boo-table table-content table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
                                             <th scope="col">Description</th>
+                                            <th scope="col">Type</th>
+                                            <th scope="col">Time</th>
+                                            <th scope="col">Type Time</th>
+                                            <th scope="col">Priority</th>
+                                            <th scope="col">Combinable</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    	{% for item in vehicleTypeList.vehicles %}
+                                    	{% for item in frequencyTypeList.frequencies %}
                                     		<tr>
-									        	<td>{{loop.index}}</td>
                                             	<td>{{item.description}}</td>
+                                            	<td>{{item.type.description}}</td>
+                                            	<td>{{item.time}}</td>
+                                            	<td>{{item.timeType.description}}</td>
+                                            	<td>{{item.priority}}</td>
+                                            	
+                                            	{%- if item.combinablePreviousFrequency == true %}
+                                            		<td>SI</td>
+    											{%- else %}
+    												<td>NO</td>
+    											{%- endif %}
+    											                                        		
                                             	<td>
                                             		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/vehicle/update/{{item.id}}/{{item.description}}" title="Edit"><i class="icon-edit icon-white"></i></a>
                                             		&nbsp
@@ -59,20 +73,22 @@
                             <div id="pageNavPosition" class="row">
                             </div>
 	                    </div>
+
 						<div class="row row-margin">
 							<form id="frm" method="post">
 		                        <div class="well well-nice">
 			                        <fieldset>
-			                        	<legend>Vehicle fields</legend>
+			                        	<legend>Frequency fields</legend>
                                         {{simpleField(form.description)}}
 									    <div class="button-bar">
 											<a id="clearBtn" class="btn">Clear</a>
-											<button type="submit" class="btn btn-success">Save Vehicle</button>
+											<button type="submit" class="btn btn-success">Save Frequency</button>
 										</div>
 			                        </fieldset>
 		                    	</div>
 							</form>
 						</div>
+
 					</div>
 			    </div>
 		    </div>
@@ -80,7 +96,7 @@
 	</div>
 {% endblock %}
 {% block script_content %}
-	{%- if (vehicleTypeList.vehicles|length) >= 6 %}
+	{%- if (frequencyTypeList.frequencies|length) >= 6 %}
 	    <script type="text/javascript">
 		    var pager = new Pager('results', 5); 
 		    pager.init(); 
