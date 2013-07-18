@@ -1,28 +1,11 @@
 {% extends "base.html" %}
-{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField %}
+{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField, createMenu %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
 		<div class="container-fluid">
 		    <div class="row-fluid">
-			    <div class="span3">
-					<ul id="mainSideMenu" class="left-menu nav nav-list nav-side">
-					    <li class="accordion-group">
-					        <div class="accordion-heading"> <a href="#accDash" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-home icon-white"></i><i class="icon-chevron-right"></i> Home </a> </div>
-					        <ul class="accordion-content nav nav-list collapse" id="accDash">
-					            <li> <a href="{{ url_for('indexapp') }}"> Dashboard </a> </li>
-					        </ul>
-					    </li>
-					    <li class="accordion-group">
-					        <div class="accordion-heading"> <a href="#accForms" data-parent="#mainSideMenu" data-toggle="collapse" class="accordion-toggle"> <i class="icon-th-list icon-white"></i><i class="icon-chevron-right"></i> Configuration </a> </div>
-					        <ul class="accordion-content nav nav-list collapse in" id="accForms">
-					            <li> <a href="{{ url_for('configuration_blueprint.getAllVehicle') }}" class="selected"> Vehicle </a> </li>
-					            <li> <a href="{{ url_for('configuration_blueprint.getAllFrequency') }}"> Frecuency </a> </li>
-					            <li> <a href="#"> Price</a> </li>
-					        </ul>
-					    </li>
-					</ul>
-			    </div>
+			    {{createMenu('configuration', 'vehicle')}}
 			    <div class="span9">
 					<ul class="nav nav-tabs">
 					  <li class="active">
