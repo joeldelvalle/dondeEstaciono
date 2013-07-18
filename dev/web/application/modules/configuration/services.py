@@ -153,29 +153,29 @@ def getAllFrequencyType(parkingIdentificationCode):
 
 
 # crea el request para grabar un frequencyType
-def getSaveVehicleTypeRequest(parkingIdentificationCode, description):
-    vehiclerequest = VehicleTypeRequest(parkingIdentificationCode, description)
-    payload = Payload(vehiclerequest)
-    request = Request(payload, buildMac(object2json(vehiclerequest)), 'HASH-PUBLIC-WEB')
+def getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency)
+    payload = Payload(frequencyRequest)
+    request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
     return request
 
 # solicitud para grabar un frequencyType
-def saveVehicleType(parkingIdentificationCode, description):
-    r = None
+def saveFrequencyType(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
+    result = None
     
-    request = getSaveVehicleTypeRequest(parkingIdentificationCode, description)
+    request = getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency)
     dataEncrypted = encrypt.encrypted(object2json(request))
-    response = sendRequest(URL_SAVE + VEHICLE_TYPE_REQUEST, dataEncrypted)
+    response = sendRequest(URL_SAVE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
     data = json.loads(response)
     obj = edict(data)
     
     if (obj.status == "success"):
-        r = obj.status
+        result = obj.status
     else:
-        r = json2object(obj)
+        result = json2object(obj)
 
-    return r
+    return result
 
 '''
     FREQUENCY_TYPE   METHODS   -   END
