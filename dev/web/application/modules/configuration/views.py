@@ -1,7 +1,7 @@
 __author__ = 'gromero'
 
 from application.commons.utils import cleanFields
-from flask_login import current_user
+from flask_login import current_user, login_required
 from application.modules.configuration.forms import VehicleTypeForm, FrequencyTypeForm
 from flask import url_for, redirect, request
 from flask.templating import render_template
@@ -11,6 +11,7 @@ from application.commons import databaseCache
 action = None
 response = None
 
+@login_required
 @configuration_blueprint.route('/app/conf/vehicle', methods=['POST', 'GET'])
 def getAllVehicle():
     global action
@@ -29,6 +30,7 @@ def getAllVehicle():
     
     return rt
 
+@login_required
 @configuration_blueprint.route('/app/conf/vehicle/update/<id>/<description>', methods=['POST', 'GET'])
 def updateVehicleType(id, description):
     global action
@@ -44,7 +46,8 @@ def updateVehicleType(id, description):
     rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
     
     return rt
-    
+
+@login_required
 @configuration_blueprint.route('/app/conf/vehicle/remove/<id>', methods=['POST', 'GET'])
 def removeVehicleType(id):
     global action 
