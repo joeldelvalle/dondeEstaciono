@@ -80,10 +80,44 @@
 			                        <fieldset>
 			                        	<legend>Frequency fields</legend>
                                         {{simpleField(form.description)}}
+                                         {{simpleField(form.time)}}
+										{{ form.timeType }}
+                                        
+										<div class="btn-group" data-toggle="buttons-radio">
+											{% for subfield in form.type %}
+												  	<button type="button" class="btn btn-primary" value="{{subfield.id}}">{{subfield.label}}</button>
+											{% endfor %}
+										</div>
+										
+										{% for subfield in form.type %}
+										<tr>
+										    <td>{{ subfield }}</td>
+										    <td>{{ subfield.label }}</td>
+										</tr>
+										{% endfor %}
+
+
+										<br/><br/>
+										
+										<div class="btn-group">
+										  <button class="btn btn-small">Action</button>
+										  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+										    <span class="caret"></span>
+										  </button>
+										  <ul class="dropdown-menu">
+										    <button class="btn btn-small">Action2</button>
+										  </ul>
+										</div>
+										
+										<br/><br/>
+										
+										
+										
 									    <div class="button-bar">
 											<a id="clearBtn" class="btn">Clear</a>
 											<button type="submit" class="btn btn-success">Save Frequency</button>
 										</div>
+										
 			                        </fieldset>
 		                    	</div>
 							</form>
