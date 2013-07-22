@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField %}
+{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField, createMenu %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
@@ -65,12 +65,15 @@
                                         {{simpleField(form.description)}}
                                          {{simpleField(form.time)}}
 										{{ form.timeType }}
-                                        
+										
+										<br/>                                        
 										<div class="btn-group" data-toggle="buttons-radio">
 											{% for subfield in form.type %}
 												  	<button type="button" class="btn btn-primary" value="{{subfield.id}}">{{subfield.label}}</button>
 											{% endfor %}
 										</div>
+										
+										<br/>
 										
 										{% for subfield in form.type %}
 										<tr>
@@ -81,20 +84,6 @@
 
 
 										<br/><br/>
-										
-										<div class="btn-group">
-										  <button class="btn btn-small">Action</button>
-										  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										  </button>
-										  <ul class="dropdown-menu">
-										    <button class="btn btn-small">Action2</button>
-										  </ul>
-										</div>
-										
-										<br/><br/>
-										
-										
 										
 									    <div class="button-bar">
 											<a id="clearBtn" class="btn">Clear</a>
