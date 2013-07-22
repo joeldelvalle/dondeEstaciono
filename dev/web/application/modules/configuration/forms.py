@@ -24,16 +24,23 @@ class FrequencyTypeForm(wtf.Form):
 
     time = wtf.IntegerField(validators=[wtf.required()])
 
-    timeType = wtf.SelectField(u'TimeType')
+    timeType = wtf.SelectField(u'TimeType', default=999 )
         
     priority = wtf.IntegerField(validators=[wtf.required()])            
        
     combinablePreviousFrequency = wtf.RadioField(choices=[(0,'SI'),(1,'No')])    
     
 
+    def loadTimeTypeValues(self):
+        self.timeType.choices = [(999, "Seleccione")]
+
+        for timeTypeValue in databaseCache.getTimeTypeList():
+            self.timeType.choices.append((timeTypeValue.id, timeTypeValue.description))
+        
+        
     def __init__(self, *args, **kwargs):
         kwargs['csrf_enabled'] = False
         super(FrequencyTypeForm, self).__init__(*args, **kwargs)
-        
-        self.timeType.choices = [(g.id, g.description) for g in databaseCache.getTimeTypeList()]
-        
+        self.loadTimeTypeValues()
+
+    

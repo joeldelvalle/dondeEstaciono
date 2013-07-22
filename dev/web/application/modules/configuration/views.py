@@ -79,7 +79,7 @@ def getAllFrequency():
         action = 'save'
         response = services.saveFrequencyType(current_user.parking.identificationCode, form.description.data)
         cleanFields(response, form)
-    
+
     frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)
     
     timeTypeList = databaseCache.getAllTimeType

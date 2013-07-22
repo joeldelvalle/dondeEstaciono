@@ -1,0 +1,35 @@
+
+<!-- macro para poner campo de texto alfanumerico -->
+{% macro simpleField(field) -%}
+    <div class="control-group {% if field.errors %}error{% endif %}">
+	    <div class="controls">
+	      
+	      {{ field(placeholder=field.label.text|lower) }}
+	      
+	      {%- if field.errors %}
+	      	{%- for error in field.errors %}
+	      		<p class="help-inline">{{error}}</p>
+	      	{%- endfor %}
+	      {%- endif %}
+	    </div>
+    </div>
+{%- endmacro %}
+
+
+
+<!-- macro para poner campo de texto solo numerico -->
+{% macro numberField(field, size) -%}
+    <div class="control-group {% if field.errors %}error{% endif %}">
+	    <div class="controls">
+	      
+	      {{ field(class='input-block-level span1', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
+	      
+	      {%- if field.errors %}
+	      	{%- for error in field.errors %}
+	      		<p class="help-inline">{{error}}</p>
+	      	{%- endfor %}
+	      {%- endif %}
+	    </div>
+    </div>
+{%- endmacro %}
+
