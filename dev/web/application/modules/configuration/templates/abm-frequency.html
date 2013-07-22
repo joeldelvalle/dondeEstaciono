@@ -15,45 +15,47 @@
 					</ul>
 					<div class="tab-content de-content">
 						<div class="row row-margin-first">
-                            <div class="table-wrapper">
-                                <table id="results" class="table boo-table table-content table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Description</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Time</th>
-                                            <th scope="col">Type Time</th>
-                                            <th scope="col">Priority</th>
-                                            <th scope="col">Combinable</th>
-                                            <th scope="col">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    	{% for item in frequencyTypeList.frequencies %}
-                                    		<tr>
-                                            	<td>{{item.description}}</td>
-                                            	<td>{{item.type.description}}</td>
-                                            	<td>{{item.time}}</td>
-                                            	<td>{{item.timeType.description}}</td>
-                                            	<td>{{item.priority}}</td>
-                                            	
-                                            	{%- if item.combinablePreviousFrequency == true %}
-                                            		<td>SI</td>
-    											{%- else %}
-    												<td>NO</td>
-    											{%- endif %}
-    											                                        		
-                                            	<td>
-                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/vehicle/update/{{item.id}}/{{item.description}}" title="Edit"><i class="icon-edit icon-white"></i></a>
-                                            		&nbsp
-                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="Remove"><i class="icon-trash icon-white"></i></a>
-                                            	</td>
-                                            </tr>
-                                            {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description)}}
-									    {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
+							{%- if (frequencyTypeList.frequencies|length) != 0 %}
+	                            <div class="table-wrapper">
+	                                <table id="results" class="table boo-table table-content table-hover">
+	                                    <thead>
+	                                        <tr>
+	                                            <th scope="col">Description</th>
+	                                            <th scope="col">Type</th>
+	                                            <th scope="col">Time</th>
+	                                            <th scope="col">Type Time</th>
+	                                            <th scope="col">Priority</th>
+	                                            <th scope="col">Combinable</th>
+	                                            <th scope="col">Actions</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                    	{% for item in frequencyTypeList.frequencies %}
+	                                    		<tr>
+	                                            	<td>{{item.description}}</td>
+	                                            	<td>{{item.type.description}}</td>
+	                                            	<td>{{item.time}}</td>
+	                                            	<td>{{item.timeType.description}}</td>
+	                                            	<td>{{item.priority}}</td>
+	                                            	
+	                                            	{%- if item.combinablePreviousFrequency == true %}
+	                                            		<td>SI</td>
+	    											{%- else %}
+	    												<td>NO</td>
+	    											{%- endif %}
+	    											                                        		
+	                                            	<td>
+	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/vehicle/update/{{item.id}}/{{item.description}}" title="Edit"><i class="icon-edit icon-white"></i></a>
+	                                            		&nbsp
+	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="Remove"><i class="icon-trash icon-white"></i></a>
+	                                            	</td>
+	                                            </tr>
+	                                            {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description)}}
+										    {% endfor %}
+	                                    </tbody>
+	                                </table>
+	                            </div>
+                            {%- endif %}
                             <div id="pageNavPosition" class="row">
                             </div>
 	                    </div>
@@ -63,8 +65,11 @@
 		                        <div class="well well-nice">
 			                        <fieldset>
 			                        	<legend>Frequency fields</legend>
-                                        {{simpleField(form.description)}}
-                                         {{numberField(form.time, 15)}}
+                                        
+                                        {{simpleField(form.description, 'large')}}
+                                        
+                                        {{numberField(form.time, 'extraSmall' )}}
+
 										{{ form.timeType }}
 										
 										<br/>                                        
