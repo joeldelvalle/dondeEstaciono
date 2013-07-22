@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField, createMenu %}
+{% from 'macros.html' import deleteVehicleTypeModalWindow, simpleField, numberField, createMenu %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
@@ -63,7 +63,7 @@
 			                        <fieldset>
 			                        	<legend>Frequency fields</legend>
                                         {{simpleField(form.description)}}
-                                         {{simpleField(form.time)}}
+                                         {{numberField(form.time, 15)}}
 										{{ form.timeType }}
 										
 										<br/>                                        
