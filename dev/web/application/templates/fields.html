@@ -80,8 +80,8 @@
 		
 		<div class="controls">
 			<div class="btn-group" data-toggle="buttons-radio">
-			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'yes' );">SI</button>
-			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'no' );" >NO</button>
+			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'yes' );">Si</button>
+			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'no' );" >No</button>
 			</div>
 		</div>	
 		
@@ -98,7 +98,7 @@
 
 <!-- macro para botones del tipo radio -->
 <!-- el map buttons debe armarse de esta manera  valueDeLaAccion-labelAMostrar -->
-<!-- ejemplo para llamada de un radio de SI-NO  radioField(campoOculto, yes=SI, no=NO)  -->
+<!-- ejemplo para llamada de un radio de SI-NO  radioField(form.type, buttons={yes:'SI', no:'NO'})  -->
 {% macro radioField(hiddenField, buttons) -%}
 	<div class="control-group {% if hiddenField.errors %}error{% endif %}">
 		
