@@ -24,7 +24,7 @@ class FrequencyTypeForm(wtf.Form):
 
     time = wtf.IntegerField(validators=[wtf.required()])
 
-    type = wtf.RadioField(choices=[(1,'Frecuencia'),(2,'Fijo')])
+    type = wtf.HiddenField(wtf.required())
         
     priority = wtf.IntegerField(validators=[wtf.required()])
        

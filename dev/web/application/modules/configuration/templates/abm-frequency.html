@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from 'macros.html' import deleteVehicleTypeModalWindow, createMenu %}
-{% from 'fields.html' import simpleField, numberField, yesNoField %}
+{% from 'fields.html' import simpleField, numberField, yesNoField, radioField %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
@@ -97,12 +97,10 @@
 	        										Tipo
 												</div>
 												<div>
-													<div class="btn-group" data-toggle="buttons-radio">
-													  <button type="button" class="btn">Acumulable</button>
-													  <button type="button" class="btn">Fijo</button>
-													</div>
+													{{ radioField(form.type, buttons={1:'Acumulable', 2:'Fijo'}) }}	
 												</div>
 												<br/>
+
 												<div>
 	        										Combinable con Frecuencia Anterior
 												</div>

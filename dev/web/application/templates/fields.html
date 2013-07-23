@@ -92,4 +92,34 @@
 	    {%- endif %}
 														
 	</div>												
-{%- endmacro %}												
+{%- endmacro %}
+
+
+
+<!-- macro para botones del tipo radio -->
+<!-- el map buttons debe armarse de esta manera  valueDeLaAccion-labelAMostrar -->
+<!-- ejemplo para llamada de un radio de SI-NO  radioField(campoOculto, yes=SI, no=NO)  -->
+{% macro radioField(hiddenField, buttons) -%}
+	<div class="control-group {% if hiddenField.errors %}error{% endif %}">
+		
+		{{ hiddenField }}
+		
+		<div class="controls">
+			<div class="btn-group" data-toggle="buttons-radio">
+					 
+				{%-  for key in buttons %} 
+			    	<button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
+				{%- endfor %}
+				
+			</div>
+		</div>	
+		
+		{%- if hiddenField.errors %}
+	      	{%- for error in hiddenField.errors %}
+	      		<p class="help-inline">{{error}}</p>
+	    	{%- endfor %}
+	    {%- endif %}
+														
+	</div>												
+{%- endmacro %}
+										

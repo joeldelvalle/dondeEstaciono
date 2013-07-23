@@ -69,3 +69,15 @@ def getFrequencyTypeValue(idFrequencyType):
         loadtFrequencyTypeValuesInformation()
     
     return frequencyTypeValuesMapCache[idFrequencyType]
+
+
+
+def myfunc(**kwargs):
+    # kwargs is a dictionary.
+    for k,v in kwargs.iteritems():
+         print "%s pp %s" % (k, v)
+
+myfunc(f=123233, g=123233)
+
+
+
