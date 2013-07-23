@@ -24,11 +24,11 @@ class FrequencyTypeForm(wtf.Form):
 
     time = wtf.IntegerField(validators=[wtf.required()])
 
-    type = wtf.HiddenField(wtf.required())
+    type = wtf.HiddenField(validators=[wtf.required()])
         
     priority = wtf.IntegerField(validators=[wtf.required()])
        
-    combinablePreviousFrequency = wtf.HiddenField(wtf.required())
+    combinablePreviousFrequency = wtf.HiddenField(validators=[wtf.required()])
     
 
     def loadTimeTypeValues(self):

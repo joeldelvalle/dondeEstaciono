@@ -4,11 +4,13 @@
     <div class="control-group {% if field.errors %}error{% endif %}">
 	    <div class="controls">
 	      {{ field(**kwargs) }}
-	      {%- if field.errors %}
-	      	{%- for error in field.errors %}
-	      		<p class="help-inline">{{error}}</p>
-	      	{%- endfor %}
-	      {%- endif %}
+	      <div>
+		      {%- if field.errors %}
+		      	{%- for error in field.errors %}
+		      		<p class="help-inline">{{error}}</p>
+		      	{%- endfor %}
+		      {%- endif %}
+	      </div>
 	    </div>
     </div>
 {%- endmacro %}
@@ -18,22 +20,20 @@
 <!-- macro para botones SI - NO -->
 {% macro yesNoField(hiddenField) -%}
 	<div class="control-group {% if hiddenField.errors %}error{% endif %}">
-		
-		{{ hiddenField }}
-		
 		<div class="controls">
+			{{ hiddenField }}
 			<div class="btn-group" data-toggle="buttons-radio">
 			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'yes' );">Si</button>
 			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'no' );" >No</button>
 			</div>
+			<p>
+				{%- if hiddenField.errors %}
+			      	{%- for error in hiddenField.errors %}
+			      		<p class="help-inline">{{error}}</p>
+			    	{%- endfor %}
+		    	{%- endif %}
+			</p>
 		</div>	
-		
-		{%- if hiddenField.errors %}
-	      	{%- for error in hiddenField.errors %}
-	      		<p class="help-inline">{{error}}</p>
-	    	{%- endfor %}
-	    {%- endif %}
-														
 	</div>												
 {%- endmacro %}
 
@@ -44,25 +44,21 @@
 <!-- ejemplo para llamada de un radio de SI-NO  radioField(form.type, buttons={yes:'SI', no:'NO'})  -->
 {% macro radioField(hiddenField, buttons) -%}
 	<div class="control-group {% if hiddenField.errors %}error{% endif %}">
-		
-		{{ hiddenField }}
-		
 		<div class="controls">
+			{{ hiddenField }}
 			<div class="btn-group" data-toggle="buttons-radio">
-					 
 				{%-  for key in buttons %} 
 			    	<button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
 				{%- endfor %}
-				
 			</div>
+			<p>
+				{%- if hiddenField.errors %}
+			      	{%- for error in hiddenField.errors %}
+			      		<p class="help-inline">{{error}}</p>
+			    	{%- endfor %}
+			    {%- endif %}
+			</p>
 		</div>	
-		
-		{%- if hiddenField.errors %}
-	      	{%- for error in hiddenField.errors %}
-	      		<p class="help-inline">{{error}}</p>
-	    	{%- endfor %}
-	    {%- endif %}
-														
 	</div>												
 {%- endmacro %}
 										
