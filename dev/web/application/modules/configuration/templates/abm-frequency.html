@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from 'macros.html' import deleteVehicleTypeModalWindow, createMenu %}
-{% from 'fields.html' import simpleField, numberField %}
+{% from 'fields.html' import simpleField, numberField, yesNoField %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
@@ -65,33 +65,52 @@
 		                        <div class="well well-nice">
 			                        <fieldset>
 			                        	<legend>Frequency fields</legend>
-                                        
-                                        {{simpleField(form.description, 'large')}}
-                                        
-                                        {{numberField(form.time, 'extraSmall' )}}
+												<div>
+	        										Prioridad
+												</div>
+												<div>
+													{{numberField(form.priority, 'extraSmall' )}}
+												</div>
 
-										{{ form.timeType }}
+												<div>
+													Descripci&oacute;n
+												</div>
+												<div>
+			                                        {{simpleField(form.description, 'large')}}
+												</div>
+												
+												<div>
+	        										Tipo
+												</div>
+												<div>
+													{{ form.timeType }}
+												</div>
+												
+												<div>
+	        										Cantidad
+												</div>
+												<div>
+			                                        {{numberField(form.time, 'extraSmall' )}}
+												</div>
+												
+												<div>
+	        										Tipo
+												</div>
+												<div>
+													<div class="btn-group" data-toggle="buttons-radio">
+													  <button type="button" class="btn">Acumulable</button>
+													  <button type="button" class="btn">Fijo</button>
+													</div>
+												</div>
+												<br/>
+												<div>
+	        										Combinable con Frecuencia Anterior
+												</div>
+												<div>
+													{{ yesNoField(form.combinablePreviousFrequency) }}												
+												</div>
 										
-										<br/>                                        
-										<div class="btn-group" data-toggle="buttons-radio">
-											{% for subfield in form.type %}
-												  	<button type="button" class="btn btn-primary" value="{{subfield.id}}">{{subfield.label}}</button>
-											{% endfor %}
-										</div>
-										
-										<br/>
-										
-										{% for subfield in form.type %}
-										<tr>
-										    <td>{{ subfield }}</td>
-										    <td>{{ subfield.label }}</td>
-										</tr>
-										{% endfor %}
-
-
-										<br/><br/>
-										
-									    <div class="button-bar">
+										 <div class="button-bar">
 											<a id="clearBtn" class="btn">Clear</a>
 											<button type="submit" class="btn btn-success">Save Frequency</button>
 										</div>

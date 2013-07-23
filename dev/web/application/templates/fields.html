@@ -70,3 +70,26 @@
     </div>
 {%- endmacro %}
 
+
+
+<!-- macro para botones SI - NO -->
+{% macro yesNoField(hiddenField) -%}
+	<div class="control-group {% if hiddenField.errors %}error{% endif %}">
+		
+		{{ hiddenField }}
+		
+		<div class="controls">
+			<div class="btn-group" data-toggle="buttons-radio">
+			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'yes' );">SI</button>
+			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'no' );" >NO</button>
+			</div>
+		</div>	
+		
+		{%- if hiddenField.errors %}
+	      	{%- for error in hiddenField.errors %}
+	      		<p class="help-inline">{{error}}</p>
+	    	{%- endfor %}
+	    {%- endif %}
+														
+	</div>												
+{%- endmacro %}												

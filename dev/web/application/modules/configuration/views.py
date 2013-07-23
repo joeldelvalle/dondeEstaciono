@@ -59,15 +59,6 @@ def removeVehicleType(id):
     return redirect(url_for('.getAllVehicle'))
 
 
-# metodo que obtiene todos los timeType para cargar el combo
-#@configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
-#def getAllTimeType():
-#    form = FrequencyTypeForm(request.form)
-#    timeTypeList = databaseCache.getAllTimeType
-#    rt = render_template('abm-frequency.html', form=form, timeTypeList=timeTypeList)
-#       
-#    return rt
-
 # metodo que obtiene todas las frecuancias cargadas por un estacionamiento
 @configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
 def getAllFrequency():
@@ -82,9 +73,7 @@ def getAllFrequency():
 
     frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)
     
-    timeTypeList = databaseCache.getAllTimeType
-    
-    rt = render_template('abm-frequency.html', form=form, frequencyTypeList=frequencyTypeList, timeTypeList=timeTypeList, action=action, response=response)
+    rt = render_template('abm-frequency.html', form=form, frequencyTypeList=frequencyTypeList, action=action, response=response)
     
     action = None
     response = None

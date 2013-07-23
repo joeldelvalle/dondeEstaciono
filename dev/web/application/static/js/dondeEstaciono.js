@@ -29,3 +29,18 @@ function onlyCurrency(event) {
 	result = ( (keyascii > 47 && keyascii < 58) || keyascii == 46  || genericKeyascii(keyascii));
 	return result;
 }
+
+
+/**
+ * 
+ * metodo que escribe en un valor en un campo
+ * 
+ */
+function writeInField(fieldName, value) {
+	
+	 var element;
+	 element = document.getElementById(fieldName);
+	 element.value = value;
+	
+}
+

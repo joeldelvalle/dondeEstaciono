@@ -20,15 +20,15 @@ class FrequencyTypeForm(wtf.Form):
     
     description = wtf.TextField(validators=[wtf.required()])
     
-    type = wtf.RadioField(choices=[(1,'Frecuencia'),(2,'Fijo')])
+    timeType = wtf.SelectField(u'TimeType', default=999 )
 
     time = wtf.IntegerField(validators=[wtf.required()])
 
-    timeType = wtf.SelectField(u'TimeType', default=999 )
+    type = wtf.RadioField(choices=[(1,'Frecuencia'),(2,'Fijo')])
         
-    priority = wtf.IntegerField(validators=[wtf.required()])            
+    priority = wtf.IntegerField(validators=[wtf.required()])
        
-    combinablePreviousFrequency = wtf.RadioField(choices=[(0,'SI'),(1,'No')])    
+    combinablePreviousFrequency = wtf.HiddenField(wtf.required())
     
 
     def loadTimeTypeValues(self):

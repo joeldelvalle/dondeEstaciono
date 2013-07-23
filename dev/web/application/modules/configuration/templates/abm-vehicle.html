@@ -50,11 +50,19 @@
 		                        <div class="well well-nice">
 			                        <fieldset>
 			                        	<legend>Vehicle fields</legend>
-                                        {{simpleField(form.description, 'large' )}}
+                                        
+                                        <div>
+											Descripci&oacute;n
+										</div>
+										<div>
+	                                        {{simpleField( form.description, 'large' )}}
+										</div>
+									    
 									    <div class="button-bar">
 											<a id="clearBtn" class="btn">Clear</a>
 											<button type="submit" class="btn btn-success">Save Vehicle</button>
 										</div>
+			                        
 			                        </fieldset>
 		                    	</div>
 							</form>
