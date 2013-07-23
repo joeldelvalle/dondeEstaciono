@@ -1,66 +1,9 @@
 
 <!-- macro para poner campo de texto alfanumerico -->
-{% macro simpleField(field, size) -%}
+{% macro simpleField(field) -%}
     <div class="control-group {% if field.errors %}error{% endif %}">
 	    <div class="controls">
-	      
-	       {%- if size == 'extraSmall' %}
-		      {{ field(class='input-block-level span1', placeholder=field.label.text|lower ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'small' %}
-		      {{ field(class='input-block-level span3', placeholder=field.label.text|lower ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'medium' %}
-		      {{ field(class='input-block-level span5', placeholder=field.label.text|lower ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'large' %}
-		      {{ field(class='input-block-level span7', placeholder=field.label.text|lower ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'extraLarge' %}
-		      {{ field(class='input-block-level span9', placeholder=field.label.text|lower ) }}
-	      {%- endif %}
-	      
-	      {%- if field.errors %}
-	      	{%- for error in field.errors %}
-	      		<p class="help-inline">{{error}}</p>
-	      	{%- endfor %}
-	      {%- endif %}
-	    </div>
-    </div>
-{%- endmacro %}
-
-
-
-<!-- macro para poner campo de texto solo numerico -->
-{% macro numberField(field, size) -%}
-    <div class="control-group {% if field.errors %}error{% endif %}">
-	    <div class="controls">
-	      
-	      {%- if size == 'extraSmall' %}
-		      {{ field(class='input-block-level span1', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'small' %}
-		      {{ field(class='input-block-level span3', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'medium' %}
-		      {{ field(class='input-block-level span5', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'large' %}
-		      {{ field(class='input-block-level span7', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
-	      {%- endif %}
-	      
-	      {%- if size == 'extraLarge' %}
-		      {{ field(class='input-block-level span9', placeholder=field.label.text|lower, onkeypress='return onlyNumbers(event)' ) }}
-	      {%- endif %}
-	      
-	      
+	      {{ field(**kwargs) }}
 	      {%- if field.errors %}
 	      	{%- for error in field.errors %}
 	      		<p class="help-inline">{{error}}</p>
