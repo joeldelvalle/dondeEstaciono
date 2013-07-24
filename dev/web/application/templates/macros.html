@@ -3,14 +3,34 @@
     <div id="myModal{{index}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-			<h3 id="myModalLabel">Confirmation</h3>
+			<h3 id="myModalLabel">Eliminar Veh&iacute;culo</h3>
 		</div>
 		<div class="modal-body">
-			<p>Do you want remove this vehicle: {{itemDescription}} ?</p>
+			<p>&#x00bf; Esta seguro que desea eliminar el Veh&iacute;culo: <strong>{{itemDescription}}</strong> ?</p>
+			<small>Recuerde que al hacerlo los Precios relacionados con &eacute;ste Veh&iacute;culo ser&aacute;n eliminados.</small>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick="javascript:location.href='/app/conf/vehicle/remove/{{itemId}}'">OK</button>
-			<button class="btn" data-dismiss="modal" href="">Cancel</button>
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick="javascript:location.href='/app/conf/vehicle/remove/{{itemId}}'">Eliminar</button>
+			<button class="btn" data-dismiss="modal" href="">Cancelar</button>
+		</div>
+	</div>
+{%- endmacro %}
+
+
+<!-- macro para popUp de borrado de FrequencyType -->
+{% macro deleteFrequencyTypeModalWindow(index, itemId, itemDescription) -%}
+    <div id="myModal{{index}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+			<h3 id="myModalLabel">Eliminar Frecuencia</h3>
+		</div>
+		<div class="modal-body">
+			<p>&#x00bf; Esta seguro que desea eliminar la Frecuencia: <strong>{{itemDescription}}</strong> ?</p>
+			<small>Recuerde que al hacerlo los Precios relacionados con &eacute;sta Frecuencia ser&aacute;n eliminados.</small>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true" onclick="javascript:location.href='/app/conf/frequency/remove/{{itemId}}'">Eliminar</button>
+			<button class="btn" data-dismiss="modal" href="">Cancelar</button>
 		</div>
 	</div>
 {%- endmacro %}

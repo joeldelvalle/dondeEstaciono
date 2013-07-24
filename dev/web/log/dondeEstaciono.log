@@ -1,107 +1,701 @@
-2013-05-27 09:24:20,069,69 werkzeug INFO  * Running on http://127.0.0.1:8000/
-2013-05-27 09:24:20,069,69 werkzeug INFO  * Restarting with reloader
-2013-05-27 09:24:32,138,138 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /login HTTP/1.1" 200 -
-2013-05-27 09:24:32,193,193 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/css/lib/bootstrap.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,194,194 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/css/lib/bootstrap-responsive.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,197,197 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/css/style.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,197,197 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/css/extension.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,200,200 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,203,203 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery-ui.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,204,204 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery.cookie.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,207,207 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery.date.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,207,207 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery.mousewheel.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,210,210 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/jquery.load-image.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,211,211 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/js/lib/bootstrap/bootstrap.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,213,213 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,216,216 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,217,217 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-fuelux/js/all-fuelux.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,219,219 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,220,220 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,223,223 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,224,224 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,226,226 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,227,227 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-toggle-button/js/bootstrap-toggle-button.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,230,230 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,230,230 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,233,233 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,234,234 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-select/bootstrap-select.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,236,236 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,237,237 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-bootbox/bootbox.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,240,240 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-modal/js/bootstrap-modalmanager.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,242,242 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-modal/js/bootstrap-modal.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,243,243 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wizard/js/bootstrap-wizard.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,246,246 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wizard-2/js/bwizard-only.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,247,247 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,250,250 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-extension/google-code-prettify/prettify.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,252,252 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system/nicescroll/jquery.nicescroll.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,253,253 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-extension/google-code-prettify/prettify.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,255,255 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-datepicker/css/datepicker-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,256,256 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-colorpicker/css/colorpicker-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,259,259 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system/xbreadcrumbs/xbreadcrumbs.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,260,260 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,262,262 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/gritter/js/jquery.gritter.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,263,263 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/notyfy/jquery.notyfy.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,266,266 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-content/list/js/list.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,267,267 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-content/list/plugins/list.paging.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,270,270 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-content/jpages/js/jPages.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,273,273 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-component/fullcalendar/fullcalendar.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,278,278 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-component/rangeslider/jqallrangesliders.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,279,279 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/uniform/jquery.uniform.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,282,282 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/select2/select2.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,283,283 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/counter/jquery.counter.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,286,286 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/elastic/jquery.elastic.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,289,289 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,292,292 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-daterangepicker/css/daterangepicker-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,293,293 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-timepicker/css/timepicker.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,296,296 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,298,298 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-fuelux/css/fuelux-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,299,299 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-progressbar/css/bootstrap-progressbar.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,301,301 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,302,302 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-fileupload/css/bootstrap-fileupload.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,303,303 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-modal/css/bootstrap-modal-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,305,305 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-wizard/css/bootstrap-wizard-combi-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,308,308 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-toggle-button/css/bootstrap-toggle-buttons-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,309,309 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/bootstrap-image-gallery/css/bootstrap-image-gallery-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,311,311 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,312,312 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/gritter/css/jquery.gritter-boothemes.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,313,313 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-system-info/notyfy/themes/boo-notyfylight.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,315,315 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/uniform/css/uniform-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,318,318 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/select2/select-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,319,319 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/duallistbox/dualListBox-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,322,322 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-file/file-upload/css/jquery.fileupload-ui-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,322,322 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-component/fullcalendar/fullcalendar-theme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,325,325 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-component/rangeslider/css/rangeboo.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,326,326 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/wookmark/style-bootheme.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,328,328 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,329,329 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/nailthumb/showLoading/css/showLoading.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,332,332 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,334,334 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/knob/knob.css HTTP/1.1" 200 -
-2013-05-27 09:24:32,335,335 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.extensions.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,338,338 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/validate/js/jquery.validate.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,338,338 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-form/duallistbox/jquery.duallistbox.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,341,341 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,342,342 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/nailthumb/showLoading/js/jquery.showLoading.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,345,345 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/wookmark/jquery.imagesloaded.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,346,346 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-gallery/wookmark/jquery.wookmark.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,349,349 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-table/datatables/media/js/jquery.dataTables.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,352,352 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.plugins.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,355,355 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.columnFilter.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,357,357 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/sparkline/jquery.sparkline.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,358,358 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/easy-pie-chart/easy-pie-chart.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,361,361 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.min.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,362,362 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/knob/knob.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,365,365 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,367,367 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.categories.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,368,368 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.grow.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,369,369 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.orderBars.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,371,371 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.pie.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,374,374 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.resize.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,375,375 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.selection.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,377,377 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.stack.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,378,378 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.stackpercent.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,380,380 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /static/plugins/pl-visualization/flot/jquery.flot.time.js HTTP/1.1" 200 -
-2013-05-27 09:24:32,651,651 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:32] "GET /favicon.ico HTTP/1.1" 404 -
-2013-05-27 09:24:34,707,707 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:34] "POST /login HTTP/1.1" 200 -
-2013-05-27 09:24:41,615,615 werkzeug INFO 127.0.0.1 - - [27/May/2013 09:24:41] "POST /login HTTP/1.1" 200 -
-2013-05-27 09:51:23,391,391 werkzeug INFO  * Running on http://127.0.0.1:8000/
-2013-05-27 09:51:23,392,392 werkzeug INFO  * Restarting with reloader
+2013-07-24 09:14:36,414,414 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 09:14:40,924,924 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:40] "GET /logout/ HTTP/1.1" 302 -
+2013-07-24 09:14:41,276,276 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET / HTTP/1.1" 200 -
+2013-07-24 09:14:41,391,391 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/css/lib/bootstrap.css HTTP/1.1" 304 -
+2013-07-24 09:14:41,401,401 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/css/lib/bootstrap-responsive.css HTTP/1.1" 304 -
+2013-07-24 09:14:41,411,411 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/css/lib/boo.css HTTP/1.1" 304 -
+2013-07-24 09:14:41,421,421 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/css/style.css HTTP/1.1" 304 -
+2013-07-24 09:14:41,428,428 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/css/extension.css HTTP/1.1" 304 -
+2013-07-24 09:14:41,437,437 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/dondeEstaciono.js HTTP/1.1" 200 -
+2013-07-24 09:14:41,447,447 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,460,460 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery-ui.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,470,470 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery.cookie.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,479,479 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery.date.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,489,489 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery.mousewheel.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,496,496 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/jquery.load-image.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,507,507 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/js/lib/bootstrap/bootstrap.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,519,519 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,535,535 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,543,543 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-fuelux/js/all-fuelux.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,553,553 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,572,572 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,582,582 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,591,591 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,601,601 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,609,609 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-toggle-button/js/bootstrap-toggle-button.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,618,618 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,625,625 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,637,637 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,647,647 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-select/bootstrap-select.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,657,657 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,664,664 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-bootbox/bootbox.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,674,674 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-modal/js/bootstrap-modalmanager.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,684,684 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-modal/js/bootstrap-modal.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,694,694 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-wizard/js/bootstrap-wizard.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,703,703 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-wizard-2/js/bwizard-only.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,710,710 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,720,720 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-extension/google-code-prettify/prettify.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,730,730 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-system/nicescroll/jquery.nicescroll.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,739,739 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-system/xbreadcrumbs/xbreadcrumbs.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,749,749 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,757,757 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-system-info/gritter/js/jquery.gritter.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,766,766 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-system-info/notyfy/jquery.notyfy.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,778,778 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-content/list/js/list.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,786,786 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-content/list/plugins/list.paging.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,795,795 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-content/jpages/js/jPages.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,805,805 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-component/fullcalendar/fullcalendar.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,815,815 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-component/rangeslider/jqallrangesliders.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,825,825 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/uniform/jquery.uniform.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,835,835 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/select2/select2.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,844,844 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/counter/jquery.counter.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,852,852 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/elastic/jquery.elastic.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,864,864 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,871,871 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.extensions.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,881,881 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/validate/js/jquery.validate.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,890,890 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-form/duallistbox/jquery.duallistbox.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,901,901 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,911,911 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-gallery/nailthumb/showLoading/js/jquery.showLoading.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,921,921 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-gallery/wookmark/jquery.imagesloaded.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,928,928 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-gallery/wookmark/jquery.wookmark.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,943,943 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-table/datatables/media/js/jquery.dataTables.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,953,953 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.plugins.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,971,971 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.columnFilter.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,983,983 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-visualization/sparkline/jquery.sparkline.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:41,990,990 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:41] "GET /static/plugins/pl-visualization/easy-pie-chart/easy-pie-chart.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,000,0 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.min.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,012,12 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/knob/knob.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,026,26 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,035,35 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.categories.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,042,42 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.grow.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,052,52 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.orderBars.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,063,63 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.pie.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,072,72 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.resize.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,082,82 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.selection.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,092,92 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.stack.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,101,101 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.stackpercent.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,111,111 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/flot/jquery.flot.time.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,118,118 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/js/de.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,128,128 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/js/paging.js HTTP/1.1" 304 -
+2013-07-24 09:14:42,137,137 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-extension/google-code-prettify/prettify.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,147,147 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-datepicker/css/datepicker-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,154,154 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-colorpicker/css/colorpicker-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,163,163 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-daterangepicker/css/daterangepicker-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,171,171 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-timepicker/css/timepicker.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,180,180 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,188,188 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-fuelux/css/fuelux-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,197,197 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-progressbar/css/bootstrap-progressbar.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,204,204 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,213,213 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-fileupload/css/bootstrap-fileupload.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,221,221 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-modal/css/bootstrap-modal-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,230,230 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-wizard/css/bootstrap-wizard-combi-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,240,240 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-toggle-button/css/bootstrap-toggle-buttons-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,250,250 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/bootstrap-image-gallery/css/bootstrap-image-gallery-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,259,259 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,267,267 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-system-info/gritter/css/jquery.gritter-boothemes.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,278,278 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-system-info/notyfy/themes/boo-notyfylight.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,286,286 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-form/uniform/css/uniform-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,296,296 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-form/select2/select-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,305,305 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-form/duallistbox/dualListBox-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,312,312 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-file/file-upload/css/jquery.fileupload-ui-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,323,323 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-component/fullcalendar/fullcalendar-theme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,332,332 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-component/rangeslider/css/rangeboo.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,339,339 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-gallery/wookmark/style-bootheme.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,349,349 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,358,358 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-gallery/nailthumb/showLoading/css/showLoading.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,365,365 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.css HTTP/1.1" 304 -
+2013-07-24 09:14:42,374,374 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:42] "GET /static/plugins/pl-visualization/knob/knob.css HTTP/1.1" 304 -
+2013-07-24 09:14:43,888,888 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:43] "GET /login HTTP/1.1" 200 -
+2013-07-24 09:14:50,486,486 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 09:14:50,490,490 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:50] "POST /login HTTP/1.1" 302 -
+2013-07-24 09:14:50,647,647 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:50] "GET /app HTTP/1.1" 200 -
+2013-07-24 09:14:51,085,85 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:51] "GET /static/css/img/glyphicons-halflings.png HTTP/1.1" 304 -
+2013-07-24 09:14:51,091,91 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:51] "GET /static/css/img/glyphicons-halflings-white.png HTTP/1.1" 304 -
+2013-07-24 09:14:53,298,298 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 09:14:55,589,589 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false}]}}
+2013-07-24 09:14:55,914,914 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:14:55] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 09:25:53,171,171 root INFO {"status":"error","payload":{"error":{"message":"java.io.IOException: error in CustomJsonDeserialize  -  coop.tecso.donde.estaciono.exception.DondeEstacionoServerException: org.codehaus.jackson.map.exc.UnrecognizedPropertyException: Unrecognized field \"timeType\" (Class coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest), not marked as ignorable\n at [Source: java.io.StringReader@47a38913; line: 1, column: 67] (through reference chain: coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest[\"timeType\"])","code":"999"}}}
+2013-07-24 09:25:53,201,201 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","timeType":{"id":1,"description":"Horas"},"combinablePreviousFrequency":false}]}}
+2013-07-24 09:25:53,273,273 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:25:53] "POST /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 09:57:11,565,565 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 09:57:26,115,115 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:26] "GET /logout/ HTTP/1.1" 302 -
+2013-07-24 09:57:26,460,460 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:26] "GET / HTTP/1.1" 200 -
+2013-07-24 09:57:28,323,323 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:28] "GET /login HTTP/1.1" 200 -
+2013-07-24 09:57:34,319,319 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 09:57:34,322,322 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:34] "POST /login HTTP/1.1" 302 -
+2013-07-24 09:57:34,457,457 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:34] "GET /app HTTP/1.1" 200 -
+2013-07-24 09:57:39,855,855 application ERROR Exception on /app/conf/frequency [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 68, in getAllFrequency
+    form = FrequencyTypeForm(request.form)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\wtforms-1.0.2-py2.7.egg\wtforms\form.py", line 178, in __call__
+    return type.__call__(cls, *args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\forms.py", line 44, in __init__
+    self.loadTimeTypeValues()
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\forms.py", line 35, in loadTimeTypeValues
+    self.timeType.choices = [("999", "Seleccione")]
+AttributeError: 'FrequencyTypeForm' object has no attribute 'timeType'
+2013-07-24 09:57:39,914,914 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:57:39] "GET /app/conf/frequency HTTP/1.1" 500 -
+2013-07-24 09:58:08,591,591 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 09:58:13,697,697 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:13] "GET / HTTP/1.1" 200 -
+2013-07-24 09:58:14,977,977 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:14] "GET /login HTTP/1.1" 200 -
+2013-07-24 09:58:20,138,138 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 09:58:20,140,140 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:20] "POST /login HTTP/1.1" 302 -
+2013-07-24 09:58:20,256,256 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:20] "GET /app HTTP/1.1" 200 -
+2013-07-24 09:58:22,388,388 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 09:58:22,424,424 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 09:58:22,480,480 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:22] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 09:58:45,108,108 root INFO {"status":"error","payload":{"error":{"message":"java.io.IOException: error in CustomJsonDeserialize  -  coop.tecso.donde.estaciono.exception.DondeEstacionoServerException: org.codehaus.jackson.map.exc.UnrecognizedPropertyException: Unrecognized field \"timeType\" (Class coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest), not marked as ignorable\n at [Source: java.io.StringReader@2198a037; line: 1, column: 49] (through reference chain: coop.tecso.donde.estaciono.communication.model.FrequencyTypeRequest[\"timeType\"])","code":"999"}}}
+2013-07-24 09:58:45,130,130 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 09:58:45,144,144 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 09:58:45] "POST /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 09:59:42,880,880 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 10:05:14,135,135 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /app/conf/frequency HTTP/1.1" 302 -
+2013-07-24 10:05:14,500,500 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /login?next=%2Fapp%2Fconf%2Ffrequency HTTP/1.1" 200 -
+2013-07-24 10:05:14,549,549 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/css/lib/bootstrap.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,555,555 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/css/lib/bootstrap-responsive.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,561,561 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/css/lib/boo.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,571,571 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/css/style.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,575,575 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/css/extension.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,579,579 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/dondeEstaciono.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,585,585 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,591,591 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery-ui.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,596,596 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery.cookie.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,601,601 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery.date.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,611,611 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery.mousewheel.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,617,617 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/duallistbox/dualListBox-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,622,622 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/jquery.load-image.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,628,628 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/lib/bootstrap/bootstrap.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,634,634 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,641,641 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,644,644 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-fuelux/js/all-fuelux.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,650,650 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,657,657 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-select/bootstrap-select.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,661,661 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/elastic/jquery.elastic.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,667,667 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/easy-pie-chart/easy-pie-chart.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,673,673 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-toggle-button/js/bootstrap-toggle-button.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,677,677 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-content/list/js/list.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,681,681 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-wizard/js/bootstrap-wizard.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,687,687 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/duallistbox/jquery.duallistbox.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,693,693 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-image-gallery/css/bootstrap-image-gallery-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,697,697 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/select2/select-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,703,703 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.grow.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,709,709 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-file/file-upload/css/jquery.fileupload-ui-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,713,713 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,719,719 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/uniform/jquery.uniform.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,723,723 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system/xbreadcrumbs/xbreadcrumbs.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,730,730 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-table/datatables/media/js/jquery.dataTables.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,737,737 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,743,743 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-extension/google-code-prettify/prettify.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,749,749 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,753,753 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-gallery/wookmark/style-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,759,759 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-gallery/nailthumb/showLoading/css/showLoading.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,763,763 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-wizard/css/bootstrap-wizard-combi-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,767,767 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,772,772 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,776,776 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,782,782 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-daterangepicker/css/daterangepicker-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,786,786 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,790,790 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-component/fullcalendar/fullcalendar.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,802,802 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-wizard-2/js/bwizard-only.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,806,806 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-progressbar/css/bootstrap-progressbar.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,812,812 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.stack.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,818,818 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,822,822 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-modal/js/bootstrap-modal.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,826,826 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/paging.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,832,832 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.orderBars.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,835,835 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/select2/select2.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,842,842 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-fileupload/css/bootstrap-fileupload.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,846,846 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,851,851 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.plugins.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,855,855 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system-info/notyfy/themes/boo-notyfylight.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,861,861 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,865,865 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/js/de.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,869,869 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-bootbox/bootbox.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,875,875 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.stackpercent.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,880,880 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,884,884 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,888,888 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-timepicker/css/timepicker.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,892,892 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/knob/knob.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,898,898 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,901,901 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-colorpicker/css/colorpicker-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,905,905 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-gallery/nailthumb/showLoading/js/jquery.showLoading.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,911,911 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-datepicker/css/datepicker-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,914,914 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.selection.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,921,921 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.pie.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,930,930 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/counter/jquery.counter.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,934,934 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system-info/gritter/js/jquery.gritter.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,940,940 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.columnFilter.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,946,946 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-system/nicescroll/jquery.nicescroll.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,951,951 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,956,956 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,960,960 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-modal/js/bootstrap-modalmanager.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,966,966 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.extensions.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,970,970 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/bootstrap-toggle-button/css/bootstrap-toggle-buttons-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:14,976,976 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-content/jpages/js/jPages.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,982,982 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-component/rangeslider/jqallrangesliders.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,989,989 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-visualization/flot/jquery.flot.js HTTP/1.1" 200 -
+2013-07-24 10:05:14,994,994 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:14] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,000,0 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-extension/google-code-prettify/prettify.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,003,3 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-gallery/wookmark/jquery.imagesloaded.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,009,9 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-visualization/flot/jquery.flot.resize.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,013,13 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-component/rangeslider/css/rangeboo.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,019,19 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-component/fullcalendar/fullcalendar-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,025,25 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/bootstrap-modal/css/bootstrap-modal-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,030,30 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-content/list/plugins/list.paging.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,036,36 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-visualization/sparkline/jquery.sparkline.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,043,43 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-form/uniform/css/uniform-theme.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,048,48 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,052,52 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/bootstrap-fuelux/css/fuelux-bootheme.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,058,58 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-form/validate/js/jquery.validate.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,065,65 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-visualization/flot/jquery.flot.time.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,069,69 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-visualization/knob/knob.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,075,75 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-visualization/flot/jquery.flot.categories.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,079,79 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-system-info/notyfy/jquery.notyfy.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,084,84 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css HTTP/1.1" 200 -
+2013-07-24 10:05:15,088,88 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-gallery/wookmark/jquery.wookmark.min.js HTTP/1.1" 200 -
+2013-07-24 10:05:15,095,95 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:15] "GET /static/plugins/pl-system-info/gritter/css/jquery.gritter-boothemes.css HTTP/1.1" 200 -
+2013-07-24 10:05:16,839,839 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:16] "GET /favicon.ico HTTP/1.1" 404 -
+2013-07-24 10:05:49,161,161 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 10:05:59,486,486 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 10:05:59,490,490 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:59] "POST /login?next=%2Fapp%2Fconf%2Ffrequency HTTP/1.1" 302 -
+2013-07-24 10:05:59,944,944 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:05:59] "GET /app HTTP/1.1" 200 -
+2013-07-24 10:06:00,226,226 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:06:00] "GET /static/css/img/glyphicons-halflings.png HTTP/1.1" 200 -
+2013-07-24 10:06:00,232,232 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:06:00] "GET /static/css/img/glyphicons-halflings-white.png HTTP/1.1" 200 -
+2013-07-24 10:06:02,062,62 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 10:06:03,980,980 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 10:06:04,211,211 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:06:04] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 10:08:58,400,400 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 10:10:55,443,443 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:10:55] "GET / HTTP/1.1" 200 -
+2013-07-24 10:10:56,802,802 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:10:56] "GET /login HTTP/1.1" 200 -
+2013-07-24 10:11:02,020,20 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 10:11:02,023,23 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:11:02] "POST /login HTTP/1.1" 302 -
+2013-07-24 10:11:02,206,206 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:11:02] "GET /app HTTP/1.1" 200 -
+2013-07-24 10:11:04,043,43 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 10:11:06,233,233 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 10:11:06,463,463 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:11:06] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 10:11:31,092,92 root INFO {"status":"success"}
+2013-07-24 10:11:39,341,341 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 10:11:41,196,196 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:11:41] "POST /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 10:57:44,043,43 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 10:57:50,552,552 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:57:50] "GET /logout/ HTTP/1.1" 302 -
+2013-07-24 10:57:50,611,611 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:57:50] "GET / HTTP/1.1" 200 -
+2013-07-24 10:57:51,884,884 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:57:51] "GET /login HTTP/1.1" 200 -
+2013-07-24 10:57:57,335,335 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 10:57:57,335,335 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:57:57] "POST /login HTTP/1.1" 302 -
+2013-07-24 10:57:57,362,362 application ERROR Exception on /app [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application.py", line 22, in indexapp
+    return render_template('index-app.html')
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 125, in render_template
+    context, ctx.app)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 107, in _render
+    rv = template.render(context)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\templates\macros.html", line 2, in template
+    {% macro deleteVehicleTypeModalWindow(index, itemId, itemDescription), messageToShow -%}
+TemplateSyntaxError: expected token 'end of statement block', got ','
+2013-07-24 10:57:57,388,388 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:57:57] "GET /app HTTP/1.1" 500 -
+2013-07-24 10:58:22,625,625 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /app HTTP/1.1" 200 -
+2013-07-24 10:58:22,673,673 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/css/lib/bootstrap.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,674,674 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/css/lib/bootstrap-responsive.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,677,677 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/css/lib/boo.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,678,678 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/css/style.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,680,680 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/css/extension.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,680,680 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/dondeEstaciono.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,684,684 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,686,686 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery-ui.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,687,687 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery.cookie.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,688,688 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery.date.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,690,690 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery.mousewheel.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,693,693 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/jquery.load-image.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,694,694 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/lib/bootstrap/bootstrap.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,696,696 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,697,697 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,700,700 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-fuelux/js/all-fuelux.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,700,700 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,703,703 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,704,704 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,707,707 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,709,709 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-daterangepicker/js/bootstrap-daterangepicker.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,710,710 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-toggle-button/js/bootstrap-toggle-button.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,711,711 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-fileupload/js/bootstrap-fileupload.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,713,713 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,714,714 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-rowlink/js/bootstrap-rowlink.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,716,716 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-progressbar/js/bootstrap-progressbar.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,717,717 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-select/bootstrap-select.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,719,719 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,720,720 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-bootbox/bootbox.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,723,723 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-modal/js/bootstrap-modalmanager.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,723,723 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-modal/js/bootstrap-modal.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,726,726 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wizard/js/bootstrap-wizard.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,726,726 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wizard-2/js/bwizard-only.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,729,729 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-image-gallery/js/bootstrap-image-gallery.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,730,730 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-extension/google-code-prettify/prettify.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,732,732 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system/nicescroll/jquery.nicescroll.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,733,733 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system/xbreadcrumbs/xbreadcrumbs.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,734,734 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/qtip2/dist/jquery.qtip.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,736,736 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/gritter/js/jquery.gritter.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,737,737 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/notyfy/jquery.notyfy.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,740,740 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-content/list/js/list.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,742,742 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-content/list/plugins/list.paging.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,743,743 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-content/jpages/js/jPages.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,744,744 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-component/fullcalendar/fullcalendar.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,746,746 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-component/rangeslider/jqallrangesliders.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,749,749 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/uniform/jquery.uniform.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,750,750 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/select2/select2.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,752,752 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/counter/jquery.counter.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,753,753 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/elastic/jquery.elastic.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,756,756 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,759,759 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/inputmask/jquery.inputmask.extensions.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,759,759 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/validate/js/jquery.validate.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,762,762 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/duallistbox/jquery.duallistbox.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,763,763 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,766,766 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/nailthumb/showLoading/js/jquery.showLoading.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,767,767 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/wookmark/jquery.imagesloaded.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,769,769 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/wookmark/jquery.wookmark.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,770,770 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-table/datatables/media/js/jquery.dataTables.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,773,773 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.plugins.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,776,776 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-table/datatables/plugin/jquery.dataTables.columnFilter.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,778,778 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/sparkline/jquery.sparkline.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,779,779 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/easy-pie-chart/easy-pie-chart.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,780,780 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.min.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,782,782 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/knob/knob.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,783,783 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,786,786 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.categories.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,788,788 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.grow.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,789,789 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.orderBars.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,790,790 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.pie.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,792,792 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.resize.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,793,793 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.selection.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,795,795 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.stack.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,796,796 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.stackpercent.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,798,798 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/flot/jquery.flot.time.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,799,799 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/de.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,802,802 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/js/paging.js HTTP/1.1" 304 -
+2013-07-24 10:58:22,802,802 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-extension/google-code-prettify/prettify.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,805,805 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-datepicker/css/datepicker-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,806,806 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-colorpicker/css/colorpicker-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,809,809 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-daterangepicker/css/daterangepicker-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,811,811 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-timepicker/css/timepicker.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,812,812 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,813,813 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-fuelux/css/fuelux-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,815,815 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-progressbar/css/bootstrap-progressbar.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,818,818 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wysihtml5/src/bootstrap-wysihtml5.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,819,819 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-fileupload/css/bootstrap-fileupload.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,821,821 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-modal/css/bootstrap-modal-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,822,822 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-wizard/css/bootstrap-wizard-combi-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,823,823 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-toggle-button/css/bootstrap-toggle-buttons-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,825,825 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/bootstrap-image-gallery/css/bootstrap-image-gallery-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,826,826 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/gritter/css/jquery.gritter-boothemes.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,828,828 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-system-info/notyfy/themes/boo-notyfylight.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,829,829 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/uniform/css/uniform-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,832,832 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/select2/select-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,832,832 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-form/duallistbox/dualListBox-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,835,835 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-file/file-upload/css/jquery.fileupload-ui-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,836,836 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-component/fullcalendar/fullcalendar-theme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,838,838 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-component/rangeslider/css/rangeboo.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,839,839 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/wookmark/style-bootheme.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,841,841 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,842,842 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-gallery/nailthumb/showLoading/css/showLoading.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,845,845 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/percentageloader/percentageloader.css HTTP/1.1" 304 -
+2013-07-24 10:58:22,845,845 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:22] "GET /static/plugins/pl-visualization/knob/knob.css HTTP/1.1" 304 -
+2013-07-24 10:58:23,005,5 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:23] "GET /static/css/img/glyphicons-halflings.png HTTP/1.1" 304 -
+2013-07-24 10:58:23,006,6 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:23] "GET /static/css/img/glyphicons-halflings-white.png HTTP/1.1" 304 -
+2013-07-24 10:58:24,829,829 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 10:58:24,868,868 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 10:58:24,927,927 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:24] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 10:58:27,467,467 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 10:58:27,482,482 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 124, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 758, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 719, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 693, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 493, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 39, in template
+    {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description, "Do you want remove this vehicle:" + {{itemDescription}} +"?" )}}
+TemplateSyntaxError: expected token ':', got '}'
+2013-07-24 10:58:27,483,483 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:27] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 10:58:58,556,556 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 10:58:58,592,592 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:58:58] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 10:59:16,055,55 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 10:59:16,089,89 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:59:16] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 10:59:34,891,891 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 10:59:34,905,905 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 124, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 758, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 719, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 693, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 493, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 39, in template
+    {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description, "Do you want remove this vehicle:" itemDescription "?" )}}
+TemplateSyntaxError: expected token ',', got 'itemDescription'
+2013-07-24 10:59:34,907,907 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 10:59:34] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:00:17,575,575 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:00:17,589,589 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 124, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 758, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 719, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 693, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 493, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 39, in template
+    {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description, "Do you want remove this vehicle:" item.description "?" )}}
+TemplateSyntaxError: expected token ',', got 'item'
+2013-07-24 11:00:17,591,591 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:00:17] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:00:27,569,569 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:00:27,605,605 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:00:27] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:00:42,384,384 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:00:42,418,418 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:00:42] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:01:17,243,243 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:01:17,256,256 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 124, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 758, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 719, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 693, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 493, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 39, in template
+    {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description, ('Do you want remove this vehicle:' & {{item.description}} & '?') )}}
+TemplateSyntaxError: unexpected char u'&' at 2246
+2013-07-24 11:01:17,257,257 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:01:17] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:01:43,513,513 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:01:43,529,529 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 124, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 758, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 719, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 693, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 127, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 493, in compile
+    self.handle_exception(exc_info, source_hint=source)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 39, in template
+    {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description, ('Do you want remove this vehicle:' + {{item.description}} + '?') )}}
+TemplateSyntaxError: expected token ':', got '}'
+2013-07-24 11:01:43,530,530 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:01:43] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:02:48,569,569 werkzeug INFO  * Running on http://127.0.0.1:8000/
+2013-07-24 11:02:50,953,953 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:50] "GET /app/conf/vehicle HTTP/1.1" 302 -
+2013-07-24 11:02:51,045,45 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:51] "GET /login?next=%2Fapp%2Fconf%2Fvehicle HTTP/1.1" 200 -
+2013-07-24 11:02:55,832,832 root INFO {"status":"success","payload":{"user":{"name":"Dr. Emmett Brown","permissions":[{"id":null,"description":"Permiso Uno","service":null,"identificationCode":"PER1","permissionAction":null},{"id":null,"description":"Permiso Dos","service":null,"identificationCode":"PER2","permissionAction":null},{"id":null,"description":"Permiso Tres","service":null,"identificationCode":"PER3","permissionAction":null}],"parking":{"address":"Avenida Siempreviva 742","name":"Estacionamiento Demo","locality":{"name":"Palermo","province":{"name":"Bs As","country":{"name":"Argentina"}}},"identificationCode":"OTT","coordinates":null,"totalPlaces":15,"phones":[{"number":"156489483","description":"Atencion al Cliente"}],"emails":[{"description":"oficina comercial","mail":"comercial@demo.com.ar"}]},"numberIdentification":null,"email":"usuario.est.demo@demo.com.ar","userType":{"description":"Super-Admin"},"phone":null,"photoFileName":null}}}
+2013-07-24 11:02:55,832,832 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:55] "POST /login?next=%2Fapp%2Fconf%2Fvehicle HTTP/1.1" 302 -
+2013-07-24 11:02:55,927,927 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:55] "GET /app HTTP/1.1" 200 -
+2013-07-24 11:02:57,780,780 root INFO {"status":"success","payload":{"timetypelist":[{"id":1,"description":"Horas"},{"id":2,"description":"Minutos"}]}}
+2013-07-24 11:02:57,802,802 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 11:02:57,848,848 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:57] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 11:02:58,354,354 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:02:58,388,388 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:02:58] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:05:40,200,200 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:05:40,211,211 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 125, in render_template
+    context, ctx.app)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 107, in _render
+    rv = template.render(context)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 2, in top-level template code
+    {% from 'macros.html' import deleteVehicleTypeModalWindow, createMenu %}
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 57, in get_source
+    return loader.get_source(environment, local_name)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 169, in get_source
+    contents = f.read().decode(self.encoding)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\encodings\utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xbf in position 472: invalid start byte
+2013-07-24 11:05:40,236,236 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:05:40] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:06:36,081,81 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:06:36,111,111 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:06:36] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:10:14,803,803 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:10:14,809,809 application ERROR Exception on /app/conf/vehicle [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 26, in getAllVehicle
+    rt = render_template('abm-vehicle.html', form=form, vehicleTypeList=vehicleTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 125, in render_template
+    context, ctx.app)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 107, in _render
+    rv = template.render(context)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-vehicle.html", line 2, in top-level template code
+    {% from 'macros.html' import deleteVehicleTypeModalWindow, createMenu %}
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 57, in get_source
+    return loader.get_source(environment, local_name)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\loaders.py", line 169, in get_source
+    contents = f.read().decode(self.encoding)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\encodings\utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeDecodeError: 'utf8' codec can't decode byte 0xbf in position 472: invalid start byte
+2013-07-24 11:10:14,811,811 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:10:14] "GET /app/conf/vehicle HTTP/1.1" 500 -
+2013-07-24 11:11:13,500,500 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:11:13,526,526 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:11:13] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:13:33,803,803 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 11:13:33,851,851 application ERROR Exception on /app/conf/frequency [GET]
+Traceback (most recent call last):
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1687, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1360, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask_login-0.1.3-py2.7.egg\flask_login.py", line 496, in decorated_view
+    return fn(*args, **kwargs)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\views.py", line 76, in getAllFrequency
+    rt = render_template('abm-frequency.html', form=form, frequencyTypeList=frequencyTypeList, action=action, response=response)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 125, in render_template
+    context, ctx.app)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\flask-0.9-py2.7.egg\flask\templating.py", line 107, in _render
+    rv = template.render(context)
+  File "C:\Users\jdelvalle\JoEL\Python27\lib\site-packages\jinja2-2.6-py2.7.egg\jinja2\environment.py", line 894, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-frequency.html", line 3, in top-level template code
+    {% from 'fields.html' import simpleField, numberField, yesNoField, radioField %}
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\templates\base.html", line 47, in top-level template code
+    {% block body_content %}{% endblock %}
+  File "C:\Users\jdelvalle\git\dondeEstaciono\dev\web\application\modules\configuration\templates\abm-frequency.html", line 53, in block "body_content"
+    {{deleteFrequencyTypeModalWindow(loop.index, item.id, item.description)}}
+UndefinedError: 'deleteFrequencyTypeModalWindow' is undefined
+2013-07-24 11:13:33,852,852 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:13:33] "GET /app/conf/frequency HTTP/1.1" 500 -
+2013-07-24 11:13:54,549,549 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 11:13:54,592,592 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:13:54] "GET /app/conf/frequency HTTP/1.1" 200 -
+2013-07-24 11:16:04,891,891 root INFO {"status":"success","payload":{"vehicletypelist":[{"id":0,"description":"Autos"},{"id":2,"description":"Moto"}]}}
+2013-07-24 11:16:04,917,917 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:16:04] "GET /app/conf/vehicle HTTP/1.1" 200 -
+2013-07-24 11:16:11,357,357 root INFO {"status":"success","payload":{"frequencytypelist":[{"id":0,"priority":1,"type":2,"time":30,"description":"media hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":1,"priority":1,"type":1,"time":15,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":2,"priority":1,"type":1,"time":99,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":3,"priority":1,"type":1,"time":80,"description":"fraccion","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":4,"priority":2,"type":2,"time":60,"description":"hora","combinablePreviousFrequency":false,"timeType":{"id":1,"description":"Horas"}},{"id":5,"priority":55,"type":1,"time":34,"description":"gfrfdsf","combinablePreviousFrequency":true,"timeType":{"id":1,"description":"Horas"}}]}}
+2013-07-24 11:16:11,375,375 werkzeug INFO 127.0.0.1 - - [24/Jul/2013 11:16:11] "GET /app/conf/frequency HTTP/1.1" 200 -
