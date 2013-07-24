@@ -36,7 +36,7 @@ public class SaveInformationFrequencyTypeRestTest {
 			frequencyTypeRequest.setIdTimeType(1);
 			frequencyTypeRequest.setDescription("hora");
 			frequencyTypeRequest.setParkingIdentificationCode("OTT");
-			frequencyTypeRequest.setCombinablePreviousFreq(false);
+			frequencyTypeRequest.setCombinablePreviousFrequency(false);
 			frequencyTypeRequest.setPriority(2);
 			
 			DESRequest request = new DESRequest();

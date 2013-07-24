@@ -37,7 +37,7 @@ public class UpdateInformationFrequencyTypeRestTest {
 			frequencyTypeRequest.setIdTimeType(1);
 			frequencyTypeRequest.setDescription("test 2");
 			frequencyTypeRequest.setParkingIdentificationCode("OTT");
-			frequencyTypeRequest.setCombinablePreviousFreq(false);
+			frequencyTypeRequest.setCombinablePreviousFrequency(false);
 			frequencyTypeRequest.setPriority(1);
 
 			

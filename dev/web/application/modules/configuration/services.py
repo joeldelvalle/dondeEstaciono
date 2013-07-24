@@ -154,7 +154,7 @@ def getAllFrequencyType(parkingIdentificationCode):
 
 # crea el request para grabar un frequencyType
 def getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
-    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency)
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, None, description, type, time, timeType, priority, combinablePreviousFrequency)
     payload = Payload(frequencyRequest)
     request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
     return request

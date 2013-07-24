@@ -24,7 +24,7 @@ public class FrequencyTypeRequest {
 
 	private Integer priority;
 
-	private Boolean combinablePreviousFreq;
+	private Boolean combinablePreviousFrequency;
 
 	public Long getId() {
 		return id;
@@ -82,12 +82,12 @@ public class FrequencyTypeRequest {
 		this.priority = priority;
 	}
 
-	public Boolean getCombinablePreviousFreq() {
-		return combinablePreviousFreq;
+	public Boolean getCombinablePreviousFrequency() {
+		return combinablePreviousFrequency;
 	}
 
-	public void setCombinablePreviousFreq(Boolean combinablePreviousFreq) {
-		this.combinablePreviousFreq = combinablePreviousFreq;
+	public void setCombinablePreviousFrequency(Boolean combinablePreviousFrequency) {
+		this.combinablePreviousFrequency = combinablePreviousFrequency;
 	}
 
 }

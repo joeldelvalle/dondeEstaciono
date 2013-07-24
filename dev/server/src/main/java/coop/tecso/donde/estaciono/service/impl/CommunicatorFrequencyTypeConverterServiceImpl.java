@@ -38,7 +38,7 @@ public class CommunicatorFrequencyTypeConverterServiceImpl implements Communicat
 		TimeType timeType = this.timeTypeDao.findById(requestObject.getIdTimeType());
 
 		FrequencyType frequencyType = new FrequencyType(requestObject.getId(), parking, requestObject.getDescription(), requestObject.getType(),
-				requestObject.getTime(), timeType, requestObject.getPriority(), requestObject.getCombinablePreviousFreq());
+				requestObject.getTime(), timeType, requestObject.getPriority(), requestObject.getCombinablePreviousFrequency());
 
 		log.logEndMethod("convertToModelObject");
 		return frequencyType;

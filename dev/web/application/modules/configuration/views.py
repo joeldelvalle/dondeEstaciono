@@ -11,8 +11,8 @@ from application.commons import databaseCache
 action = None
 response = None
 
-@login_required
 @configuration_blueprint.route('/app/conf/vehicle', methods=['POST', 'GET'])
+@login_required
 def getAllVehicle():
     global action
     global response
@@ -30,8 +30,8 @@ def getAllVehicle():
     
     return rt
 
-@login_required
 @configuration_blueprint.route('/app/conf/vehicle/update/<id>/<description>', methods=['POST', 'GET'])
+@login_required
 def updateVehicleType(id, description):
     global action
     global response
@@ -47,8 +47,8 @@ def updateVehicleType(id, description):
     
     return rt
 
-@login_required
 @configuration_blueprint.route('/app/conf/vehicle/remove/<id>', methods=['POST', 'GET'])
+@login_required
 def removeVehicleType(id):
     global action 
     global response
@@ -58,9 +58,9 @@ def removeVehicleType(id):
     
     return redirect(url_for('.getAllVehicle'))
 
-
 # metodo que obtiene todas las frecuancias cargadas por un estacionamiento
 @configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
+@login_required
 def getAllFrequency():
     global action
     global response
@@ -68,7 +68,7 @@ def getAllFrequency():
     form = FrequencyTypeForm(request.form)
     if form.validate_on_submit():
         action = 'save'
-        response = services.saveFrequencyType(current_user.parking.identificationCode, form.description.data)
+        response = services.saveFrequencyType(current_user.parking.identificationCode, form.description.data, form.type.data, form.time.data, int(form.timeType.data), form.priority.data, form.combinablePreviousFrequency.data)
         cleanFields(response, form)
 
     frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)

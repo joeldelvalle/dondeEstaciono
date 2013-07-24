@@ -1,5 +1,6 @@
 __author__ = 'gromero'
 
+from application.models.model import Error
 import json, urllib2, logging
 from application.security import encrypt
 from application.communication.request import Payload, sendRequest
@@ -25,7 +26,8 @@ def login(user, password):
     response = sendRequest(URL, dataEncrypted)
     logging.info(response)
     data = json.loads(response)
-    try:
-        return json2object(edict(data))
-    except Exception as exc:
-        raise LoginException(exc.message)
+    obj = json2object(edict(data))
+    if type(obj) != Error:
+        return obj
+    else:
+        raise LoginException(obj.message)

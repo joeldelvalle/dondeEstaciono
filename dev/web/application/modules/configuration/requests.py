@@ -14,7 +14,7 @@ class VehicleTypeRequest(object):
             
 # objeto request para frequencyType            
 class FrequencyTypeRequest(object):
-    def __init__(self, parkingIdentificationCode, id=None, description=None, type=None, time=None, timeType=None, priority=None, combinablePreviousFrequency=None):
+    def __init__(self, parkingIdentificationCode, id=None, description=None, type=None, time=None, idTimeType=None, priority=None, combinablePreviousFrequency=None):
         
         self.parkingIdentificationCode = parkingIdentificationCode
        
@@ -31,8 +31,8 @@ class FrequencyTypeRequest(object):
             self.time = int(time)
             
             
-        if (timeType != None):
-            self.timeType = timeType
+        if (idTimeType != None):
+            self.idTimeType = idTimeType
        
         if (priority != None):
             self.priority=int(priority)
