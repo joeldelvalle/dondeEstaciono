@@ -177,6 +177,35 @@ def saveFrequencyType(parkingIdentificationCode, description, type, time, timeTy
 
     return result
 
+
+
+# crea el request para borrar un frequencyType
+def getRemoveFrequencyTypeRequest(parkingIdentificationCode, id):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, id=id)
+    payload = Payload(frequencyRequest)
+    request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+# solicitud para borrar un frequencyType    
+def removeFrequencyType(parkingIdentificationCode, id):
+    r = None
+    
+    request = getRemoveFrequencyTypeRequest(parkingIdentificationCode, id)
+    logging.info(object2json(request))
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_REMOVE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        r = obj.status
+    else:
+        r = json2object(obj)
+
+    return r
+
 '''
     FREQUENCY_TYPE   METHODS   -   END
 '''

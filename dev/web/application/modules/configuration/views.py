@@ -58,6 +58,10 @@ def removeVehicleType(id):
     
     return redirect(url_for('.getAllVehicle'))
 
+'''
+    FREQUENCY TYPE    METHODS  -  START
+'''
+
 # metodo que obtiene todas las frecuancias cargadas por un estacionamiento
 @configuration_blueprint.route('/app/conf/frequency', methods=['POST', 'GET'])
 @login_required
@@ -78,4 +82,20 @@ def getAllFrequency():
     action = None
     response = None
     
-    return rt    
+    return rt
+
+
+@configuration_blueprint.route('/app/conf/frequency/remove/<id>', methods=['POST', 'GET'])
+@login_required
+def removeFrequencyType(id):
+    global action 
+    global response
+    
+    action = 'remove'
+    response = services.removeFrequencyType(current_user.parking.identificationCode, id)
+    
+    return redirect(url_for('.getAllFrequency'))
+
+'''
+    FREQUENCY TYPE    METHODS  -  END
+'''    
