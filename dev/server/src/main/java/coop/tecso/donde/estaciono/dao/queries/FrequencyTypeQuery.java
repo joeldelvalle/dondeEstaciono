@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -114,5 +115,22 @@ public interface FrequencyTypeQuery extends TimeTypeQuery {
 			"state_date = #{stateDate} " +
 			"WHERE id = #{id}")
 	public void deleteQuery(FrequencyType frequencyType);
+
+
+
+	@Select("SELECT * " + 
+			"FROM frequency_type ft, parking k " + 
+			"WHERE k.identification_code = #{identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND ft.id_parking = k.id " +
+			"AND ft.id = #{id} " + 
+			"AND ft.state ='" + DESConstants.Database.States.ENABLED + "'")
+	@Results(value = {
+			@Result(property="combinablePreviousFrequency", column="combinable_previous_freq"),
+			@Result(property = "timeType", column = "id_time_type", javaType = TimeType.class, one = @One(select = "findTimeTypeById")),
+			@Result(property="stateDate", column="state_date")
+			}
+	)
+	public FrequencyType findByParkingByIdQuery(@Param("identificationCode") String identificationCode, @Param("id") Long id);
 	
 }

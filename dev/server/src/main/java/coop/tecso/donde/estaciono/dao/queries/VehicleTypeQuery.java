@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.One;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -89,5 +90,21 @@ public interface VehicleTypeQuery extends ParkingQuery {
 			"state_date = #{stateDate} " +
 			"WHERE id = #{id}")
 	public void deleteQuery(VehicleType vehicleType);
+
+
+	
+	
+	@Select("SELECT * " + 
+			"FROM vehicle_type vt, parking k " + 
+			"WHERE k.identification_code = #{identificationCode} " + 
+			"AND k.state = '" + DESConstants.Database.States.ENABLED + "' " + 
+			"AND vt.id_parking = k.id " +
+			"AND vt.id = #{id} " +
+			"AND vt.state ='" + DESConstants.Database.States.ENABLED + "'")
+	@Results(value = {
+			@Result(property="stateDate", column="state_date")
+			}
+	)
+	public VehicleType findByParkingByIdQuery(@Param("identificationCode") String identificationCode, @Param("id") Long id);
 
 }

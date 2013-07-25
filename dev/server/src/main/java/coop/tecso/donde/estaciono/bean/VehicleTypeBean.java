@@ -74,5 +74,10 @@ public class VehicleTypeBean implements GenericBean<VehicleType> {
 	public List<VehicleType> findByParkingExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
 		return this.vehicleTypeService.findByParking(vehicleType);
 	}
+	
+	@Override
+	public VehicleType findByParkingByIdExecution(VehicleType vehicleType) throws DondeEstacionoServerException {
+		return this.vehicleTypeService.findByParkingById(vehicleType);
+	}
 
 }

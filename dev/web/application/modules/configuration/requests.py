@@ -7,7 +7,7 @@ class VehicleTypeRequest(object):
         if (description != None):
             self.description = description
         if (id != None):
-            self.id = long(id)
+            self.id = long(str(id).decode('base64'))
             
             
             
@@ -19,7 +19,7 @@ class FrequencyTypeRequest(object):
         self.parkingIdentificationCode = parkingIdentificationCode
        
         if (id != None):
-            self.id = long(id)
+            self.id = long(str(id).decode('base64'))
         
         if (description != None):
             self.description = description

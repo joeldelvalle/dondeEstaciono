@@ -159,6 +159,45 @@ public class FrequencyTypeDaoImpl implements FrequencyTypeDao {
 	}
 
 	@Override
+	public FrequencyType findByParkingById(String identificationCode, Long id) throws DondeEstacionoServerException {
+		String method = "findByParkingById";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		FrequencyType frequencyType = null;
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			FrequencyTypeQuery query = session.getMapper(FrequencyTypeQuery.class);
+
+			frequencyType = query.findByParkingByIdQuery(identificationCode, id);
+
+		} catch (Exception e) {
+			log.logError(method, "error to find a frequencyType", e);
+			throw new DondeEstacionoServerException("frequency.type.database.error.find", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		if (DESUtils.isNull(frequencyType)) {
+			log.logError(method, "frequencyType with ID: " + id + " not found");
+			log.logEndMethod(method);
+			throw new DondeEstacionoServerException("frequency.type.database.error.find");
+		}
+
+		log.logEndMethod(method);
+		return frequencyType;
+
+	}
+
+	@Override
 	public Boolean existsInDatabaseToSave(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		String method = "existsInDatabaseToSave";
 		log.logStartMethod(method);

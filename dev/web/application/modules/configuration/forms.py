@@ -42,5 +42,3 @@ class FrequencyTypeForm(wtf.Form):
         kwargs['csrf_enabled'] = False
         super(FrequencyTypeForm, self).__init__(*args, **kwargs)
         self.loadTimeTypeValues()
-
-    

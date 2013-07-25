@@ -58,6 +58,17 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		log.logEndMethod(method);
 		return frequencyTypeList;
 	}
+	
+	@Override
+	public FrequencyType findByParkingById(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		String method = "findByParkingById";
+		log.logStartMethod(method);
+
+		FrequencyType frequencyTypeResult = this.frequencyTypeDao.findByParkingById(frequencyType.getParking().getIdentificationCode(), frequencyType.getId());
+
+		log.logEndMethod(method);
+		return frequencyTypeResult;
+	}
 
 	@Override
 	public void update(FrequencyType frequencyType) throws DondeEstacionoServerException {
@@ -129,7 +140,7 @@ public class FrequencyTypeServiceImpl implements FrequencyTypeService {
 		log.logEndMethod(method);
 
 	}
-
+	
 	@Override
 	public void updateValidation(FrequencyType frequencyType) throws DondeEstacionoServerException {
 		String method = "updateValidation";

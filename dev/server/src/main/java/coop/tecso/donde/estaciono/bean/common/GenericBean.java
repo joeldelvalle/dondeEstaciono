@@ -30,5 +30,7 @@ public interface GenericBean<T extends GenericModel> {
 	public void findByParkingValidation(T value) throws DondeEstacionoServerException;
 
 	public List<T> findByParkingExecution(T value) throws DondeEstacionoServerException;
+	
+	public T findByParkingByIdExecution(T value) throws DondeEstacionoServerException;
 
 }

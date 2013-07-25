@@ -84,6 +84,50 @@ public class FindInformationRest extends SecureRest {
 		return jsonResponse;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@POST
+	@Path("/byParking/byId/{objectToFind}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public String findByParkingById(String json, @PathParam("objectToFind") String objectToFind) {
+		String method = "findByParkingById";
+		log.logStartMethod(method);
+
+		DESResponse dondeEstacionoResponse = new DESResponse();
+
+		DESRequest request = null;
+		try {
+
+			request = DESUtils.convertJsonToObject(json, DESRequest.class);
+
+			this.securityValidations(request);
+
+			log.logInfo(method, "get bean");
+			GenericBean bean = this.appContextService.getCustomBean(this.createBeanName(objectToFind));
+
+			log.logInfo(method, "convert to model objetc");
+			GenericModel genericModel = bean.convertToModelObject(request);
+
+			log.logInfo(method, "start validations");
+			bean.findByParkingValidation(genericModel);
+
+			log.logInfo(method, "start execution");
+			GenericModel result = bean.findByParkingByIdExecution(genericModel);
+
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.SUCCESS);
+			dondeEstacionoResponse.setPayload(result);
+
+		} catch (DondeEstacionoServerException e) {
+			log.logError(method, "ERROR FALTAL", e);
+			dondeEstacionoResponse.setStatus(DESConstants.StatusResponse.ERROR);
+			dondeEstacionoResponse.setPayload(ErrorBuilder.getInstance().buildError(e.getMessage()));
+		}
+
+		String jsonResponse = DESUtils.convertObjectToJson(dondeEstacionoResponse);
+
+		log.logEndMethod(method);
+		return jsonResponse;
+	}
+
 	private void securityValidations(DESRequest request) throws DondeEstacionoServerException {
 		String method = "securityValidations";
 		log.logStartMethod(method);

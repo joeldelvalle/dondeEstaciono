@@ -23,8 +23,8 @@
 		<div class="controls">
 			{{ hiddenField }}
 			<div class="btn-group" data-toggle="buttons-radio">
-			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'yes' );">Si</button>
-			  <button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', 'no' );" >No</button>
+			  <button type="button" class="btn	{% if hiddenField.data|lower == 'true' %} active {% endif %}" onclick="writeInField( '{{hiddenField.id}}', 'true' );">Si</button>
+			  <button type="button" class="btn	{% if hiddenField.data|lower == 'false' %} active {% endif %}" onclick="writeInField( '{{hiddenField.id}}', 'false' );" >No</button>
 			</div>
 			<p>
 				{%- if hiddenField.errors %}
@@ -48,7 +48,7 @@
 			{{ hiddenField }}
 			<div class="btn-group" data-toggle="buttons-radio">
 				{%-  for key in buttons %} 
-			    	<button type="button" class="btn" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
+			    	<button type="button" class="btn {% if hiddenField.data == key %} active {% endif %} {% if hiddenField.data|lower == key %} active {% endif %}" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
 				{%- endfor %}
 			</div>
 			<p>

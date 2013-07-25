@@ -74,4 +74,9 @@ public class FrequencyTypeBean implements GenericBean<FrequencyType> {
 		return this.frequencyTypeService.findByParking(frequencyType);
 	}
 
+	@Override
+	public FrequencyType findByParkingByIdExecution(FrequencyType frequencyType) throws DondeEstacionoServerException {
+		return this.frequencyTypeService.findByParkingById(frequencyType);
+	}
+
 }

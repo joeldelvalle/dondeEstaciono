@@ -45,9 +45,9 @@
 	    											{%- endif %}
 	    											                                        		
 	                                            	<td>
-	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/vehicle/update/{{item.id}}/{{item.description}}" title="Edit"><i class="icon-edit icon-white"></i></a>
+	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/frequency/update/{{item.id}}" title="Editar"><i class="icon-edit icon-white"></i></a>
 	                                            		&nbsp
-	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="Remove"><i class="icon-trash icon-white"></i></a>
+	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="Eliminar"><i class="icon-trash icon-white"></i></a>
 	                                            	</td>
 	                                            </tr>
 	                                            {{deleteFrequencyTypeModalWindow(loop.index, item.id, item.description)}}

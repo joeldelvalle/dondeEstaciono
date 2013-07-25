@@ -187,6 +187,44 @@ public class VehicleTypeDaoImpl implements VehicleTypeDao {
 	}
 
 	@Override
+	public VehicleType findByParkingById(String identificationCode, Long id) throws DondeEstacionoServerException {
+		String method = "findByParkingById";
+		log.logStartMethod(method);
+
+		SqlSession session = null;
+		VehicleType vehicleType = null;
+
+		try {
+
+			session = DatabaseConnection.getInstance().getSession();
+
+			VehicleTypeQuery query = session.getMapper(VehicleTypeQuery.class);
+
+			vehicleType = query.findByParkingByIdQuery(identificationCode, id);
+
+		} catch (Exception e) {
+			log.logError(method, "error to find all vehicleType", e);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find", e);
+
+		} finally {
+
+			if (!DESUtils.isNull(session)) {
+				session.close();
+			}
+
+		}
+
+		if (DESUtils.isNull(vehicleType)) {
+			log.logError(method, "vehicleType with ID: " + id + " not found");
+			log.logEndMethod(method);
+			throw new DondeEstacionoServerException("vehicle.type.database.error.find");
+		}
+
+		log.logEndMethod(method);
+		return vehicleType;
+	}
+
+	@Override
 	public Boolean existsInDatabaseToSave(VehicleType vehicleType) throws DondeEstacionoServerException {
 		String method = "existsInDatabaseToSave";
 		log.logStartMethod(method);
