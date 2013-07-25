@@ -15,4 +15,6 @@ public interface VehicleTypeDao extends GenericDao<VehicleType> {
 
 	public Boolean existsInDatabaseToUpdateOrDelete(VehicleType vehicleType) throws DondeEstacionoServerException;
 
+	public VehicleType findByParkingById(String identificationCode, Long id) throws DondeEstacionoServerException;
+
 }

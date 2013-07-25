@@ -28,4 +28,6 @@ public interface FrequencyTypeService {
 
 	public void delete(FrequencyType frequencyType) throws DondeEstacionoServerException;
 
+	public FrequencyType findByParkingById(FrequencyType frequencyType) throws DondeEstacionoServerException;
+
 }

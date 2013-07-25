@@ -11,6 +11,7 @@ KEY_VEHICLE_TYPE_LIST = 'vehicletypelist'
 KEY_TIME_TYPE = 'timeType'
 KEY_TIME_TYPE_LIST = 'timetypelist'
 KEY_FREQUENCY_TYPE_LIST = 'frequencytypelist'
+KEY_FREQUENCY_TYPE = 'frequencytype'
 
 keys = {
     KEY_USER: User,
@@ -18,7 +19,8 @@ keys = {
     KEY_VEHICLE_TYPE_LIST: VehicleTypeList,
     KEY_TIME_TYPE: TimeType,
     KEY_TIME_TYPE_LIST: TimeTypeList,
-    KEY_FREQUENCY_TYPE_LIST: FrequencyTypeList
+    KEY_FREQUENCY_TYPE_LIST: FrequencyTypeList,
+    KEY_FREQUENCY_TYPE: FrequencyType
 }
 
 # convierte un json a objeto

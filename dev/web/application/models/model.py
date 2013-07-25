@@ -36,7 +36,7 @@ class Permission(object):
 
 class VehicleType(object):
     def __init__(self, data):
-        self.id = data.id
+        self.id = str(data.id).encode('base64')
         self.description = data.description
 
         
@@ -68,7 +68,7 @@ def createFrequencyTypeValue(idValue):
 
 class FrequencyType(object):
     def __init__(self, data):
-        self.id = long(data.id)
+        self.id = str(data.id).encode('base64')
         self.description = data.description
         self.type = createFrequencyTypeValue(int(data.type))
         self.time = int(data.time)

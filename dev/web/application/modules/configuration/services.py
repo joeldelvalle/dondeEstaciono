@@ -9,7 +9,8 @@ from easydict import EasyDict as edict
 import json
 import logging
 
-URL = "/rest/find/byParking/"
+URL_FIND = "/rest/find/byParking/"
+URL_FIND_BY_ID = "/rest/find/byParking/byId/"
 URL_SAVE = "/rest/save/"
 URL_UPDATE = "/rest/update/"
 URL_REMOVE = "/rest/delete/"
@@ -54,7 +55,7 @@ def getRemoveVehicleTypeRequest(parkingIdentificationCode, id):
 def getAllVehicleType(parkingIdentificationCode):
     request = getAllVehicleTypeRequest(parkingIdentificationCode)
     dataEncrypted = encrypt.encrypted(object2json(request))
-    response = sendRequest(URL + VEHICLE_TYPE_REQUEST, dataEncrypted)
+    response = sendRequest(URL_FIND + VEHICLE_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
     data = json.loads(response)
     return json2object(edict(data))
@@ -114,6 +115,7 @@ def removeVehicleType(parkingIdentificationCode, id):
 
     return r
 
+
 '''
     VEHICLE_TYPE   METHODS   -   END
 '''
@@ -145,7 +147,7 @@ def getAllFrequencyTypeRequest(parkingIdentificationCode):
 def getAllFrequencyType(parkingIdentificationCode):
     request = getAllFrequencyTypeRequest(parkingIdentificationCode)
     dataEncrypted = encrypt.encrypted(object2json(request))
-    response = sendRequest(URL + FREQUENCY_TYPE_REQUEST, dataEncrypted)
+    response = sendRequest(URL_FIND + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
     data = json.loads(response)
     return json2object(edict(data))
@@ -201,6 +203,37 @@ def removeFrequencyType(parkingIdentificationCode, id):
     
     if (obj.status == "success"):
         r = obj.status
+    else:
+        r = json2object(obj)
+
+    return r
+
+
+
+
+# crea el request para buscar por id un frequencyType
+def getFindFrequencyTypeByIdRequest(parkingIdentificationCode, id):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, id=id)
+    payload = Payload(frequencyRequest)
+    request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+
+# solicitud para buscar un frequencyType por id    
+def findFrequencyTypeById(parkingIdentificationCode, id):
+    r = None
+    
+    request = getFindFrequencyTypeByIdRequest(parkingIdentificationCode, id)
+    logging.info(object2json(request))
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_FIND_BY_ID + FREQUENCY_TYPE_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        r = json2object(obj)
     else:
         r = json2object(obj)
 

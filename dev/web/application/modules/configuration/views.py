@@ -58,6 +58,9 @@ def removeVehicleType(id):
     
     return redirect(url_for('.getAllVehicle'))
 
+
+
+
 '''
     FREQUENCY TYPE    METHODS  -  START
 '''
@@ -85,6 +88,7 @@ def getAllFrequency():
     return rt
 
 
+# metodo para elimiar un frequencyType
 @configuration_blueprint.route('/app/conf/frequency/remove/<id>', methods=['POST', 'GET'])
 @login_required
 def removeFrequencyType(id):
@@ -95,6 +99,33 @@ def removeFrequencyType(id):
     response = services.removeFrequencyType(current_user.parking.identificationCode, id)
     
     return redirect(url_for('.getAllFrequency'))
+
+
+
+# metodo para actualizar un frequencyType
+@configuration_blueprint.route('/app/conf/frequency/update/<id>', methods=['POST', 'GET'])
+@login_required
+def updateFrequencyType(id):
+    global action
+    global response
+
+    frequencyTypeSelected = services.findFrequencyTypeById(current_user.parking.identificationCode, id)
+
+    form = FrequencyTypeForm(request.form, description=frequencyTypeSelected.description, timeType=frequencyTypeSelected.timeType.id, time=frequencyTypeSelected.time, type=frequencyTypeSelected.type.id, priority=frequencyTypeSelected.priority, combinablePreviousFrequency=frequencyTypeSelected.combinablePreviousFrequency)
+    if form.validate_on_submit():
+        action = 'update'
+        #response = services.updateVehicleType(current_user.parking.identificationCode, id, form.description.data)
+        return redirect(url_for('.getAllVehicle'))
+
+    frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)
+    
+    rt = render_template('abm-frequency.html', form=form, frequencyTypeList=frequencyTypeList, action=action, response=response)
+    
+    action = None
+    response = None
+    
+    return rt
+
 
 '''
     FREQUENCY TYPE    METHODS  -  END

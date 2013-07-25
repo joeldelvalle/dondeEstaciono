@@ -28,4 +28,6 @@ public interface VehicleTypeService {
 
 	public void deleteValidation(VehicleType vehicleType) throws DondeEstacionoServerException;
 
+	public VehicleType findByParkingById(VehicleType vehicleType) throws DondeEstacionoServerException;
+
 }
