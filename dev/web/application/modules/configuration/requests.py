@@ -32,7 +32,7 @@ class FrequencyTypeRequest(object):
             
             
         if (idTimeType != None):
-            self.idTimeType = idTimeType
+            self.idTimeType = int(idTimeType)
        
         if (priority != None):
             self.priority=int(priority)

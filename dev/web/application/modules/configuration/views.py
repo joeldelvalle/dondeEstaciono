@@ -114,8 +114,8 @@ def updateFrequencyType(id):
     form = FrequencyTypeForm(request.form, description=frequencyTypeSelected.description, timeType=frequencyTypeSelected.timeType.id, time=frequencyTypeSelected.time, type=frequencyTypeSelected.type.id, priority=frequencyTypeSelected.priority, combinablePreviousFrequency=frequencyTypeSelected.combinablePreviousFrequency)
     if form.validate_on_submit():
         action = 'update'
-        #response = services.updateVehicleType(current_user.parking.identificationCode, id, form.description.data)
-        return redirect(url_for('.getAllVehicle'))
+        response = services.updateFrequencyType(current_user.parking.identificationCode, id, form.description.data, form.timeType.data, form.time.data, form.type.data, form.priority.data, form.combinablePreviousFrequency.data)
+        return redirect(url_for('.getAllFrequency'))
 
     frequencyTypeList = services.getAllFrequencyType(current_user.parking.identificationCode)
     

@@ -239,6 +239,37 @@ def findFrequencyTypeById(parkingIdentificationCode, id):
 
     return r
 
+
+
+
+
+# crea el request para actualizar un frequencyType
+def getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency)
+    payload = Payload(frequencyRequest)
+    request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+# solicitud para actualizar un frequencyType
+def updateFrequencyType(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency):
+    r = None
+    
+    request = getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency)
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_UPDATE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        r = obj.status
+    else:
+        r = json2object(obj)
+
+    return r
+
+
 '''
     FREQUENCY_TYPE   METHODS   -   END
 '''
