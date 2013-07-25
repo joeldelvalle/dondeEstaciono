@@ -37,5 +37,5 @@ def json2object(d):
 # convierte un objeto a json
 def object2json(obj):
     encode = jsonpickle.encode(obj, unpicklable=False)
-    return utils.strip(encode)
+    return utils.cleanWhiteSpaceFromJson(encode)
         

@@ -48,7 +48,7 @@
 			{{ hiddenField }}
 			<div class="btn-group" data-toggle="buttons-radio">
 				{%-  for key in buttons %} 
-			    	<button type="button" class="btn {% if hiddenField.data == key %} active {% endif %} {% if hiddenField.data|lower == key %} active {% endif %}" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
+			    	<button type="button" class="btn {% if hiddenField.data == key %} active {% endif %} {% if hiddenField.data|lower == key|lower %} active {% endif %}" onclick="writeInField( '{{hiddenField.id}}', '{{key}}' );">{{buttons[key]}}</button>
 				{%- endfor %}
 			</div>
 			<p>
