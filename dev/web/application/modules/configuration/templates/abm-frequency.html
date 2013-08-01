@@ -10,7 +10,7 @@
 			    <div class="span9">
 					<ul class="nav nav-tabs">
 					  <li class="active">
-						<a href="#">Frecuencias</a>
+						<a href="#">{% trans %}FRECUENCY{% endtrans %}</a>
 					  </li>
 					</ul>
 					<div class="tab-content de-content">
@@ -20,13 +20,13 @@
 	                                <table id="results" class="table boo-table table-content table-hover">
 	                                    <thead>
 	                                        <tr>
-	                                            <th scope="col">Priority</th>
-	                                            <th scope="col">Description</th>
-	                                            <th scope="col">Type Time</th>
-	                                            <th scope="col">Time</th>
-	                                            <th scope="col">Type</th>
-	                                            <th scope="col">Combinable</th>
-	                                            <th scope="col">Actions</th>
+	                                            <th scope="col">{% trans %}PRIORITY{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}DESCRIPTION{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}TYME_TYPE{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}TIME{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}TYPE{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}COMBINABLE{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}ACTIONS{% endtrans %}</th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
@@ -45,9 +45,9 @@
 	    											{%- endif %}
 	    											                                        		
 	                                            	<td>
-	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/frequency/update/{{item.id}}" title="Editar"><i class="icon-edit icon-white"></i></a>
+	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/frequency/update/{{item.id}}" title="{% trans %}EDIT{% endtrans %}"><i class="icon-edit icon-white"></i></a>
 	                                            		&nbsp
-	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="Eliminar"><i class="icon-trash icon-white"></i></a>
+	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="{% trans %}REMOVE{% endtrans %}"><i class="icon-trash icon-white"></i></a>
 	                                            	</td>
 	                                            </tr>
 	                                            {{deleteFrequencyTypeModalWindow(loop.index, item.id, item.description)}}
@@ -64,48 +64,48 @@
 							<form id="frm" method="post">
 		                        <div class="well well-nice">
 			                        <fieldset>
-			                        	<legend>Nueva Frecuencia</legend>
+			                        	<legend>{% trans %}FRECUENCY_FIELDS{% endtrans %}</legend>
 			                        		
 			                        		<div class="row-fluid">
 			                        			<div class="span12">
-		        										Prioridad
+		        										{% trans %}PRIORITY{% endtrans %}
 														{{simpleField(form.priority, onkeypress='return onlyNumbers(event)', class="input-mini")}}
 			                        			</div>
 			                        		</div>
 			                        		
 			                        		<div class="row-fluid">
 			                        			<div class="span4">
-		        										Descripci&oacute;n
+		        										{% trans %}DESCRIPTION{% endtrans %}
 				                                        {{simpleField(form.description)}}
 			                        			</div>
 			                        		</div>
 			                        		
 			                        		<div class="row-fluid">
 			                        			<div class="span4">
-														<div>Cantidad</div>
+														<div>{% trans %}QUANTITY{% endtrans %}</div>
 				                                         {{simpleField(form.time, onkeypress='return onlyNumbers(event)', class="input-mini")}}
 			                        			</div>
 			                        			<div class="span4">
-														<div>Tipo</div>
+														<div>{% trans %}TYPE{% endtrans %}</div>
 				                                        {{ form.timeType }}
 			                        			</div>
 			                        		</div>
 			                        		
 			                        		<div class="row-fluid">
 			                        			<div class="span4">
-		        										Tipo
+		        										{% trans %}TYPE{% endtrans %}
 				                                        {{ radioField(form.type, buttons={1:'Acumulable', 2:'Fijo'}) }}	
 			                        			</div>
 			                        			<div class="span4">
-														Combinable con Frecuencia Anterior
+														{% trans %}COMBINABLE{% endtrans %}
 				                                        {{ yesNoField(form.combinablePreviousFrequency) }}			
 			                        			</div>
 			                        		</div>
 			                        		
 			                        	 <hr>
 										 <div class="button-bar ">
-											<a id="clearBtn" class="btn">Clear</a>
-											<button type="submit" class="btn btn-success">Save Frequency</button>
+											<a id="clearBtn" class="btn">{% trans %}CLEAR{% endtrans %}</a>
+											<button type="submit" class="btn btn-success">{% trans %}SAVE_FRECUENCY{% endtrans %}</button>
 										</div>
 										
 			                        </fieldset>

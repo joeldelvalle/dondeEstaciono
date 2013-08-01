@@ -1,6 +1,8 @@
 package coop.tecso.donde.estaciono.model;
 
 import coop.tecso.donde.estaciono.model.common.State;
+import coop.tecso.donde.estaciono.utils.DESConstants;
+import coop.tecso.donde.estaciono.utils.DESTime;
 
 /**
  * 
@@ -18,7 +20,20 @@ public class ParkingRates extends State {
 	private FrequencyType frequencyType;
 
 	private Double amount;
-
+	
+	public ParkingRates() {
+	}
+	
+	public ParkingRates(Long id, Parking parking, VehicleType vehicleType, FrequencyType frequencyType, Double amount) {
+		this.id = id;
+		this.parking = parking;
+		this.vehicleType = vehicleType;
+		this.frequencyType = frequencyType;
+		this.amount = amount;
+		this.setState(DESConstants.Database.States.ENABLED);
+		this.setStateDate(DESTime.getToday().getTime());
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -133,4 +133,5 @@ public interface FrequencyTypeQuery extends TimeTypeQuery {
 	)
 	public FrequencyType findByParkingByIdQuery(@Param("identificationCode") String identificationCode, @Param("id") Long id);
 	
+	
 }

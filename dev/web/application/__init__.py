@@ -3,6 +3,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from pyjavaproperties import Properties
+from flaskext.babel import Babel
 
 app = Flask(__name__)
 
@@ -13,6 +14,8 @@ app.config.update(
 	SQLALCHEMY_DATABASE_URI = 'sqlite:///db/app.sqlite',
 	SQLALCHEMY_ECHO = True
 )
+
+babel = Babel(app)
 
 #Open properties file
 p = Properties()

@@ -2,7 +2,7 @@ __author__ = 'gromero'
 
 from application.commons.convert import object2json, json2object
 from application.communication.request import Payload, sendRequest, Request
-from application.modules.configuration.requests import VehicleTypeRequest, FrequencyTypeRequest
+from application.modules.configuration.requests import VehicleTypeRequest, FrequencyTypeRequest, ParkingRatesRequest
 from application.security import encrypt
 from application.security.mac import buildMac
 from easydict import EasyDict as edict
@@ -17,35 +17,36 @@ URL_REMOVE = "/rest/delete/"
 
 VEHICLE_TYPE_REQUEST = "vehicletyperequest"
 FREQUENCY_TYPE_REQUEST = "frequencytyperequest"
+PARKING_RATES_REQUEST = "parkingratesrequest"
 
 '''
     VEHICLE_TYPE   METHODS   -   START
 '''
 
 # crea el request para la solicitud de todos los vehicleType
-def getAllVehicleTypeRequest(parkingIdentificationCode):
+def __getAllVehicleTypeRequest(parkingIdentificationCode):
     vehiclerequest = VehicleTypeRequest(parkingIdentificationCode)
     payload = Payload(vehiclerequest)
     request = Request(payload, buildMac(object2json(vehiclerequest)), 'HASH-PUBLIC-WEB')
     return request
 
 # crea el request para grabar un vehicleType
-def getSaveVehicleTypeRequest(parkingIdentificationCode, description):
+def __getSaveVehicleTypeRequest(parkingIdentificationCode, description):
     vehiclerequest = VehicleTypeRequest(parkingIdentificationCode, description)
     payload = Payload(vehiclerequest)
     request = Request(payload, buildMac(object2json(vehiclerequest)), 'HASH-PUBLIC-WEB')
     return request
 
 # crea el request para actualizar un vehicleType
-def getUpdateVehicleTypeRequest(parkingIdentificationCode, id, description):
+def __getUpdateVehicleTypeRequest(parkingIdentificationCode, id, description):
     vehiclerequest = VehicleTypeRequest(parkingIdentificationCode, description, id)
     payload = Payload(vehiclerequest)
     request = Request(payload, buildMac(object2json(vehiclerequest)), 'HASH-PUBLIC-WEB')
     return request
 
 # crea el request para borrar un vehicleType
-def getRemoveVehicleTypeRequest(parkingIdentificationCode, id):
-    vehiclerequest = VehicleTypeRequest(parkingIdentificationCode=parkingIdentificationCode, id=id)
+def __getRemoveVehicleTypeRequest(parkingIdentificationCode, id):
+    vehiclerequest = VehicleTypeRequest(parkingIdentificationCode=parkingIdentificationCode, idFrequencyType=id)
     payload = Payload(vehiclerequest)
     request = Request(payload, buildMac(object2json(vehiclerequest)), 'HASH-PUBLIC-WEB')
     return request
@@ -53,7 +54,7 @@ def getRemoveVehicleTypeRequest(parkingIdentificationCode, id):
 
 # solicitud para obtener todos los vehicleType
 def getAllVehicleType(parkingIdentificationCode):
-    request = getAllVehicleTypeRequest(parkingIdentificationCode)
+    request = __getAllVehicleTypeRequest(parkingIdentificationCode)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_FIND + VEHICLE_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -64,7 +65,7 @@ def getAllVehicleType(parkingIdentificationCode):
 def saveVehicleType(parkingIdentificationCode, description):
     r = None
     
-    request = getSaveVehicleTypeRequest(parkingIdentificationCode, description)
+    request = __getSaveVehicleTypeRequest(parkingIdentificationCode, description)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_SAVE + VEHICLE_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -82,7 +83,7 @@ def saveVehicleType(parkingIdentificationCode, description):
 def updateVehicleType(parkingIdentificationCode, id, description):
     r = None
     
-    request = getUpdateVehicleTypeRequest(parkingIdentificationCode, id, description)
+    request = __getUpdateVehicleTypeRequest(parkingIdentificationCode, id, description)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_UPDATE + VEHICLE_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -100,7 +101,7 @@ def updateVehicleType(parkingIdentificationCode, id, description):
 def removeVehicleType(parkingIdentificationCode, id):
     r = None
     
-    request = getRemoveVehicleTypeRequest(parkingIdentificationCode, id)
+    request = __getRemoveVehicleTypeRequest(parkingIdentificationCode, id)
     logging.info(object2json(request))
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_REMOVE + VEHICLE_TYPE_REQUEST, dataEncrypted)
@@ -114,6 +115,31 @@ def removeVehicleType(parkingIdentificationCode, id):
         r = json2object(obj)
 
     return r
+
+
+
+
+# crea el request para buscar por id un vehicleType
+def __getFindVehicleTypeByIdRequest(parkingIdentificationCode, idFrequencyType):
+    vehicleRequest = VehicleTypeRequest(parkingIdentificationCode=parkingIdentificationCode, idFrequencyType=idFrequencyType)
+    payload = Payload(vehicleRequest)
+    request = Request(payload, buildMac(object2json(vehicleRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+
+# solicitud para buscar un vehicleType por idFrequencyType    
+def findVehicleTypeById(parkingIdentificationCode, id):
+    r = None
+    
+    request = __getFindVehicleTypeByIdRequest(parkingIdentificationCode, id)
+    logging.info(object2json(request))
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_FIND_BY_ID + VEHICLE_TYPE_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    return json2object(obj)
 
 
 '''
@@ -137,7 +163,7 @@ def getFrequencyTypeValueDescription(idFrequencyTypeValue):
 
 
 # crea el request para la solicitud de todos los frequencyType
-def getAllFrequencyTypeRequest(parkingIdentificationCode):
+def __getAllFrequencyTypeRequest(parkingIdentificationCode):
     frequencyrequest = FrequencyTypeRequest(parkingIdentificationCode)
     payload = Payload(frequencyrequest)
     request = Request(payload, buildMac(object2json(frequencyrequest)), 'HASH-PUBLIC-WEB')
@@ -145,7 +171,7 @@ def getAllFrequencyTypeRequest(parkingIdentificationCode):
 
 # solicitud para obtener todos los frequencyType
 def getAllFrequencyType(parkingIdentificationCode):
-    request = getAllFrequencyTypeRequest(parkingIdentificationCode)
+    request = __getAllFrequencyTypeRequest(parkingIdentificationCode)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_FIND + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -155,7 +181,7 @@ def getAllFrequencyType(parkingIdentificationCode):
 
 
 # crea el request para grabar un frequencyType
-def getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
+def __getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
     frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, None, description, type, time, timeType, priority, combinablePreviousFrequency)
     payload = Payload(frequencyRequest)
     request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
@@ -165,7 +191,7 @@ def getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, ti
 def saveFrequencyType(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency):
     result = None
     
-    request = getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency)
+    request = __getSaveFrequencyTypeRequest(parkingIdentificationCode, description, type, time, timeType, priority, combinablePreviousFrequency)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_SAVE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -182,8 +208,8 @@ def saveFrequencyType(parkingIdentificationCode, description, type, time, timeTy
 
 
 # crea el request para borrar un frequencyType
-def getRemoveFrequencyTypeRequest(parkingIdentificationCode, id):
-    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, id=id)
+def __getRemoveFrequencyTypeRequest(parkingIdentificationCode, id):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, idFrequencyType=id)
     payload = Payload(frequencyRequest)
     request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
     return request
@@ -193,7 +219,7 @@ def getRemoveFrequencyTypeRequest(parkingIdentificationCode, id):
 def removeFrequencyType(parkingIdentificationCode, id):
     r = None
     
-    request = getRemoveFrequencyTypeRequest(parkingIdentificationCode, id)
+    request = __getRemoveFrequencyTypeRequest(parkingIdentificationCode, id)
     logging.info(object2json(request))
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_REMOVE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
@@ -212,39 +238,33 @@ def removeFrequencyType(parkingIdentificationCode, id):
 
 
 # crea el request para buscar por id un frequencyType
-def getFindFrequencyTypeByIdRequest(parkingIdentificationCode, id):
-    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, id=id)
+def __getFindFrequencyTypeByIdRequest(parkingIdentificationCode, idFrequencyType):
+    frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode=parkingIdentificationCode, idFrequencyType=idFrequencyType)
     payload = Payload(frequencyRequest)
     request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
     return request
 
 
 
-# solicitud para buscar un frequencyType por id    
+# solicitud para buscar un frequencyType por idFrequencyType    
 def findFrequencyTypeById(parkingIdentificationCode, id):
     r = None
     
-    request = getFindFrequencyTypeByIdRequest(parkingIdentificationCode, id)
+    request = __getFindFrequencyTypeByIdRequest(parkingIdentificationCode, id)
     logging.info(object2json(request))
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_FIND_BY_ID + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
     data = json.loads(response)
     obj = edict(data)
-    
-    if (obj.status == "success"):
-        r = json2object(obj)
-    else:
-        r = json2object(obj)
-
-    return r
+    return json2object(obj)
 
 
 
 
 
 # crea el request para actualizar un frequencyType
-def getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency):
+def __getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency):
     frequencyRequest = FrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency)
     payload = Payload(frequencyRequest)
     request = Request(payload, buildMac(object2json(frequencyRequest)), 'HASH-PUBLIC-WEB')
@@ -255,7 +275,7 @@ def getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, ti
 def updateFrequencyType(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency):
     r = None
     
-    request = getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency)
+    request = __getUpdateFrequencyTypeRequest(parkingIdentificationCode, id, description, timeType, time, type, priority, combinablePreviousFrequency)
     dataEncrypted = encrypt.encrypted(object2json(request))
     response = sendRequest(URL_UPDATE + FREQUENCY_TYPE_REQUEST, dataEncrypted)
     logging.info(response)
@@ -272,5 +292,158 @@ def updateFrequencyType(parkingIdentificationCode, id, description, timeType, ti
 
 '''
     FREQUENCY_TYPE   METHODS   -   END
+'''
+
+
+
+
+
+
+
+
+'''
+    PARKING_RATES   METHODS   -   START
+'''
+
+
+# crea el request para la solicitud de todos los parkingRates
+def __getAllParkingRatesRequest(parkingIdentificationCode):
+    parkingRatesRequest = ParkingRatesRequest(parkingIdentificationCode)
+    payload = Payload(parkingRatesRequest)
+    request = Request(payload, buildMac(object2json(parkingRatesRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+# solicitud para obtener todos los parkingRates
+def getAllParkingRates(parkingIdentificationCode):
+    request = __getAllParkingRatesRequest(parkingIdentificationCode)
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_FIND + PARKING_RATES_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    return json2object(edict(data))
+
+
+
+
+
+# crea el request para grabar un parkingRates
+def __getSaveParkingRateRequest(parkingIdentificationCode, idVehicleSelected, idFrequencySelected, amount):
+    parkingRateRequest = ParkingRatesRequest(parkingIdentificationCode, None, idVehicleSelected, idFrequencySelected, amount)
+    payload = Payload(parkingRateRequest)
+    request = Request(payload, buildMac(object2json(parkingRateRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+# solicitud para grabar un parkingRates
+def saveParkingRate(parkingIdentificationCode, idVehicleSelected, idFrequencySelected, amount):
+    result = None
+    
+    request = __getSaveParkingRateRequest(parkingIdentificationCode, idVehicleSelected, idFrequencySelected, amount)
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_SAVE + PARKING_RATES_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        result = obj.status
+    else:
+        result = json2object(obj)
+
+    return result
+
+
+
+
+# crea el request para borrar un parkingRates
+def __getRemoveParkingRateRequest(parkingIdentificationCode, id):
+    parkingRatesRequest = ParkingRatesRequest(parkingIdentificationCode=parkingIdentificationCode, idParkingRate=id)
+    payload = Payload(parkingRatesRequest)
+    request = Request(payload, buildMac(object2json(parkingRatesRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+# solicitud para borrar un parkingRates    
+def removeParkingRate(parkingIdentificationCode, id):
+    r = None
+    
+    request = __getRemoveParkingRateRequest(parkingIdentificationCode, id)
+    logging.info(object2json(request))
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_REMOVE + PARKING_RATES_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        r = obj.status
+    else:
+        r = json2object(obj)
+
+    return r
+
+
+
+
+
+
+
+# crea el request para buscar por id un parkingRates
+def __getFindParkingRatesByIdRequest(parkingIdentificationCode, idParkingRate):
+    parkingRatesRequest = ParkingRatesRequest(parkingIdentificationCode=parkingIdentificationCode, idParkingRate=idParkingRate)
+    payload = Payload(parkingRatesRequest)
+    request = Request(payload, buildMac(object2json(parkingRatesRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+
+# solicitud para buscar un frequencyType por idParkingRates    
+def findParkingRatesById(parkingIdentificationCode, id):
+    r = None
+    
+    request = __getFindParkingRatesByIdRequest(parkingIdentificationCode, id)
+    logging.info(object2json(request))
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_FIND_BY_ID + PARKING_RATES_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    return json2object(obj)
+
+
+
+
+
+
+# crea el request para actualizar un parkingRates
+def __getUpdateParkingRatesRequest(parkingIdentificationCode, id, vehicleTypeId, frequencyTypeId, amount):
+    parkingRatesRequest = ParkingRatesRequest(parkingIdentificationCode, id, vehicleTypeId, frequencyTypeId, amount)
+    payload = Payload(parkingRatesRequest)
+    request = Request(payload, buildMac(object2json(parkingRatesRequest)), 'HASH-PUBLIC-WEB')
+    return request
+
+
+# solicitud para actualizar un parkingRates
+def updateParkingRates(parkingIdentificationCode, id, vehicleTypeId, frequencyTypeId, amount):
+    r = None
+    
+    request = __getUpdateParkingRatesRequest(parkingIdentificationCode, id, vehicleTypeId, frequencyTypeId, amount)
+    dataEncrypted = encrypt.encrypted(object2json(request))
+    response = sendRequest(URL_UPDATE + PARKING_RATES_REQUEST, dataEncrypted)
+    logging.info(response)
+    data = json.loads(response)
+    obj = edict(data)
+    
+    if (obj.status == "success"):
+        r = obj.status
+    else:
+        r = json2object(obj)
+
+    return r
+
+
+
+
+'''
+    PARKING_RATES   METHODS   -   END
 '''
 

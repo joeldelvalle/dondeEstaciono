@@ -15,6 +15,7 @@ function clearFields(element) {
 		case 'text':
 		case 'textarea':
 		case 'password':
+		case 'hidden':	
 		case 'select-one':
 			$(this).val('');
 			break;

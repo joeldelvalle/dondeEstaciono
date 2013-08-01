@@ -34,7 +34,7 @@ public class ErrorMessageCache {
 	}
 
 	private ErrorMessageCache() {
-		this.loadErrorMessage();
+		
 	}
 
 	private void loadErrorMessage() {
@@ -69,6 +69,10 @@ public class ErrorMessageCache {
 		log.logEndMethod(method);
 		return message;
 
+	}
+	
+	public void initialize() {
+		loadErrorMessage();
 	}
 
 }

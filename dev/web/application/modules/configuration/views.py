@@ -2,7 +2,7 @@ __author__ = 'gromero'
 
 from application.commons.utils import cleanFields
 from flask_login import current_user, login_required
-from application.modules.configuration.forms import VehicleTypeForm, FrequencyTypeForm
+from application.modules.configuration.forms import VehicleTypeForm, FrequencyTypeForm, ParkingRatesForm
 from flask import url_for, redirect, request
 from flask.templating import render_template
 from application.modules.configuration import configuration_blueprint, services
@@ -36,7 +36,9 @@ def updateVehicleType(id, description):
     global action
     global response
     
-    form = VehicleTypeForm(request.form, description=description)
+    vehicleTypeSelected = services.findVehicleTypeById(current_user.parking.identificationCode, id)
+    
+    form = VehicleTypeForm(request.form, description=vehicleTypeSelected.description)
     if form.validate_on_submit():
         action = 'update'
         response = services.updateVehicleType(current_user.parking.identificationCode, id, form.description.data)
@@ -129,4 +131,90 @@ def updateFrequencyType(id):
 
 '''
     FREQUENCY TYPE    METHODS  -  END
-'''    
+'''
+
+
+
+
+
+
+
+
+'''
+    PARKING_RATES    METHODS  -  START
+'''
+
+
+# metodo que obtiene todas los parkingRates cargados por un estacionamiento
+@configuration_blueprint.route('/app/conf/parkingRates', methods=['POST', 'GET'])
+@login_required
+def getAllParkingRates():
+    global action
+    global response
+    
+    form = ParkingRatesForm(request.form)
+    if form.validate_on_submit():
+        action = 'save'
+        response = services.saveParkingRate(current_user.parking.identificationCode, int(form.vehicle.data), int(form.frequency.data), form.amount.data)
+        cleanFields(response, form)
+
+    priceList = services.getAllParkingRates(current_user.parking.identificationCode)
+    
+    rt = render_template('abm-parkingRates.html', form=form, priceList=priceList, action=action, response=response)
+    
+    action = None
+    response = None
+    
+    return rt    
+
+
+
+
+# metodo para elimiar un parkingRates
+@configuration_blueprint.route('/app/conf/parkingRates/remove/<id>', methods=['POST', 'GET'])
+@login_required
+def removeParkingRates(id):
+    global action 
+    global response
+    
+    action = 'remove'
+    response = services.removeParkingRate(current_user.parking.identificationCode, id)
+    
+    return redirect(url_for('.getAllParkingRates'))
+
+
+
+
+
+# metodo para actualizar un parkingRates
+@configuration_blueprint.route('/app/conf/parkingRates/update/<id>', methods=['POST', 'GET'])
+@login_required
+def updateParkingRates(id):
+    global action
+    global response
+
+    parkingRatesSelected = services.findParkingRatesById(current_user.parking.identificationCode, id)
+
+    form = ParkingRatesForm(request.form, vehicle=parkingRatesSelected.vehicleType.id, frequency=parkingRatesSelected.frequencyType.id, amount=parkingRatesSelected.amount)
+    if form.validate_on_submit():
+        action = 'update'
+        response = services.updateParkingRates(current_user.parking.identificationCode, id, int(form.vehicle.data), int(form.frequency.data), form.amount.data)
+        return redirect(url_for('.getAllParkingRates'))
+
+    priceList = services.getAllParkingRates(current_user.parking.identificationCode)
+    
+    rt = render_template('abm-parkingRates.html', form=form, priceList=priceList, action=action, response=response)
+    
+    action = None
+    response = None
+    
+    return rt
+
+
+
+
+
+
+'''
+    PARKING_RATES    METHODS  -  END
+'''

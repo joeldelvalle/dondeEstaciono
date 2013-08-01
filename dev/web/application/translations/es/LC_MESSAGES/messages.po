@@ -1,0 +1,199 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-07-30 14:44-0300\n"
+"PO-Revision-Date: 2013-07-30 14:57-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:13
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:73
+msgid "FRECUENCY"
+msgstr "Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:23
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:71
+msgid "PRIORITY"
+msgstr "Prioridad"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:24
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:78
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:24
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:55
+msgid "DESCRIPTION"
+msgstr "Descripción"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:25
+msgid "TYME_TYPE"
+msgstr "Tipo Tiempo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:26
+msgid "TIME"
+msgstr "Tiempo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:27
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:89
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:96
+msgid "TYPE"
+msgstr "Tipo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:28
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:100
+msgid "COMBINABLE"
+msgstr "Conminable"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:29
+msgid "ACTIONS"
+msgstr "Acciones"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:48
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:34
+msgid "EDIT"
+msgstr "Editar"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:50
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:36
+msgid "REMOVE"
+msgstr "Eliminar"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:67
+msgid "FRECUENCY_FIELDS"
+msgstr "Nueva Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:85
+msgid "QUANTITY"
+msgstr "Cantidad"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:107
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:78
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:62
+msgid "CLEAR"
+msgstr "Limpiar"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-frequency.html:108
+msgid "SAVE_FRECUENCY"
+msgstr "Guardar Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:13
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:74
+msgid "PRICE"
+msgstr "Precio"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:23
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:13
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:72
+msgid "VEHICLE"
+msgstr "Vehículo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:24
+msgid "FREQUENCY"
+msgstr "Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:25
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:70
+msgid "AMOUNT"
+msgstr "Importe"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:35
+msgid "BUTTON_EDIT"
+msgstr "Editar"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:37
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:13
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:14
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:32
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:33
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:51
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:52
+msgid "BUTTON_REMOVE"
+msgstr "Eliminar"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:53
+msgid "PRICE_FIELDS"
+msgstr "Nueva Tarifa"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:56
+msgid "SELECT_VEHICLE"
+msgstr "Seleccione un Veh&iacute;culo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:63
+msgid "SELECT_FREQUENCY"
+msgstr "Seleccione una Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-parkingRates.html:79
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:63
+msgid "SAVE_VEHICLE"
+msgstr "Guardar Vehículo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:23
+msgid "ID"
+msgstr "ID"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:25
+msgid "ACTION"
+msgstr "Acciones"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/modules/configuration/templates/abm-vehicle.html:52
+msgid "VEHICLE_FIELDS"
+msgstr "Nuevo Vehículo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:6
+msgid "REMOVE_VEHICLE"
+msgstr "Eliminar Veh&iacute;culo"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:9
+msgid "REMOVE_VEHICLE_QUESTION"
+msgstr "&#x00bf; Esta seguro que desea eliminar el Veh&iacute;culo:"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:10
+msgid "REMOVE_VEHICLE_INFORMATION"
+msgstr ""
+" Recuerde que al hacerlo los Precios relacionados con &eacute;ste Veh&iacute;"
+"culo ser&aacute;n eliminados."
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:25
+msgid "REMOVE_FREQUENCY"
+msgstr "Eliminar Frecuencia"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:28
+msgid "REMOVE_FREQUENCY_QUESTION"
+msgstr " &#x00bf; Esta seguro que desea eliminar la Frecuencia:"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:29
+msgid "REMOVE_FREQUENCY_INFORMATION"
+msgstr ""
+"Recuerde que al hacerlo los Precios relacionados con &eacute;sta Frecuencia "
+"ser&aacute;n eliminados."
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:45
+msgid "REMOTE_PARKING_RATE"
+msgstr "Eliminar Precio"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:48
+msgid "REMOTE_PARKING_RATE_QUESTION"
+msgstr ""
+"&#x00bf; Esta seguro que desea eliminar el Precio para la cambinaci&oacute;n:"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:64
+msgid "HOME"
+msgstr "Inicio"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:66
+msgid "DASHBOARD"
+msgstr "Pantalla principal"
+
+#: C:/dondeEstaciono/workspace/DondeEstacionWebClient/application/templates/macros.html:70
+msgid "CONFIGURATION"
+msgstr "Configuración"

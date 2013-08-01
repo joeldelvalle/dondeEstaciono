@@ -12,14 +12,16 @@
 							<li>
 								<a href="#">Action 1</a>
 							</li>
-							<li>
-								<a href="#">Action 2</a>
-							</li>
-							<li>
-								<a href="#">Action 3</a>
-							</li>
-							<li>
-								<a href="{{ url_for('account_blueprint.account') }}"> <i class="icon-user"></i> My Account</a>
+							<li class="dropdown-submenu">
+								<a href="javascript:void(0);" tabindex="-1">Languajes</a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="{{ url_for('languaje_app', languaje='es', next=request.url) }}" tabindex="-1">Spanish</a>
+									</li>
+									<li>
+										<a href="{{ url_for('languaje_app', languaje='en', next=request.url) }}" tabindex="-1">English</a>
+									</li>	
+								</ul>
 							</li>
 						</ul>
 					</li>

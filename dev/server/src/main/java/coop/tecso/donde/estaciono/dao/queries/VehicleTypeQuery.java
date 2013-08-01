@@ -106,5 +106,5 @@ public interface VehicleTypeQuery extends ParkingQuery {
 			}
 	)
 	public VehicleType findByParkingByIdQuery(@Param("identificationCode") String identificationCode, @Param("id") Long id);
-
+	
 }

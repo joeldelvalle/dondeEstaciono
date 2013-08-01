@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import coop.tecso.donde.estaciono.dao.LocalityDao;
 import coop.tecso.donde.estaciono.dao.queries.LocalityQuery;
 import coop.tecso.donde.estaciono.dao.utils.DatabaseConnection;
-import coop.tecso.donde.estaciono.dao.utils.QueryParameters;
 import coop.tecso.donde.estaciono.exception.DondeEstacionoServerException;
 import coop.tecso.donde.estaciono.logger.CustomLogger;
 import coop.tecso.donde.estaciono.model.Locality;
@@ -104,11 +103,7 @@ public class LocalityDaoImpl implements LocalityDao {
 			session = DatabaseConnection.getInstance().getSession();
 
 			LocalityQuery query = session.getMapper(LocalityQuery.class);
-
-			QueryParameters parameters = QueryParameters.getInstance();
-			parameters.put("provinceId", provinceId);
-			parameters.put("countryId", countryId);
-			localityList.addAll(query.findByProvinceByCountryQuery(parameters));
+			localityList.addAll(query.findByProvinceByCountryQuery(provinceId, countryId));
 
 		} catch (Exception e) {
 			log.logError(method, "error to find localities", e);

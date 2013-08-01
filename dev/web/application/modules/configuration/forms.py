@@ -1,9 +1,8 @@
-from application import db
 from flask.ext import wtf
 from application.commons import databaseCache
-import logging
-#from flask.ext.wtf import Form, TextField, BooleanField, FileField, file_required,         RadioField
-#from flask.ext.wtf import Required
+from flask_login import current_user
+from application.modules.configuration import services
+
 
 # clase que representa el formulario en el abm de vehicleType
 class VehicleTypeForm(wtf.Form):
@@ -20,7 +19,7 @@ class FrequencyTypeForm(wtf.Form):
     
     description = wtf.TextField(validators=[wtf.required()])
     
-    timeType = wtf.SelectField(validators=[wtf.AnyOf(['1','2'], message=u'Invalid value, must be one of: %(values)s', values_formatter=None) ], default=999 )
+    timeType = wtf.SelectField(validators=[wtf.NoneOf(['999'], message=u'Seleccione un Tipo de Frecuencia', values_formatter=None) ], default='999' )
 
     time = wtf.IntegerField(validators=[wtf.required()])
 
@@ -42,3 +41,36 @@ class FrequencyTypeForm(wtf.Form):
         kwargs['csrf_enabled'] = False
         super(FrequencyTypeForm, self).__init__(*args, **kwargs)
         self.loadTimeTypeValues()
+
+
+
+
+
+class ParkingRatesForm(wtf.Form):
+    
+    vehicle = wtf.SelectField(validators=[wtf.required(), wtf.NoneOf(['999'], message=u'Seleccione un Vehiculo', values_formatter=None)], default='999')
+    
+    frequency = wtf.SelectField(validators=[wtf.required(), wtf.NoneOf(['999'], message=u'Seleccione un Vehiculo', values_formatter=None)], default='999')
+    
+    amount = wtf.DecimalField(validators=[wtf.required()])
+    
+    
+    def loadVehicleTypeValues(self):
+        self.vehicle.choices = [("999", "Seleccione")]
+
+        for vehicleTypeValue in services.getAllVehicleType(current_user.parking.identificationCode).vehicles:
+            self.vehicle.choices.append(( str(vehicleTypeValue.id).decode('base64'), vehicleTypeValue.description))
+            
+    
+    def loadFrequencyTypeValues(self):
+        self.frequency.choices = [("999", "Seleccione")]
+
+        for frequencyTypeValue in services.getAllFrequencyType(current_user.parking.identificationCode).frequencies:
+            self.frequency.choices.append(( str(frequencyTypeValue.id).decode('base64'), frequencyTypeValue.description))        
+            
+    
+    def __init__(self, *args, **kwargs):
+        kwargs['csrf_enabled'] = False
+        super(ParkingRatesForm, self).__init__(*args, **kwargs)
+        self.loadVehicleTypeValues()
+        self.loadFrequencyTypeValues()

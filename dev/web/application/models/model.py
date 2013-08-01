@@ -1,3 +1,5 @@
+import base64
+
 __author__ = 'gromero'
 
 class Error(object):
@@ -36,7 +38,7 @@ class Permission(object):
 
 class VehicleType(object):
     def __init__(self, data):
-        self.id = str(data.id).encode('base64')
+        self.id = base64.b64encode(str(data.id))
         self.description = data.description
 
         
@@ -68,7 +70,7 @@ def createFrequencyTypeValue(idValue):
 
 class FrequencyType(object):
     def __init__(self, data):
-        self.id = str(data.id).encode('base64')
+        self.id = base64.b64encode(str(data.id))
         self.description = data.description
         self.type = createFrequencyTypeValue(int(data.type))
         self.time = int(data.time)
@@ -83,10 +85,27 @@ class FrequencyTypeList(object):
         for d in data:
             v = FrequencyType(d)
             self.frequencies.append(v)
-            
+
 
 # los unicos valores posibles son frecuencia/fijo           
 class FrequencyTypeValue(object):
-    def __init__(self, id, description):
-        self.id = id
-        self.description = description                   
+    def __init__(self, idParkingRate, description):
+        self.id = idParkingRate
+        self.description = description
+        
+                    
+
+class ParkingRates(object):
+    def __init__(self, data):
+        self.id =base64.b64encode(str(data.id))
+        self.vehicleType = data.vehicleType
+        self.frequencyType = data.frequencyType
+        self.amount = data.amount
+        
+
+class ParkingRatesList(object):
+    def __init__(self, data):
+        self.prices = list()
+        for d in data:
+            v = ParkingRates(d)
+            self.prices.append(v)

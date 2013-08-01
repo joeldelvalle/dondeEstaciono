@@ -16,6 +16,27 @@
 {%- endmacro %}
 
 
+<!-- macro para poner select box -->
+{% macro selectField(field) -%}
+
+    <div class="control-group {% if field.errors %}error{% endif %}">
+	    <div class="controls">
+
+	      {{ field }}
+	      
+	      <div>
+		      {%- if field.errors %}
+		      	{%- for error in field.errors %}
+		      		<p class="help-inline">{{error}}</p>
+		      	{%- endfor %}
+		      {%- endif %}
+	      </div>
+
+	    </div>
+    </div>
+
+{%- endmacro %}
+
 
 <!-- macro para botones SI - NO -->
 {% macro yesNoField(hiddenField) -%}

@@ -1,42 +1,44 @@
 {% extends "base.html" %}
-{% from 'macros.html' import deleteVehicleTypeModalWindow, createMenu %}
-{% from 'fields.html' import simpleField %}
+{% from 'macros.html' import deleteParkingRatesModalWindow, createMenu %}
+{% from 'fields.html' import simpleField, selectField %}
 {% block body_content %}
 	{% include 'topbar.html' %}
 	<div class="container">
 		<div class="container-fluid">
 		    <div class="row-fluid">
-			    {{createMenu('configuration', 'vehicle')}}
+			    {{createMenu('configuration', 'parkingRates')}}
 			    <div class="span9">
 					<ul class="nav nav-tabs">
 					  <li class="active">
-						<a href="#">{% trans %}VEHICLE{% endtrans %}</a>
+						<a href="#">{% trans %}PRICE{% endtrans %}</a>
 					  </li>
 					</ul>
 					<div class="tab-content de-content">
 						<div class="row row-margin-first">
-							{%- if (vehicleTypeList.vehicles|length) != 0 %}
+							{%- if (priceList.prices|length) != 0 %}
 	                            <div class="table-wrapper">
 	                                <table id="results" class="table boo-table table-content table-hover">
 	                                    <thead>
 	                                        <tr>
-	                                            <th scope="col">{% trans %}ID{% endtrans %}</th>
-	                                            <th scope="col">{% trans %}DESCRIPTION{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}VEHICLE{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}FREQUENCY{% endtrans %}</th>
+	                                            <th scope="col">{% trans %}AMOUNT{% endtrans %}</th>
 	                                            <th scope="col">{% trans %}ACTION{% endtrans %}</th>
 	                                        </tr>
 	                                    </thead>
 	                                    <tbody>
-	                                    	{% for item in vehicleTypeList.vehicles %}
+	                                    	{% for item in priceList.prices %}
 	                                    		<tr>
-										        	<td>{{loop.index}}</td>
-	                                            	<td>{{item.description}}</td>
+										        	<td>{{item.vehicleType.description}}</td>
+	                                            	<td>{{item.frequencyType.description}}</td>
+	                                            	<td>{{item.amount}}</td>
 	                                            	<td>
-	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/vehicle/update/{{item.id}}/{{item.description}}" title="{% trans %}EDIT{% endtrans %}"><i class="icon-edit icon-white"></i></a>
+	                                            		<a class="btn btn-warning btn-mini no-wrap" href="/app/conf/parkingRates/update/{{item.id}}" title="{% trans %}BUTTON_EDIT{% endtrans %}"><i class="icon-edit icon-white"></i></a>
 	                                            		&nbsp
-	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="{% trans %}REMOVE{% endtrans %}"><i class="icon-trash icon-white"></i></a>
+	                                            		<a href="#myModal{{loop.index}}" role="button" class="btn btn-danger btn-mini no-wrap" data-toggle="modal" title="{% trans %}BUTTON_REMOVE{% endtrans %}"><i class="icon-trash icon-white"></i></a>
 	                                            	</td>
 	                                            </tr>
-	                                            {{deleteVehicleTypeModalWindow(loop.index, item.id, item.description)}}
+	                                            {{deleteParkingRatesModalWindow(loop.index, item.id, item.vehicleType.description, item.frequencyType.description)}}
 										    {% endfor %}
 	                                    </tbody>
 	                                </table>
@@ -49,14 +51,29 @@
 							<form id="frm" method="post">
 		                        <div class="well well-nice">
 			                        <fieldset>
-			                        	<legend>{% trans %}VEHICLE_FIELDS{% endtrans %}</legend>
+			                        	<legend>{% trans %}PRICE_FIELDS{% endtrans %}</legend>
                                         
                                         <div>
-											{% trans %}DESCRIPTION{% endtrans %}
+											{% trans %}SELECT_VEHICLE{% endtrans %}
 										</div>
 										<div>
-	                                        {{simpleField(form.description)}}
+	                                       {{ selectField(form.vehicle) }}
 										</div>
+										
+										<div>
+											{% trans %}SELECT_FREQUENCY{% endtrans %}
+										</div>
+										<div>
+	                                        {{ form.frequency }}
+										</div>
+										
+										<div>
+											{% trans %}AMOUNT{% endtrans %}
+										</div>
+										<div>
+	                                        {{simpleField(form.amount, onkeypress='return onlyCurrency(event)', class="input-small")}}
+										</div>
+										
 									    <hr>
 									    <div class="button-bar">
 											<a id="clearBtn" class="btn">{% trans %}CLEAR{% endtrans %}</a>
@@ -74,7 +91,7 @@
 	</div>
 {% endblock %}
 {% block script_content %}
-	{%- if (vehicleTypeList.vehicles|length) >= 6 %}
+	{%- if (priceList.prices|length) >= 6 %}
 	    <script type="text/javascript">
 		    var pager = new Pager('results', 5); 
 		    pager.init(); 
@@ -85,7 +102,7 @@
 	{%- if response == "success" %}
         <script>
 	        notyfy({
-	    		text: 'Vehicle type was {{"saved" if action == "save" else ("removed" if action == "remove" else "updated")}} successfully.',
+	    		text: 'Price type was {{"saved" if action == "save" else ("removed" if action == "remove" else "updated")}} successfully.',
 	    		theme: 'boolight',
 	    		type: 'success',
 	    		layout: 'bottomRight'
